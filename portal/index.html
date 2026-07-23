@@ -210,6 +210,12 @@
     };
   };
 
+  // originals live next to the portal locally, on raw.githubusercontent when served from GitHub Pages
+  const ORIG_BASE = location.hostname.endsWith('github.io')
+    ? 'https://raw.githubusercontent.com/Tandem-Engineering-Group/899-Virginia-Park-St/main/899 VP - JEFF - Insurance Photos/'
+    : '../899 VP - JEFF - Insurance Photos/';
+  const origUrl = f => encodeURI(ORIG_BASE + f + '.png');
+
   const fmt$ = n => '$' + Math.round(n).toLocaleString('en-US');
   const rng = (lo,hi) => lo===0&&hi===0 ? '—' : (fmt$(lo) + (hi>lo ? '–' + fmt$(hi) : ''));
   const confClass = (p) => { const e = eff(p); if(e.confirmed) return 'user'; return p.conf>=0.7?'hi':(p.conf>=0.45?'mid':'lo'); };
@@ -446,7 +452,7 @@
     const roomOpts = fid => Object.keys((D.rooms[fid]||{})).map(r=>`<option ${r===e.room?'selected':''}>${r}</option>`).join('');
     $('#minfo').innerHTML = `
       <h2>${p.title}</h2>
-      <div class="file">${p.file} · taken ${p.t} · <a href="${encodeURI('../899 VP - JEFF - Insurance Photos/' + p.file + '.png')}" target="_blank">open original</a></div>
+      <div class="file">${p.file} · taken ${p.t} · <a href="${origUrl(p.file)}" target="_blank">open original</a></div>
       <div class="desc">${p.desc}</div>
       ${p.damage ? `<div class="damage">⚠ ${p.damage}</div>` : ''}
       <div class="kv">
@@ -505,7 +511,7 @@
   $('#mnav-prev').onclick = () => nav(-1);
   $('#mnav-next').onclick = () => nav(1);
   $('#modal').addEventListener('click', ev => { if(ev.target === $('#modal')) closeModal(); });
-  $('#mphoto').addEventListener('click', () => window.open(encodeURI('../899 VP - JEFF - Insurance Photos/' + modalFile + '.png'), '_blank'));
+  $('#mphoto').addEventListener('click', () => window.open(origUrl(modalFile), '_blank'));
   document.addEventListener('keydown', ev => {
     if(!$('#modal').classList.contains('open')) return;
     if(ev.key === 'Escape') closeModal();
