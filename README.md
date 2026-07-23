@@ -4,12 +4,14 @@ Working repository for Jeff Stamm's Liberty Mutual claim **061004792**
 (freeze event 02/26/2026 — boiler + radiators froze, water damage across 4 levels)
 at 899 Virginia Park St, Detroit MI 48202.
 
-## 📍 The Photo Map portal — live link
+## 📍 The two live sites
 
-**https://tandem-engineering-group.github.io/899-Virginia-Park-St/**
+| Site | Link | What it shows |
+|---|---|---|
+| **Photo Map** | **https://tandem-engineering-group.github.io/899-Virginia-Park-St/** | Every pack-out photo pinned on the floor plans — contents, room, approximate value |
+| **Rebuild Cost Map** | **https://tandem-engineering-group.github.io/899-Virginia-Park-St/costs/** | All 401 estimate line items mapped room by room, claim strategy, and the field checklist |
 
-Share that link to open the photo map in any browser. You can also open
-**`portal/index.html`** from a local clone (works offline, double-click).
+Both also work offline from a local clone (`portal/index.html` and `costs/index.html`).
 Every pack-out photo the insurance company took is pinned on the house floor plans with an
 AI-generated description, room guess, and approximate contents value. Pins are draggable —
 corrections save in the browser and can be exported/imported as JSON, or dumped to CSV.
@@ -20,6 +22,7 @@ See [portal/README - How to use the Photo Map.md](<portal/README - How to use th
 | Folder / file | Contents |
 |---|---|
 | `portal/` | The photo-map portal (self-contained: floor plans, thumbnails, analysis data) |
+| `costs/` | The rebuild cost map (line items per room, strategy view, field checklist with dollar swings) |
 | `899 VP - JEFF - Insurance Photos/` | Original pack-out photos from the carrier (HEIC + PNG pairs, taken 3/15/2026) |
 | `Stamm_Claim_061004792/` | Extracted claim package: master workbook, 401 line items CSV, payment letter, HVACi report, estimate summary |
 | `001 Previous info/` | Earlier estimate-validation work (RSMeans workbooks, claim strategy report) |

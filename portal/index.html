@@ -130,6 +130,7 @@
     <div class="sub">Liberty Mutual claim 061004792 · photos taken 3/15/2026 · analysis is AI-assisted, drag pins to correct</div>
   </div>
   <div class="spacer"></div>
+  <a id="costslink" href="../costs/index.html" style="color:#ffd9a8;font-size:12.5px;text-decoration:none;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:6px 12px">💰 Rebuild Cost Map</a>
   <div class="statchip"><b id="st-count">–</b>photos</div>
   <div class="statchip"><b id="st-value">–</b>est. contents value</div>
   <div class="statchip"><b id="st-conf">–</b>locations confirmed</div>
@@ -209,6 +210,9 @@
       note: o.note || ''
     };
   };
+
+  // on GitHub Pages this portal is served at the site root; the cost map lives under /costs/
+  if(location.hostname.endsWith('github.io')) document.getElementById('costslink').href = 'costs/index.html';
 
   // originals live next to the portal locally, on raw.githubusercontent when served from GitHub Pages
   const ORIG_BASE = location.hostname.endsWith('github.io')

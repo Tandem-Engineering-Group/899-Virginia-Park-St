@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>899 Virginia Park — Rebuild Cost Map</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --panel:#fff; --ink:#1a2332; --muted:#66707f; --line:#dde1e8;
+    --accent:#8a4d0f; --accent2:#0d7a4f; --warn:#b3261e; --gold:#b96a00;
+    --shadow:0 1px 3px rgba(20,30,50,.12), 0 4px 14px rgba(20,30,50,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font:14px/1.45 "Segoe UI",system-ui,sans-serif;color:var(--ink);background:var(--bg);display:flex;flex-direction:column;overflow:hidden}
+
+  header{background:#3b2412;color:#fff;padding:10px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  header h1{font-size:17px;margin:0;font-weight:600}
+  header .sub{font-size:12px;opacity:.75}
+  header .spacer{flex:1}
+  .statchip{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:4px 12px;font-size:12px;text-align:center}
+  .statchip b{display:block;font-size:15px}
+  header a.navlink{color:#ffd9a8;font-size:12.5px;text-decoration:none;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:6px 12px}
+  header a.navlink:hover{background:rgba(255,255,255,.15)}
+
+  #tabs{display:flex;gap:6px;padding:10px 18px 0;background:var(--bg);flex-wrap:wrap}
+  .tab{border:1px solid var(--line);border-bottom:none;background:#ece7e1;border-radius:10px 10px 0 0;padding:8px 15px;cursor:pointer;font-size:13.5px;font-weight:600;color:#4a4034;display:flex;gap:8px;align-items:center}
+  .tab .n{background:#d5cbc0;border-radius:10px;padding:0 8px;font-size:11.5px;line-height:18px}
+  .tab.active{background:var(--panel);color:var(--ink);box-shadow:0 -2px 6px rgba(20,30,50,.06)}
+  .tab.active .n{background:var(--accent);color:#fff}
+
+  main{flex:1;display:flex;min-height:0;background:var(--panel);border-top:1px solid var(--line)}
+  #mapwrap{flex:1;position:relative;overflow:hidden;background:#efece8;min-width:0}
+  #stage{position:absolute;transform-origin:0 0;cursor:grab}
+  #stage img.plan{display:block;user-select:none;-webkit-user-drag:none;pointer-events:none;width:100%;height:100%}
+  .bub{position:absolute;transform:translate(-50%,-50%) scale(calc(var(--invscale,1)));border-radius:50%;
+       display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;
+       background:radial-gradient(circle at 35% 30%, rgba(184,106,0,.92), rgba(138,77,15,.92));
+       color:#fff;border:2.5px solid #fff;box-shadow:0 2px 8px rgba(60,30,0,.4);z-index:5;text-align:center}
+  .bub:hover{z-index:50;filter:brightness(1.1)}
+  .bub.selected{outline:3px solid #ffd23f;outline-offset:2px;z-index:55}
+  .bub .amt{font-weight:700;font-size:13px;line-height:1.1;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+  .bub .rm{font-size:9px;opacity:.92;line-height:1.05;max-width:90%;overflow:hidden}
+  #mapbar{position:absolute;top:10px;left:10px;display:flex;gap:6px;z-index:80}
+  #mapbar button{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:16px;cursor:pointer;box-shadow:var(--shadow)}
+  #maphint{position:absolute;bottom:10px;right:10px;background:rgba(59,36,18,.87);color:#fff;border-radius:10px;padding:7px 12px;font-size:11.5px;z-index:80;max-width:330px}
+
+  #side{width:440px;border-left:1px solid var(--line);display:flex;flex-direction:column;min-height:0;background:var(--panel)}
+  #sidehead{padding:12px 14px;border-bottom:1px solid var(--line)}
+  #sidehead h2{margin:0 0 2px;font-size:15.5px}
+  #sidehead .m{font-size:12px;color:var(--muted)}
+  #sidebody{flex:1;overflow-y:auto;padding:10px 14px}
+  .roomrow{display:flex;justify-content:space-between;align-items:center;padding:7px 9px;border:1px solid var(--line);border-radius:9px;margin-bottom:6px;cursor:pointer;background:#fff}
+  .roomrow:hover{border-color:var(--accent)}
+  .roomrow.selected{border-color:#ffd23f;border-width:2px}
+  .roomrow b{font-size:13px}
+  .roomrow .val{color:var(--accent);font-weight:700;font-size:13px;white-space:nowrap}
+  .catchip{display:inline-block;background:#f0e9e0;border-radius:6px;padding:1px 7px;font-size:10.5px;color:#6b5335;margin:2px 3px 0 0}
+  .scopebox{background:#f2f7f2;border:1px solid #cfe3cf;color:#1e4d2b;border-radius:9px;padding:8px 11px;font-size:12.5px;margin:8px 0}
+  .watchbox{background:#fdf3e4;border:1px solid #eed3a0;color:#7a5410;border-radius:9px;padding:8px 11px;font-size:12.5px;margin:8px 0}
+  table.items{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+  table.items th{text-align:left;color:var(--muted);border-bottom:1px solid var(--line);padding:3px 4px;font-weight:600;position:sticky;top:0;background:#fff}
+  table.items td{border-bottom:1px solid #f0ece7;padding:4px;vertical-align:top}
+  table.items td:last-child,table.items th:last-child{text-align:right;white-space:nowrap}
+  .backlink{color:var(--accent);cursor:pointer;font-size:12.5px;margin-bottom:8px;display:inline-block}
+
+  /* full-width views */
+  #bigview{display:none;flex:1;overflow-y:auto;padding:16px 22px;background:#fbfaf8}
+  #bigview.open{display:block}
+  #bigview h2{font-size:17px;margin:6px 0 10px}
+  #bigview h3{font-size:14.5px;margin:20px 0 8px}
+  .wide{width:100%;border-collapse:collapse;font-size:12.5px;background:#fff;box-shadow:var(--shadow);border-radius:10px;overflow:hidden}
+  .wide th{background:#3b2412;color:#fff;text-align:left;padding:7px 9px;font-weight:600;font-size:12px;cursor:pointer;user-select:none}
+  .wide td{border-bottom:1px solid #efe9e2;padding:6px 9px;vertical-align:top}
+  .wide tr:hover td{background:#faf5ee}
+  .wide td.r,.wide th.r{text-align:right;white-space:nowrap}
+  .assess-gap{color:var(--warn);font-weight:700}
+  .assess-ok{color:var(--accent2);font-weight:700}
+  .bar{height:13px;border-radius:4px;background:#e8e2da;position:relative;min-width:180px}
+  .bar i{position:absolute;top:0;bottom:0;border-radius:4px;background:linear-gradient(90deg,#c98a2e,#8a4d0f)}
+  .bar b{position:absolute;top:-1px;bottom:-1px;width:3px;background:#b3261e;border-radius:2px}
+  .qrow td label{display:flex;gap:6px;align-items:flex-start;cursor:pointer}
+  .qrow textarea{width:100%;min-height:34px;border:1px solid var(--line);border-radius:7px;padding:5px 7px;font:12px/1.4 inherit;resize:vertical}
+  .qrow.answered td{background:#f4f9f4}
+  .swing{font-weight:700;color:var(--gold);white-space:nowrap}
+  .cardgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:10px 0}
+  .scard{background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px 14px;box-shadow:var(--shadow);font-size:12.5px}
+  .scard b.title{display:block;font-size:13px;margin-bottom:5px}
+  .wfall{max-width:560px}
+  .wfall .row{display:flex;justify-content:space-between;padding:6px 10px;border-bottom:1px solid #efe9e2;font-size:13px}
+  .wfall .row b{font-variant-numeric:tabular-nums}
+  .wfall .row.total{background:#f2ead9;font-weight:700;border-radius:0 0 8px 8px}
+  .pill{display:inline-block;border-radius:7px;padding:1px 8px;font-size:11px;color:#fff;margin-right:6px}
+  #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#3b2412;color:#fff;border-radius:10px;padding:10px 18px;font-size:13px;display:none;z-index:400;box-shadow:var(--shadow)}
+  @media (max-width:950px){ #side{width:330px} }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>899 Virginia Park — Rebuild Cost Map</h1>
+    <div class="sub">Liberty Mutual estimate · claim 061004792 · 401 line items mapped room by room</div>
+  </div>
+  <div class="spacer"></div>
+  <div class="statchip"><b id="st-rcv">–</b>RCV issued</div>
+  <div class="statchip"><b id="st-check">–</b>check today</div>
+  <div class="statchip"><b id="st-dep">–</b>recoverable dep.</div>
+  <div class="statchip" title="planning range for full scope, direct cost"><b id="st-gap">–</b>full-scope range</div>
+  <a class="navlink" href="../portal/index.html">📷 Photo Map</a>
+  <a class="navlink" href="#" id="btn-checklist-export">⬇ Checklist</a>
+</header>
+
+<div id="tabs"></div>
+
+<main>
+  <div id="mapwrap">
+    <div id="stage"><img class="plan" id="planimg" alt="floor plan"></div>
+    <div id="mapbar">
+      <button id="z-in" title="Zoom in">+</button>
+      <button id="z-out" title="Zoom out">−</button>
+      <button id="z-fit" title="Fit">⛶</button>
+    </div>
+    <div id="maphint">Bubble size = repair dollars scoped in that room. Click a bubble or a room in the list for the full line items. Scroll to zoom, drag to pan.</div>
+  </div>
+  <div id="bigview"></div>
+  <div id="side">
+    <div id="sidehead"></div>
+    <div id="sidebody"></div>
+  </div>
+</main>
+<div id="toast"></div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  const D = window.COSTS_DATA;
+  if(!D){ document.body.innerHTML = '<p style="padding:40px">data.js not found next to index.html.</p>'; return; }
+
+  // on GitHub Pages the photo portal is served at the site root, not under /portal/
+  if(location.hostname.endsWith('github.io')){
+    D.floors.forEach(f => f.img = f.img.replace('../portal/plans/', '../plans/'));
+    document.querySelector('a.navlink[href="../portal/index.html"]').href = '../index.html';
+  }
+
+  const LSKEY = 'jeffCosts.v1.' + D.claim;
+  let notes = {};
+  try{ notes = JSON.parse(localStorage.getItem(LSKEY) || '{}'); }catch(e){}
+  const saveLS = () => { try{ localStorage.setItem(LSKEY, JSON.stringify(notes)); }catch(e){} };
+
+  const $ = s => document.querySelector(s);
+  const fmt$ = n => '$' + Math.round(n).toLocaleString('en-US');
+  const fmtK = n => n >= 1000 ? '$' + (n/1000).toFixed(n >= 10000 ? 0 : 1) + 'k' : '$' + Math.round(n);
+
+  const VIEWS = [
+    {id:'1', map:true}, {id:'2', map:true}, {id:'3', map:true}, {id:'B1', map:true},
+    {id:'items', label:'All 401 items'}, {id:'strategy', label:'Strategy'}, {id:'checklist', label:'Field checklist'},
+  ];
+  let cur = '1', selRoom = null, scale = 1, panX = 0, panY = 0, sortKey = 'n', sortDir = 1;
+
+  const stage = $('#stage'), planimg = $('#planimg'), mapwrap = $('#mapwrap'), bigview = $('#bigview');
+  const floorDef = id => D.floors.find(f => f.id === id);
+  const roomsOf = fid => D.rooms.filter(r => r.floor === fid);
+  const floorTotal = fid => roomsOf(fid).reduce((s,r) => s+r.total, 0);
+  const wf = label => (D.waterfall.find(w => w.label.includes(label)) || {}).amount || 0;
+
+  // ---------- header ----------
+  $('#st-rcv').textContent = fmt$(wf('Replacement Cost Value'));
+  $('#st-check').textContent = fmt$(wf('check today'));
+  $('#st-dep').textContent = fmt$(-wf('recoverable depreciation'));
+  $('#st-gap').textContent = fmtK(D.meansTotals.drywallLo || 213000) + '–' + fmtK(D.meansTotals.plasterHi || 532000);
+  $('#st-gap').parentElement.title = 'Independent planning range for the FULL scope (direct cost): drywall basis low — like-kind plaster basis high. Liberty direct: ' + fmt$(148026);
+
+  // ---------- tabs ----------
+  function drawTabs(){
+    const tabs = $('#tabs'); tabs.innerHTML = '';
+    VIEWS.forEach(v => {
+      const t = document.createElement('div');
+      t.className = 'tab' + (cur === v.id ? ' active' : '');
+      if(v.map){
+        const f = floorDef(v.id);
+        t.innerHTML = `${f.label} <span class="n">${fmtK(floorTotal(v.id))}</span>`;
+      } else {
+        let n = v.id === 'items' ? D.rooms.reduce((s,r)=>s+r.items.length,0) :
+                v.id === 'checklist' ? D.questions.length : '⚑';
+        t.innerHTML = `${v.label} <span class="n">${n}</span>`;
+      }
+      t.onclick = () => { cur = v.id; selRoom = null; render(); };
+      tabs.appendChild(t);
+    });
+  }
+
+  // ---------- map ----------
+  function fitMap(){
+    const f = floorDef(cur); if(!f) return;
+    scale = Math.min(mapwrap.clientWidth / f.w, mapwrap.clientHeight / f.h) * 0.97;
+    panX = (mapwrap.clientWidth - f.w*scale)/2; panY = (mapwrap.clientHeight - f.h*scale)/2;
+    applyView();
+  }
+  function applyView(){
+    const f = floorDef(cur); if(!f) return;
+    stage.style.width = f.w+'px'; stage.style.height = f.h+'px';
+    stage.style.transform = `translate(${panX}px,${panY}px) scale(${scale})`;
+    stage.style.setProperty('--invscale', Math.min(2.2, Math.max(0.8, 1/scale)));
+  }
+  let lastFloor = null;
+  function drawMap(){
+    const isMap = !!floorDef(cur);
+    mapwrap.style.display = isMap ? 'block' : 'none';
+    $('#side').style.display = isMap ? 'flex' : 'none';
+    bigview.classList.toggle('open', !isMap);
+    if(!isMap){ drawBig(); return; }
+    const f = floorDef(cur);
+    planimg.src = f.img; planimg.width = f.w; planimg.height = f.h;
+    stage.querySelectorAll('.bub').forEach(el => el.remove());
+    const rooms = roomsOf(cur).filter(r => r.x != null);
+    const max = Math.max(...rooms.map(r => r.total), 1);
+    rooms.forEach(r => {
+      const el = document.createElement('div');
+      const d = 34 + 62 * Math.sqrt(r.total / max);
+      el.className = 'bub' + (selRoom === r.room ? ' selected' : '');
+      el.style.width = el.style.height = d+'px';
+      el.style.left = (r.x*100)+'%'; el.style.top = (r.y*100)+'%';
+      el.innerHTML = `<span class="amt">${fmtK(r.total)}</span>` + (d > 55 ? `<span class="rm">${r.room}</span>` : '');
+      el.title = `${r.room} — ${fmt$(r.total)}`;
+      el.onclick = () => { selRoom = r.room; drawSide(); drawMap(); };
+      stage.appendChild(el);
+    });
+    if(lastFloor !== cur) fitMap(); else applyView();
+    lastFloor = cur;
+  }
+  let panning=false, pSX,pSY,pOX,pOY;
+  mapwrap.addEventListener('pointerdown', ev => {
+    if(ev.target.closest('.bub') || ev.target.closest('#mapbar')) return;
+    panning = true; pSX=ev.clientX; pSY=ev.clientY; pOX=panX; pOY=panY; mapwrap.setPointerCapture(ev.pointerId);
+  });
+  mapwrap.addEventListener('pointermove', ev => { if(panning){ panX=pOX+ev.clientX-pSX; panY=pOY+ev.clientY-pSY; applyView(); } });
+  mapwrap.addEventListener('pointerup', () => panning = false);
+  mapwrap.addEventListener('wheel', ev => {
+    ev.preventDefault();
+    const k = ev.deltaY < 0 ? 1.15 : 1/1.15;
+    const mx = ev.clientX - mapwrap.getBoundingClientRect().left, my = ev.clientY - mapwrap.getBoundingClientRect().top;
+    panX = mx-(mx-panX)*k; panY = my-(my-panY)*k; scale *= k; applyView();
+  }, {passive:false});
+  $('#z-in').onclick = () => { scale*=1.25; applyView(); };
+  $('#z-out').onclick = () => { scale/=1.25; applyView(); };
+  $('#z-fit').onclick = fitMap;
+  window.addEventListener('resize', () => { if(floorDef(cur)) fitMap(); });
+
+  // ---------- sidebar ----------
+  function drawSide(){
+    const f = floorDef(cur); if(!f) return;
+    const rooms = roomsOf(cur).sort((a,b)=>b.total-a.total);
+    const tot = floorTotal(cur);
+    if(!selRoom){
+      $('#sidehead').innerHTML = `<h2>${f.label} — ${fmt$(tot)}</h2><div class="m">${rooms.length} rooms · click a room for its line items</div>`;
+      $('#sidebody').innerHTML = rooms.map(r => `
+        <div class="roomrow" data-room="${r.room}"><div><b>${r.room}</b><br>
+        <span style="font-size:11px;color:var(--muted)">${r.items.length} items · top: ${Object.keys(r.cats).slice(0,3).join(', ')}</span></div>
+        <span class="val">${fmt$(r.total)}</span></div>`).join('');
+      $('#sidebody').querySelectorAll('.roomrow').forEach(el => el.onclick = () => { selRoom = el.dataset.room; drawSide(); drawMap(); });
+    } else {
+      const r = rooms.find(x => x.room === selRoom); if(!r){ selRoom = null; return drawSide(); }
+      $('#sidehead').innerHTML = `<span class="backlink" id="back">← all ${f.label} rooms</span><h2>${r.room} — ${fmt$(r.total)}</h2>
+        <div>${Object.entries(r.cats).map(([c,v])=>`<span class="catchip">${c} ${fmtK(v)}</span>`).join('')}</div>`;
+      $('#back').onclick = () => { selRoom = null; drawSide(); drawMap(); };
+      $('#sidebody').innerHTML =
+        (r.scope ? `<div class="scopebox">🛠 ${r.scope}</div>` : '') +
+        (r.watch ? `<div class="watchbox">⚠ ${r.watch}</div>` : '') +
+        `<table class="items"><tr><th>#</th><th>Work item</th><th>Qty</th><th style="text-align:right">Total</th></tr>` +
+        r.items.map(it => `<tr><td>${it.n}</td><td>${it.d}${it.note?`<br><span style="color:var(--muted);font-size:11px">${it.note}</span>`:''}</td>
+          <td style="white-space:nowrap">${it.qty} ${it.unit}</td><td>${fmt$(it.total)}</td></tr>`).join('') + '</table>';
+    }
+  }
+
+  // ---------- big views ----------
+  function drawBig(){
+    if(cur === 'items') return drawItems();
+    if(cur === 'strategy') return drawStrategy();
+    if(cur === 'checklist') return drawChecklist();
+  }
+
+  function drawItems(){
+    const all = D.rooms.flatMap(r => r.items.map(it => ({...it, floor: r.floor, room: r.room})));
+    const q = (window.__itemq || '').toLowerCase();
+    let rows = q ? all.filter(it => (it.d+' '+it.room+' '+it.cat).toLowerCase().includes(q)) : all;
+    rows = rows.slice().sort((a,b) => {
+      const va = a[sortKey], vb = b[sortKey];
+      return (typeof va === 'number' ? va - vb : String(va).localeCompare(String(vb))) * sortDir;
+    });
+    const th = (k, lbl, right) => `<th class="${right?'r':''}" data-k="${k}">${lbl}${sortKey===k?(sortDir>0?' ▲':' ▼'):''}</th>`;
+    bigview.innerHTML = `<h2>All line items — ${fmt$(all.reduce((s,i)=>s+i.total,0))} RCV</h2>
+      <p><input id="itemq" placeholder="Search descriptions, rooms, categories…" value="${window.__itemq||''}"
+         style="width:340px;padding:7px 10px;border:1px solid var(--line);border-radius:8px"> <span style="color:var(--muted);font-size:12px">${rows.length} of ${all.length} items</span></p>
+      <table class="wide"><tr>${th('n','#')}${th('floor','Floor')}${th('room','Room')}${th('d','Description')}${th('cat','Category')}${th('qty','Qty',1)}${th('total','Total',1)}</tr>
+      ${rows.map(it=>`<tr><td>${it.n}</td><td>${it.floor}</td><td>${it.room}</td><td>${it.d}${it.note?`<br><span style="color:var(--muted);font-size:11px">${it.note}</span>`:''}</td><td>${it.cat}</td><td class="r">${it.qty} ${it.unit}</td><td class="r">${fmt$(it.total)}</td></tr>`).join('')}</table>`;
+    bigview.querySelectorAll('th[data-k]').forEach(el => el.onclick = () => {
+      const k = el.dataset.k;
+      if(sortKey === k) sortDir *= -1; else { sortKey = k; sortDir = 1; }
+      drawItems();
+    });
+    const inp = $('#itemq');
+    inp.oninput = () => { window.__itemq = inp.value; drawItems(); const i2 = $('#itemq'); i2.focus(); i2.setSelectionRange(i2.value.length, i2.value.length); };
+  }
+
+  function drawStrategy(){
+    const maxHi = Math.max(...D.divisions.map(d => d.hi));
+    bigview.innerHTML = `
+      <h2>Claim strategy — where the money is</h2>
+      <div class="cardgrid">${D.findings.map((f,i)=>`<div class="scard"><b class="title">Finding ${i+1}</b>${f}</div>`).join('')}</div>
+
+      <h3>Liberty's estimate vs full-scope planning range (direct cost)</h3>
+      <table class="wide"><tr><th>Division</th><th class="r">Liberty</th><th class="r">Planning range</th><th style="min-width:200px">Liberty (red line) vs range (bar)</th><th>Assessment</th></tr>
+      ${D.divisions.map(d => {
+        const gap = d.liberty < d.lo * 0.8;
+        return `<tr><td><b>${d.div}</b></td><td class="r">${fmt$(d.liberty)}</td><td class="r">${fmtK(d.lo)}–${fmtK(d.hi)}</td>
+        <td><div class="bar"><i style="left:${d.lo/maxHi*100}%;width:${(d.hi-d.lo)/maxHi*100}%"></i><b style="left:${Math.min(99,d.liberty/maxHi*100)}%"></b></div></td>
+        <td class="${gap?'assess-gap':'assess-ok'}" style="font-weight:400"><span class="${gap?'assess-gap':'assess-ok'}">${gap?'GAP':'OK'}</span> — ${d.note}</td></tr>`;
+      }).join('')}</table>
+
+      <h3>Payment waterfall (issued 07/10/2026)</h3>
+      <div class="wfall">${D.waterfall.map(w => `<div class="row ${w.label.includes('check today')?'total':''}"><span>${w.label}${w.note?` <span style="color:var(--muted);font-size:11px">· ${w.note}</span>`:''}</span><b>${fmt$(w.amount)}</b></div>`).join('')}</div>
+
+      <h3>Supplement priorities</h3>
+      <div class="cardgrid">${D.supplements.map(s => `<div class="scard">${s}</div>`).join('')}</div>
+
+      <h3>If it stalls — escalation path</h3>
+      <div class="scard">${D.escalation}</div>
+      <p style="color:var(--muted);font-size:12px;margin-top:14px">Contacts: ${D.contacts.rep} (claim rep) · ${D.contacts.estimator} (estimator) · ${D.contacts.policy}</p>`;
+  }
+
+  function drawChecklist(){
+    const cats = [...new Set(D.questions.map(q => q.cat))];
+    const done = D.questions.filter(q => (notes[q.id]||{}).done).length;
+    bigview.innerHTML = `<h2>Field checklist — ${D.questions.length} questions, ${done} answered</h2>
+      <p style="color:var(--muted);font-size:12.5px;max-width:820px">Every question can move the claim — the <b>swing</b> column shows by how much (direct cost). Work them biggest-first while the walls are open. Check off + type what you found; answers save in this browser and export with the ⬇ Checklist button.</p>
+      ${cats.map(cat => `<h3>${cat}</h3><table class="wide">
+        <tr><th style="width:56px">ID</th><th>Question</th><th>Why it matters</th><th class="r" style="width:110px">Swing</th><th style="width:270px">Your answer</th></tr>
+        ${D.questions.filter(q=>q.cat===cat).map(q => {
+          const st = notes[q.id] || {};
+          return `<tr class="qrow ${st.done?'answered':''}" data-q="${q.id}">
+            <td><label><input type="checkbox" ${st.done?'checked':''}> ${q.id}</label></td>
+            <td>${q.q}</td><td style="color:var(--muted)">${q.why}</td>
+            <td class="r swing">${q.swingLo===q.swingHi?fmtK(q.swingHi):fmtK(q.swingLo)+'–'+fmtK(q.swingHi)}</td>
+            <td><textarea placeholder="findings…">${st.text||''}</textarea></td></tr>`;
+        }).join('')}</table>`).join('')}`;
+    bigview.querySelectorAll('.qrow').forEach(tr => {
+      const id = tr.dataset.q;
+      tr.querySelector('input').onchange = ev => { notes[id] = {...notes[id], done: ev.target.checked}; saveLS(); tr.classList.toggle('answered', ev.target.checked); drawTabs(); };
+      tr.querySelector('textarea').onchange = ev => { notes[id] = {...notes[id], text: ev.target.value}; saveLS(); };
+    });
+  }
+
+  // checklist export
+  $('#btn-checklist-export').onclick = ev => {
+    ev.preventDefault();
+    const esc = s => '"' + String(s==null?'':s).replace(/"/g,'""') + '"';
+    const rows = [['id','category','question','swing_low','swing_high','answered','answer'].join(',')]
+      .concat(D.questions.map(q => [q.id, esc(q.cat), esc(q.q), q.swingLo, q.swingHi, (notes[q.id]||{}).done?'yes':'', esc((notes[q.id]||{}).text)].join(',')));
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob(['﻿' + rows.join('\r\n')], {type:'text/csv'}));
+    a.download = 'field_checklist_' + D.claim + '.csv'; a.click();
+    toast('Checklist exported');
+  };
+
+  let toastTimer;
+  function toast(msg){ const t = $('#toast'); t.textContent = msg; t.style.display='block'; clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.style.display='none', 2500); }
+
+  function render(){ drawTabs(); drawMap(); if(floorDef(cur)) drawSide(); }
+  planimg.onload = () => { if(floorDef(cur) && lastFloor !== cur) fitMap(); };
+  render();
+})();
+</script>
+</body>
+</html>
