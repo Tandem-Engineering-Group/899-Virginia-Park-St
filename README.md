@@ -4,12 +4,12 @@ Working repository for Jeff Stamm's Liberty Mutual claim **061004792**
 (freeze event 02/26/2026 — boiler + radiators froze, water damage across 4 levels)
 at 899 Virginia Park St, Detroit MI 48202.
 
-> ⚠️ This repository contains personal insurance information and interior photos.
-> Keep visibility restricted to the people working on the claim.
+## 📍 The Photo Map portal — live link
 
-## 📍 The Photo Map portal
+**https://tandem-engineering-group.github.io/899-Virginia-Park-St/**
 
-**`portal/index.html`** — open it in any browser (double-click from a local clone).
+Share that link to open the photo map in any browser. You can also open
+**`portal/index.html`** from a local clone (works offline, double-click).
 Every pack-out photo the insurance company took is pinned on the house floor plans with an
 AI-generated description, room guess, and approximate contents value. Pins are draggable —
 corrections save in the browser and can be exported/imported as JSON, or dumped to CSV.
