@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>899 Virginia Park — Pack-Out Photo Map</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --panel:#ffffff; --ink:#1a2332; --muted:#66707f;
+    --line:#dde1e8; --accent:#1c5fba; --accent2:#0d7a4f;
+    --hi:#0d7a4f; --mid:#b96a00; --lo:#b3261e; --user:#1c5fba;
+    --shadow:0 1px 3px rgba(20,30,50,.12), 0 4px 14px rgba(20,30,50,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font:14px/1.45 "Segoe UI",system-ui,sans-serif;color:var(--ink);background:var(--bg);display:flex;flex-direction:column;overflow:hidden}
+
+  header{background:#12213b;color:#fff;padding:10px 18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  header h1{font-size:17px;margin:0;font-weight:600;letter-spacing:.2px}
+  header .sub{font-size:12px;opacity:.75}
+  header .spacer{flex:1}
+  .statchip{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:4px 12px;font-size:12px;text-align:center}
+  .statchip b{display:block;font-size:15px}
+  header button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:6px 12px;font-size:12.5px;cursor:pointer}
+  header button:hover{background:rgba(255,255,255,.22)}
+
+  #tabs{display:flex;gap:6px;padding:10px 18px 0;background:var(--bg)}
+  .tab{border:1px solid var(--line);border-bottom:none;background:#e9ecf1;border-radius:10px 10px 0 0;padding:8px 16px;cursor:pointer;font-size:13.5px;font-weight:600;color:#3c4657;display:flex;gap:8px;align-items:center}
+  .tab .n{background:#cbd3de;border-radius:10px;padding:0 8px;font-size:11.5px;line-height:18px}
+  .tab.active{background:var(--panel);color:var(--ink);box-shadow:0 -2px 6px rgba(20,30,50,.06)}
+  .tab.active .n{background:var(--accent);color:#fff}
+  .tab.tray-tab.has{color:var(--lo)}
+
+  main{flex:1;display:flex;min-height:0;background:var(--panel);border-top:1px solid var(--line)}
+
+  /* ---- map ---- */
+  #mapwrap{flex:1;position:relative;overflow:hidden;background:#eef0f4;min-width:0}
+  #stage{position:absolute;transform-origin:0 0;cursor:grab}
+  #stage.panning{cursor:grabbing}
+  #stage img.plan{display:block;user-select:none;-webkit-user-drag:none;pointer-events:none;width:100%;height:100%}
+  .pin{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50% 50% 50% 4px;
+       transform:scale(calc(var(--invscale,1) * var(--bump,1)));
+       display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:700;color:#fff;cursor:grab;
+       border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45);z-index:5}
+  .pin:hover{z-index:50}
+  .pin.dragging{cursor:grabbing;z-index:60;--bump:1.25}
+  .pin.c-hi{background:var(--hi)} .pin.c-mid{background:var(--mid)} .pin.c-lo{background:var(--lo)}
+  .pin.confirmed{background:var(--user)}
+  .pin.selected{outline:3px solid #ffd23f;outline-offset:1px;z-index:55}
+  .pin .tip{display:none;position:absolute;bottom:30px;left:50%;transform:translateX(-50%);background:#12213b;color:#fff;
+            padding:6px 8px;border-radius:8px;white-space:nowrap;font-weight:400;font-size:11.5px;box-shadow:var(--shadow);pointer-events:none}
+  .pin .tip img{display:block;width:150px;height:auto;border-radius:5px;margin-bottom:4px}
+  .pin:hover .tip{display:block}
+  #mapbar{position:absolute;top:10px;left:10px;display:flex;gap:6px;z-index:80}
+  #mapbar button{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:16px;cursor:pointer;box-shadow:var(--shadow)}
+  #legend{position:absolute;bottom:10px;left:10px;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:10px;
+          padding:8px 12px;font-size:11.5px;z-index:80;box-shadow:var(--shadow)}
+  #legend span{display:inline-flex;align-items:center;gap:5px;margin-right:12px}
+  #legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
+  #maphint{position:absolute;bottom:10px;right:10px;background:rgba(18,33,59,.85);color:#fff;border-radius:10px;padding:7px 12px;font-size:11.5px;z-index:80;max-width:340px}
+
+  /* ---- sidebar ---- */
+  #side{width:390px;border-left:1px solid var(--line);display:flex;flex-direction:column;min-height:0;background:var(--panel)}
+  #side .bar{padding:10px;border-bottom:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap}
+  #side input[type=search]{flex:1;min-width:120px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;font-size:13px}
+  #side select{padding:7px 8px;border:1px solid var(--line);border-radius:8px;font-size:12.5px;background:#fff;max-width:170px}
+  #plist{flex:1;overflow-y:auto;padding:8px}
+  .card{display:flex;gap:10px;padding:8px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;background:#fff}
+  .card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+  .card.selected{border-color:#ffd23f;border-width:2px;padding:7px}
+  .card img{width:86px;height:64px;object-fit:cover;border-radius:7px;background:#dde}
+  .card .t{font-weight:600;font-size:13px;margin-bottom:2px}
+  .card .m{font-size:11.5px;color:var(--muted)}
+  .card .v{font-size:12px;color:var(--accent2);font-weight:600;margin-top:2px}
+  .card .badge{display:inline-block;border-radius:6px;padding:0 6px;font-size:10.5px;color:#fff;margin-left:6px;vertical-align:1px}
+  .b-hi{background:var(--hi)} .b-mid{background:var(--mid)} .b-lo{background:var(--lo)} .b-user{background:var(--user)}
+  #floorsum{padding:8px 12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);background:#fafbfc}
+
+  /* ---- modal ---- */
+  #modal{position:fixed;inset:0;background:rgba(10,18,35,.72);display:none;z-index:200;align-items:center;justify-content:center;padding:20px}
+  #modal.open{display:flex}
+  #mbox{background:#fff;border-radius:14px;max-width:1180px;width:100%;max-height:94vh;display:flex;overflow:hidden;box-shadow:0 10px 50px rgba(0,0,0,.5)}
+  #mimg{flex:1.35;background:#111;display:flex;align-items:center;justify-content:center;min-width:0;position:relative}
+  #mimg img{max-width:100%;max-height:94vh;object-fit:contain;cursor:zoom-in}
+  #mnav-prev,#mnav-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:#fff;font-size:26px;padding:14px 10px;cursor:pointer;border-radius:8px}
+  #mnav-prev{left:8px} #mnav-next{right:8px}
+  #mnav-prev:hover,#mnav-next:hover{background:rgba(255,255,255,.35)}
+  #minfo{flex:1;padding:18px 20px;overflow-y:auto;min-width:340px;max-width:430px}
+  #minfo h2{margin:0 0 2px;font-size:17px}
+  #minfo .file{font-size:12px;color:var(--muted);margin-bottom:10px}
+  #minfo .desc{margin:8px 0 12px}
+  .kv{display:grid;grid-template-columns:96px 1fr;gap:3px 10px;font-size:12.5px;margin-bottom:12px}
+  .kv b{color:var(--muted);font-weight:600}
+  #minfo table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0 12px}
+  #minfo th{text-align:left;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:3px 4px}
+  #minfo td{border-bottom:1px solid #eef0f4;padding:4px}
+  #minfo td:last-child,#minfo th:last-child{text-align:right;white-space:nowrap}
+  .damage{background:#fdeeee;border:1px solid #f3c8c6;color:#8c2723;border-radius:8px;padding:7px 10px;font-size:12.5px;margin-bottom:12px}
+  .cues{background:#eef4fd;border:1px solid #cdddf5;color:#1c3f74;border-radius:8px;padding:7px 10px;font-size:12px;margin-bottom:12px}
+  #minfo .row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;align-items:center}
+  #minfo select,#minfo textarea{border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:12.5px;font-family:inherit}
+  #minfo textarea{width:100%;min-height:52px;resize:vertical}
+  .btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;font-size:12.5px;cursor:pointer}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.primary:hover{filter:brightness(1.12);color:#fff}
+  .btn.confirm-on{background:var(--accent2);border-color:var(--accent2);color:#fff}
+  #mclose{position:absolute;top:10px;right:12px;background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:8px;font-size:17px;padding:5px 11px;cursor:pointer;z-index:5}
+
+  /* tray */
+  #tray{display:none;flex:1;overflow-y:auto;padding:16px;background:#f7f8fa}
+  #tray.open{display:block}
+  #tray h2{margin:2px 0 4px;font-size:16px}
+  #tray p{color:var(--muted);font-size:13px;margin:0 0 14px}
+  .traygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+  .traycard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:12.5px}
+  .traycard img{width:100%;height:130px;object-fit:cover;border-radius:7px;cursor:pointer}
+  .traycard .t{font-weight:600;margin:6px 0 4px}
+  .traycard select{width:100%;margin-top:6px;padding:6px;border:1px solid var(--line);border-radius:7px}
+
+  #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#12213b;color:#fff;border-radius:10px;
+         padding:10px 18px;font-size:13px;display:none;z-index:400;box-shadow:var(--shadow)}
+  @media (max-width:900px){ #side{width:300px} .card img{width:64px;height:50px} }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>899 Virginia Park — Pack-Out Photo Map</h1>
+    <div class="sub">Liberty Mutual claim 061004792 · photos taken 3/15/2026 · analysis is AI-assisted, drag pins to correct</div>
+  </div>
+  <div class="spacer"></div>
+  <div class="statchip"><b id="st-count">–</b>photos</div>
+  <div class="statchip"><b id="st-value">–</b>est. contents value</div>
+  <div class="statchip"><b id="st-conf">–</b>locations confirmed</div>
+  <button id="btn-export">⬇ Export JSON</button>
+  <button id="btn-import">⬆ Import</button>
+  <button id="btn-csv">⬇ CSV</button>
+  <button id="btn-reset">Reset to AI</button>
+  <input type="file" id="importfile" accept=".json" style="display:none">
+</header>
+
+<div id="tabs"></div>
+
+<main>
+  <div id="mapwrap">
+    <div id="stage"><img class="plan" id="planimg" alt="floor plan"><svg id="pathsvg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none"></svg></div>
+    <div id="mapbar">
+      <button id="z-in" title="Zoom in">+</button>
+      <button id="z-out" title="Zoom out">−</button>
+      <button id="z-fit" title="Fit">⛶</button>
+      <button id="z-path" title="Show camera walkthrough path" style="width:auto;padding:0 10px;font-size:12.5px">〰 path</button>
+    </div>
+    <div id="legend">
+      <span><i style="background:var(--hi)"></i>likely location</span>
+      <span><i style="background:var(--mid)"></i>approximate</span>
+      <span><i style="background:var(--lo)"></i>uncertain</span>
+      <span><i style="background:var(--user)"></i>confirmed by you</span>
+    </div>
+    <div id="maphint">Drag pins to the exact spot each photo was taken — positions save automatically. Click a pin for the photo & item values. Scroll to zoom, drag the map to pan.</div>
+  </div>
+  <div id="tray"></div>
+  <div id="side">
+    <div class="bar">
+      <input type="search" id="q" placeholder="Search items, rooms, descriptions…">
+      <select id="f-room"><option value="">All rooms</option></select>
+      <select id="f-cat"><option value="">All categories</option></select>
+    </div>
+    <div id="plist"></div>
+    <div id="floorsum"></div>
+  </div>
+</main>
+
+<div id="modal">
+  <div id="mbox">
+    <div id="mimg">
+      <button id="mclose">✕</button>
+      <button id="mnav-prev">‹</button>
+      <img id="mphoto" alt="photo">
+      <button id="mnav-next">›</button>
+    </div>
+    <div id="minfo"></div>
+  </div>
+</div>
+<div id="toast"></div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  const D = window.PORTAL_DATA;
+  if(!D){ document.body.innerHTML = '<p style="padding:40px;font-size:16px">data.js not found — it must sit next to index.html.</p>'; return; }
+
+  const LSKEY = 'jeffPortal.v1.' + D.claim;
+  let overrides = {};
+  try{ overrides = JSON.parse(localStorage.getItem(LSKEY) || '{}'); }catch(e){ overrides = {}; }
+  const saveLS = () => { try{ localStorage.setItem(LSKEY, JSON.stringify(overrides)); }catch(e){} };
+  const ov = f => overrides[f] || {};
+  const setOv = (f, patch) => { overrides[f] = Object.assign({}, overrides[f], patch); saveLS(); refreshStats(); };
+
+  // effective photo state = AI data + user overrides
+  const eff = p => {
+    const o = ov(p.file);
+    return {
+      floor: o.floor !== undefined ? o.floor : p.floor,
+      room:  o.room  !== undefined ? o.room  : p.room,
+      x: o.x !== undefined ? o.x : p.x,
+      y: o.y !== undefined ? o.y : p.y,
+      confirmed: !!o.confirmed,
+      note: o.note || ''
+    };
+  };
+
+  const fmt$ = n => '$' + Math.round(n).toLocaleString('en-US');
+  const rng = (lo,hi) => lo===0&&hi===0 ? '—' : (fmt$(lo) + (hi>lo ? '–' + fmt$(hi) : ''));
+  const confClass = (p) => { const e = eff(p); if(e.confirmed) return 'user'; return p.conf>=0.7?'hi':(p.conf>=0.45?'mid':'lo'); };
+  const confLabel = {hi:'likely', mid:'approx', lo:'uncertain', user:'confirmed'};
+
+  let curFloor = D.floors[0].id;
+  let selected = null;
+  let scale = 1, panX = 0, panY = 0;
+
+  const $ = s => document.querySelector(s);
+  const stage = $('#stage'), planimg = $('#planimg'), mapwrap = $('#mapwrap'), tray = $('#tray');
+
+  // ---------- tabs ----------
+  function unplaced(){ return D.photos.filter(p => eff(p).floor === 'unknown'); }
+  function drawTabs(){
+    const tabs = $('#tabs'); tabs.innerHTML = '';
+    D.floors.forEach(f => {
+      const n = D.photos.filter(p => eff(p).floor === f.id).length;
+      const t = document.createElement('div');
+      t.className = 'tab' + (curFloor===f.id?' active':'');
+      t.innerHTML = `${f.label} <span class="n">${n}</span>`;
+      t.onclick = () => { curFloor = f.id; selected = null; render(); };
+      tabs.appendChild(t);
+    });
+    const un = unplaced().length;
+    const t = document.createElement('div');
+    t.className = 'tab tray-tab' + (curFloor==='unknown'?' active':'') + (un?' has':'');
+    t.innerHTML = `Unplaced <span class="n">${un}</span>`;
+    t.onclick = () => { curFloor = 'unknown'; selected = null; render(); };
+    tabs.appendChild(t);
+  }
+
+  // ---------- map ----------
+  function floorDef(id){ return D.floors.find(f => f.id === id); }
+
+  function fitMap(){
+    const f = floorDef(curFloor); if(!f) return;
+    const W = mapwrap.clientWidth, H = mapwrap.clientHeight;
+    scale = Math.min(W / f.w, H / f.h) * 0.97;
+    panX = (W - f.w*scale)/2; panY = (H - f.h*scale)/2;
+    applyView();
+  }
+  function applyView(){
+    const f = floorDef(curFloor); if(!f) return;
+    stage.style.width = f.w+'px'; stage.style.height = f.h+'px';
+    stage.style.transform = `translate(${panX}px,${panY}px) scale(${scale})`;
+    stage.style.setProperty('--invscale', Math.min(2.2, Math.max(0.75, 1/scale)));
+  }
+
+  let lastFloorDrawn = null;
+  function drawMap(){
+    const isTray = curFloor === 'unknown';
+    mapwrap.style.display = isTray ? 'none' : 'block';
+    tray.classList.toggle('open', isTray);
+    if(isTray){ drawTray(); lastFloorDrawn = 'unknown'; return; }
+    const f = floorDef(curFloor);
+    planimg.src = f.img; planimg.width = f.w; planimg.height = f.h;
+    stage.querySelectorAll('.pin').forEach(el => el.remove());
+    D.photos.forEach(p => { if(eff(p).floor === curFloor) stage.appendChild(makePin(p)); });
+    if(lastFloorDrawn !== curFloor) fitMap(); else applyView();
+    lastFloorDrawn = curFloor;
+    drawPath();
+  }
+
+  function makePin(p){
+    const e = eff(p);
+    const el = document.createElement('div');
+    el.className = 'pin c-' + (p.conf>=0.7?'hi':(p.conf>=0.45?'mid':'lo')) + (e.confirmed?' confirmed':'') + (selected===p.file?' selected':'');
+    el.style.left = (e.x*100)+'%'; el.style.top = (e.y*100)+'%';
+    el.dataset.file = p.file;
+    const num = p.file.replace('IMG_','');
+    el.innerHTML = `<span>${num}</span><div class="tip"><img src="thumbs/${p.file}.jpg" loading="lazy"><b>${p.title}</b><br>${e.room} · ${confLabel[confClass(p)]}</div>`;
+    // drag pin
+    let sx, sy, ox, oy, moved = false, pid = null;
+    el.addEventListener('pointerdown', ev => {
+      ev.stopPropagation(); ev.preventDefault();
+      pid = ev.pointerId; el.setPointerCapture(pid);
+      sx = ev.clientX; sy = ev.clientY; moved = false;
+      const r = stage.getBoundingClientRect();
+      ox = e.x; oy = e.y;
+      el.classList.add('dragging');
+      const move = mv => {
+        if(mv.pointerId !== pid) return;
+        const dx = (mv.clientX - sx)/ (stage.offsetWidth*scale), dy = (mv.clientY - sy)/(stage.offsetHeight*scale);
+        if(Math.abs(mv.clientX-sx)+Math.abs(mv.clientY-sy) > 4) moved = true;
+        const nx = Math.min(1, Math.max(0, ox+dx)), ny = Math.min(1, Math.max(0, oy+dy));
+        el.style.left = (nx*100)+'%'; el.style.top = (ny*100)+'%';
+        el._nx = nx; el._ny = ny;
+      };
+      const up = uv => {
+        if(uv.pointerId !== pid) return;
+        el.releasePointerCapture(pid);
+        el.removeEventListener('pointermove', move);
+        el.removeEventListener('pointerup', up);
+        el.classList.remove('dragging');
+        if(moved){
+          setOv(p.file, {x: el._nx, y: el._ny, floor: curFloor, confirmed: true});
+          el.classList.add('confirmed');
+          toast(`${p.file} placed — saved`);
+          drawTabs(); drawList(); drawPath();
+        } else {
+          openModal(p.file);
+        }
+      };
+      el.addEventListener('pointermove', move);
+      el.addEventListener('pointerup', up);
+    });
+    return el;
+  }
+
+  // pan & zoom
+  let panning = false, pSX, pSY, pOX, pOY;
+  mapwrap.addEventListener('pointerdown', ev => {
+    if(ev.target.closest('.pin') || ev.target.closest('#mapbar')) return;
+    panning = true; pSX = ev.clientX; pSY = ev.clientY; pOX = panX; pOY = panY;
+    stage.classList.add('panning'); mapwrap.setPointerCapture(ev.pointerId);
+  });
+  mapwrap.addEventListener('pointermove', ev => {
+    if(!panning) return;
+    panX = pOX + (ev.clientX - pSX); panY = pOY + (ev.clientY - pSY); applyView();
+  });
+  mapwrap.addEventListener('pointerup', () => { panning = false; stage.classList.remove('panning'); });
+  mapwrap.addEventListener('wheel', ev => {
+    ev.preventDefault();
+    const k = ev.deltaY < 0 ? 1.15 : 1/1.15;
+    const mx = ev.clientX - mapwrap.getBoundingClientRect().left;
+    const my = ev.clientY - mapwrap.getBoundingClientRect().top;
+    panX = mx - (mx - panX)*k; panY = my - (my - panY)*k; scale *= k;
+    applyView();
+  }, {passive:false});
+  $('#z-in').onclick = () => { scale *= 1.25; applyView(); };
+  $('#z-out').onclick = () => { scale /= 1.25; applyView(); };
+  $('#z-fit').onclick = fitMap;
+  let showPath = false;
+  $('#z-path').onclick = () => { showPath = !showPath; $('#z-path').style.background = showPath ? '#dbe7fa' : '#fff'; drawPath(); };
+  function drawPath(){
+    const svg = $('#pathsvg');
+    if(!showPath || curFloor === 'unknown'){ svg.style.display = 'none'; return; }
+    const f = floorDef(curFloor);
+    const pts = D.photos.filter(p => eff(p).floor === curFloor)
+      .map(p => ({e: eff(p), n: p.file}));
+    svg.setAttribute('viewBox', `0 0 ${f.w} ${f.h}`);
+    svg.style.display = 'block';
+    svg.innerHTML = pts.length < 2 ? '' :
+      `<polyline points="${pts.map(q => (q.e.x*f.w).toFixed(0)+','+(q.e.y*f.h).toFixed(0)).join(' ')}"
+        fill="none" stroke="#1c5fba" stroke-width="3" stroke-dasharray="8 7" opacity="0.45"/>`;
+  }
+  window.addEventListener('resize', fitMap);
+
+  // ---------- tray ----------
+  function drawTray(){
+    const list = unplaced();
+    tray.innerHTML = `<h2>Unplaced photos</h2><p>The analysis couldn't pin these to a floor. Pick a floor — the pin will drop in the middle of that map so you can drag it into position.</p>`;
+    const g = document.createElement('div'); g.className = 'traygrid';
+    if(!list.length) tray.innerHTML += '<p><b>Nothing here — every photo is on a map. 🎉</b></p>';
+    list.forEach(p => {
+      const c = document.createElement('div'); c.className = 'traycard';
+      c.innerHTML = `<img src="thumbs/${p.file}.jpg" loading="lazy"><div class="t">${p.file.replace('IMG_','#')} · ${p.title}</div>
+        <div>${p.desc}</div><div style="color:var(--accent2);font-weight:600;margin-top:4px">${rng(p.lo,p.hi)}</div>`;
+      const sel = document.createElement('select');
+      sel.innerHTML = '<option value="">Send to floor…</option>' + D.floors.map(f=>`<option value="${f.id}">${f.label}</option>`).join('');
+      sel.onchange = () => {
+        if(!sel.value) return;
+        setOv(p.file, {floor: sel.value, x:0.5, y:0.5});
+        curFloor = sel.value; selected = p.file; render();
+        toast(`${p.file} dropped at center of ${floorDef(sel.value).label} — drag it into place`);
+      };
+      c.querySelector('img').onclick = () => openModal(p.file);
+      c.appendChild(sel); g.appendChild(c);
+    });
+    tray.appendChild(g);
+  }
+
+  // ---------- sidebar ----------
+  function currentList(){
+    const q = $('#q').value.trim().toLowerCase();
+    const fr = $('#f-room').value, fc = $('#f-cat').value;
+    return D.photos.filter(p => {
+      const e = eff(p);
+      if(e.floor !== curFloor) return false;
+      if(fr && e.room !== fr) return false;
+      if(fc && p.cat !== fc) return false;
+      if(q){
+        const hay = (p.title+' '+p.desc+' '+e.room+' '+p.cat+' '+p.items.map(i=>i.name).join(' ')).toLowerCase();
+        if(!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }
+  function drawFilters(){
+    const rooms = [...new Set(D.photos.filter(p=>eff(p).floor===curFloor).map(p=>eff(p).room))].sort();
+    $('#f-room').innerHTML = '<option value="">All rooms</option>' + rooms.map(r=>`<option>${r}</option>`).join('');
+    const cats = [...new Set(D.photos.map(p=>p.cat))].sort();
+    $('#f-cat').innerHTML = '<option value="">All categories</option>' + cats.map(c=>`<option>${c}</option>`).join('');
+  }
+  function drawList(){
+    const el = $('#plist'); el.innerHTML = '';
+    const list = currentList();
+    list.forEach(p => {
+      const e = eff(p);
+      const cc = confClass(p);
+      const c = document.createElement('div');
+      c.className = 'card' + (selected===p.file?' selected':'');
+      c.innerHTML = `<img src="thumbs/${p.file}.jpg" loading="lazy">
+        <div style="min-width:0"><div class="t">${p.file.replace('IMG_','#')} ${p.title}<span class="badge b-${cc}">${confLabel[cc]}</span></div>
+        <div class="m">${e.room}${e.note?' · 📝':''} · ${p.cat}</div>
+        <div class="v">${rng(p.lo,p.hi)}</div></div>`;
+      c.onclick = () => { selected = p.file; centerOn(p); render(); openModal(p.file); };
+      el.appendChild(c);
+    });
+    // floor summary
+    const all = D.photos.filter(p => eff(p).floor === curFloor);
+    const lo = all.reduce((s,p)=>s+p.lo,0), hi = all.reduce((s,p)=>s+p.hi,0);
+    $('#floorsum').textContent = curFloor==='unknown'
+      ? `${all.length} unplaced photos · est. ${rng(lo,hi)}`
+      : `${all.length} photos on this floor (${list.length} shown) · est. contents ${rng(lo,hi)}`;
+  }
+  function centerOn(p){
+    if(curFloor === 'unknown') return;
+    const e = eff(p), f = floorDef(curFloor);
+    panX = mapwrap.clientWidth/2 - e.x*f.w*scale;
+    panY = mapwrap.clientHeight/2 - e.y*f.h*scale;
+    applyView();
+  }
+
+  // ---------- modal ----------
+  let modalFile = null;
+  function orderIdx(f){ return D.photos.findIndex(p=>p.file===f); }
+  function openModal(file){
+    modalFile = file; selected = file;
+    const p = D.photos[orderIdx(file)]; const e = eff(p);
+    $('#mphoto').src = 'mid/' + p.file + '.jpg';
+    const cc = confClass(p);
+    const roomOpts = fid => Object.keys((D.rooms[fid]||{})).map(r=>`<option ${r===e.room?'selected':''}>${r}</option>`).join('');
+    $('#minfo').innerHTML = `
+      <h2>${p.title}</h2>
+      <div class="file">${p.file} · taken ${p.t} · <a href="${encodeURI('../899 VP - JEFF - Insurance Photos/' + p.file + '.png')}" target="_blank">open original</a></div>
+      <div class="desc">${p.desc}</div>
+      ${p.damage ? `<div class="damage">⚠ ${p.damage}</div>` : ''}
+      <div class="kv">
+        <b>Location</b><span>${e.floor==='unknown'?'—':floorDef(e.floor).label} · ${e.room} <span class="badge b-${cc}" style="margin-left:4px">${confLabel[cc]}</span></span>
+        <b>Category</b><span>${p.cat}</span>
+        <b>Est. value</b><span style="color:var(--accent2);font-weight:600">${rng(p.lo,p.hi)}</span>
+      </div>
+      ${p.cues ? `<div class="cues">🧭 Location cues: ${p.cues}</div>` : ''}
+      ${p.items.length ? `<table><tr><th>Item</th><th>Qty</th><th>Est. value</th></tr>
+        ${p.items.map(i=>`<tr><td>${i.name}${i.note?` <span style="color:var(--muted)">(${i.note})</span>`:''}</td><td>${i.qty}</td><td>${rng(i.lo,i.hi)}</td></tr>`).join('')}</table>` : ''}
+      <div class="row">
+        <b style="font-size:12.5px;color:var(--muted)">Move to:</b>
+        <select id="m-floor">${D.floors.map(f=>`<option value="${f.id}" ${f.id===e.floor?'selected':''}>${f.label}</option>`).join('')}<option value="unknown" ${e.floor==='unknown'?'selected':''}>Unplaced</option></select>
+        <select id="m-room">${roomOpts(e.floor)}</select>
+      </div>
+      <div class="row">
+        <button class="btn ${e.confirmed?'confirm-on':''}" id="m-confirm">${e.confirmed?'✓ Location confirmed':'Mark location confirmed'}</button>
+        <button class="btn" id="m-goto">Show on map</button>
+      </div>
+      <textarea id="m-note" placeholder="Notes for the rebuild (e.g. 'this mirror hung over the fireplace')">${e.note}</textarea>
+      <div class="row" style="margin-top:6px"><button class="btn primary" id="m-savenote">Save note</button></div>`;
+    $('#m-floor').onchange = ev => {
+      const nf = ev.target.value;
+      const patch = {floor: nf};
+      if(nf !== 'unknown'){
+        const rooms = Object.keys(D.rooms[nf]||{});
+        const nr = rooms[0] || 'unknown';
+        const c = (D.rooms[nf]||{})[nr] || [0.5,0.5];
+        patch.room = nr; patch.x = c[0]; patch.y = c[1];
+        $('#m-room').innerHTML = roomOpts(nf);
+      }
+      setOv(p.file, patch); drawTabs(); if(nf===curFloor||e.floor===curFloor) { drawMap(); drawList(); }
+      openModal(file);
+    };
+    $('#m-room').onchange = ev => {
+      const nr = ev.target.value;
+      const c = (D.rooms[eff(p).floor]||{})[nr];
+      const patch = {room:nr};
+      if(c){ patch.x = c[0]+ (Math.random()*0.02-0.01); patch.y = c[1]+(Math.random()*0.02-0.01); }
+      setOv(p.file, patch); drawMap(); drawList(); openModal(file);
+    };
+    $('#m-confirm').onclick = () => { setOv(p.file, {confirmed: !eff(p).confirmed}); drawMap(); drawList(); openModal(file); };
+    $('#m-goto').onclick = () => { closeModal(); const ef=eff(p); if(ef.floor!=='unknown'){ curFloor=ef.floor; render(); centerOn(p);} };
+    $('#m-savenote').onclick = () => { setOv(p.file, {note: $('#m-note').value}); toast('Note saved'); drawList(); };
+    $('#modal').classList.add('open');
+    drawList(); drawMap();
+  }
+  function closeModal(){ $('#modal').classList.remove('open'); modalFile = null; }
+  function nav(d){
+    if(!modalFile) return;
+    let i = orderIdx(modalFile) + d;
+    if(i < 0) i = D.photos.length-1; if(i >= D.photos.length) i = 0;
+    openModal(D.photos[i].file);
+  }
+  $('#mclose').onclick = closeModal;
+  $('#mnav-prev').onclick = () => nav(-1);
+  $('#mnav-next').onclick = () => nav(1);
+  $('#modal').addEventListener('click', ev => { if(ev.target === $('#modal')) closeModal(); });
+  $('#mphoto').addEventListener('click', () => window.open(encodeURI('../899 VP - JEFF - Insurance Photos/' + modalFile + '.png'), '_blank'));
+  document.addEventListener('keydown', ev => {
+    if(!$('#modal').classList.contains('open')) return;
+    if(ev.key === 'Escape') closeModal();
+    if(ev.key === 'ArrowLeft') nav(-1);
+    if(ev.key === 'ArrowRight') nav(1);
+  });
+
+  // ---------- header actions ----------
+  function refreshStats(){
+    $('#st-count').textContent = D.photos.length;
+    const lo = D.photos.reduce((s,p)=>s+p.lo,0), hi = D.photos.reduce((s,p)=>s+p.hi,0);
+    $('#st-value').textContent = fmt$( (lo+hi)/2 );
+    $('#st-value').title = rng(lo,hi);
+    const conf = D.photos.filter(p=>eff(p).confirmed).length;
+    $('#st-conf').textContent = conf + ' / ' + D.photos.length;
+  }
+  $('#btn-export').onclick = () => {
+    const out = { claim: D.claim, exported_note: 'photo placements + notes', overrides,
+      resolved: D.photos.map(p => Object.assign({file:p.file, title:p.title, value_low:p.lo, value_high:p.hi}, eff(p))) };
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(out,null,1)], {type:'application/json'}));
+    a.download = 'photo_placements_' + D.claim + '.json'; a.click();
+    toast('Placements exported');
+  };
+  $('#btn-import').onclick = () => $('#importfile').click();
+  $('#importfile').onchange = ev => {
+    const f = ev.target.files[0]; if(!f) return;
+    const r = new FileReader();
+    r.onload = () => {
+      try{
+        const j = JSON.parse(r.result);
+        if(j.overrides){ overrides = j.overrides; saveLS(); render(); toast('Placements imported'); }
+        else toast('Not a placements file');
+      }catch(e){ toast('Could not read that file'); }
+    };
+    r.readAsText(f);
+  };
+  $('#btn-csv').onclick = () => {
+    const esc = s => '"' + String(s==null?'':s).replace(/"/g,'""') + '"';
+    let rows = [['file','time','floor','room','location_status','category','title','description','items','est_value_low','est_value_high','damage','note'].join(',')];
+    D.photos.forEach(p => { const e = eff(p);
+      rows.push([p.file,p.t,e.floor,e.room,e.confirmed?'confirmed':confLabel[confClass(p)],p.cat,esc(p.title),esc(p.desc),
+        esc(p.items.map(i=>`${i.qty}x ${i.name}`).join('; ')),p.lo,p.hi,esc(p.damage||''),esc(e.note)].join(','));
+    });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob(['\uFEFF' + rows.join('\r\n')], {type:'text/csv'}));
+    a.download = 'photo_inventory_' + D.claim + '.csv'; a.click();
+    toast('Inventory CSV exported');
+  };
+  $('#btn-reset').onclick = () => {
+    if(confirm('Discard ALL your manual placements, confirmations and notes, and go back to the AI suggestions?')){
+      overrides = {}; saveLS(); render(); toast('Reset to AI suggestions');
+    }
+  };
+
+  let toastTimer;
+  function toast(msg){
+    const t = $('#toast'); t.textContent = msg; t.style.display = 'block';
+    clearTimeout(toastTimer); toastTimer = setTimeout(()=> t.style.display='none', 2600);
+  }
+
+  $('#q').oninput = drawList;
+  $('#f-room').onchange = drawList;
+  $('#f-cat').onchange = drawList;
+
+  function render(){ drawTabs(); drawMap(); drawFilters(); drawList(); refreshStats(); }
+  planimg.onload = fitMap;
+  render();
+})();
+</script>
+</body>
+</html>
