@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>899 Virginia Park — Pack-Out Walkthrough Replay</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --panel:#ffffff; --ink:#1a2332; --muted:#66707f;
+    --line:#dde1e8; --accent:#1c5fba; --accent2:#0d7a4f;
+    --hi:#0d7a4f; --mid:#b96a00; --lo:#b3261e; --user:#1c5fba;
+    --shadow:0 1px 3px rgba(20,30,50,.12), 0 4px 14px rgba(20,30,50,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font:14px/1.45 "Segoe UI",system-ui,sans-serif;color:var(--ink);background:var(--bg);display:flex;flex-direction:column;overflow:hidden}
+
+  header{background:#12213b;color:#fff;padding:10px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  header h1{font-size:17px;margin:0;font-weight:600;letter-spacing:.2px}
+  header .sub{font-size:12px;opacity:.75}
+  header .spacer{flex:1}
+  header a.navlink{color:#9fc1f5;font-size:12.5px;text-decoration:none;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:5px 11px}
+  header a.navlink:hover{background:rgba(255,255,255,.12)}
+  .statchip{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:4px 12px;font-size:11.5px;text-align:center;min-width:74px}
+  .statchip b{display:block;font-size:15px;font-variant-numeric:tabular-nums}
+
+  main{flex:1;display:flex;min-height:0;background:var(--panel);border-top:1px solid var(--line)}
+
+  /* ---- map ---- */
+  #mapcol{flex:1;display:flex;flex-direction:column;min-width:0}
+  #floortabs{display:flex;gap:6px;padding:10px 14px 0;background:var(--bg);align-items:center}
+  .ftab{border:1px solid var(--line);border-bottom:none;background:#e9ecf1;border-radius:10px 10px 0 0;padding:7px 14px;cursor:pointer;font-size:13px;font-weight:600;color:#3c4657}
+  .ftab.active{background:var(--panel);color:var(--ink)}
+  .ftab .n{background:#cbd3de;border-radius:10px;padding:0 7px;font-size:11px;margin-left:6px}
+  .ftab.active .n{background:var(--accent);color:#fff}
+  #followtag{margin-left:auto;font-size:11.5px;color:var(--muted);padding-right:4px}
+  #followtag button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:3px 10px;font-size:11.5px;cursor:pointer}
+  #followtag button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  #mapwrap{flex:1;position:relative;overflow:auto;background:#eef0f4;padding:12px}
+  #plane{position:relative;margin:0 auto;max-width:1150px}
+  #plane img.plan{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none;border:1px solid var(--line);border-radius:8px;background:#fff}
+  #trailsvg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  #trailsvg polyline{fill:none;stroke:var(--accent);stroke-width:5;stroke-linejoin:round;stroke-linecap:round;opacity:.55}
+  #trailsvg polyline.done{stroke:#8fb3e8;stroke-width:4;opacity:.45}
+
+  .spin{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50% 50% 50% 4px;
+       display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:700;color:#fff;
+       border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45);background:var(--accent2);
+       opacity:0;transform:scale(.4);transition:opacity .25s,transform .25s;z-index:5;cursor:pointer}
+  .spin.vis{opacity:1;transform:scale(1)}
+  .spin.cur{background:#ffd23f;color:#1a2332;z-index:30;transform:scale(1.3)}
+  .spin .tip{display:none;position:absolute;bottom:26px;left:50%;transform:translateX(-50%);background:#12213b;color:#fff;
+            padding:6px 8px;border-radius:8px;white-space:nowrap;font-weight:400;font-size:11.5px;box-shadow:var(--shadow);pointer-events:none;z-index:99}
+  .spin .tip img{display:block;width:150px;height:auto;border-radius:5px;margin-bottom:4px}
+  .spin:hover .tip{display:block}
+  .spin:hover{z-index:90}
+
+  #walker{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;z-index:40;pointer-events:none;
+          background:radial-gradient(circle at 35% 30%, #ff8a80, #d7263d);border:3px solid #fff;box-shadow:0 0 0 4px rgba(215,38,61,.25),0 2px 8px rgba(0,0,0,.4);
+          display:flex;align-items:center;justify-content:center;font-size:15px}
+  #walker.flash::after{content:'';position:absolute;inset:-14px;border-radius:50%;background:rgba(255,255,255,.9);animation:fl .35s ease-out}
+  @keyframes fl{from{opacity:1;transform:scale(.3)}to{opacity:0;transform:scale(1.6)}}
+  #floorbanner{position:absolute;top:14px;left:50%;transform:translateX(-50%);background:rgba(18,33,59,.92);color:#fff;border-radius:10px;
+    padding:8px 16px;font-size:13px;z-index:95;display:none;box-shadow:var(--shadow)}
+
+  /* ---- sidebar ---- */
+  #side{width:390px;border-left:1px solid var(--line);display:flex;flex-direction:column;min-height:0;background:var(--panel)}
+  #photocard{padding:12px 14px;border-bottom:1px solid var(--line)}
+  #photocard img{width:100%;border-radius:8px;display:block;background:#eef0f4;min-height:120px;object-fit:cover;max-height:230px}
+  #photocard .ttl{font-weight:600;font-size:13.5px;margin-top:8px}
+  #photocard .meta{font-size:12px;color:var(--muted);margin-top:2px;display:flex;gap:10px;flex-wrap:wrap}
+  #photocard .meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+  #seglist{flex:1;overflow:auto;padding:8px 10px}
+  #seglist h3{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:6px 4px}
+  .seg{display:flex;gap:8px;align-items:center;padding:6px 8px;border-radius:8px;cursor:pointer;font-size:12.5px}
+  .seg:hover{background:#eef2f8}
+  .seg.cur{background:#e3edfb;outline:1px solid #b9d2f3}
+  .seg .idx{width:20px;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  .seg .rm{flex:1;font-weight:600}
+  .seg .rm small{display:block;font-weight:400;color:var(--muted)}
+  .seg .dur{font-variant-numeric:tabular-nums;color:var(--muted)}
+  .seg .bar{height:5px;border-radius:3px;background:var(--accent);opacity:.75}
+
+  /* ---- transport ---- */
+  #transport{border-top:1px solid var(--line);background:var(--panel);padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  #transport button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 14px;font-size:13px;cursor:pointer}
+  #transport button.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;min-width:86px}
+  #scrub{flex:1;min-width:200px;accent-color:var(--accent)}
+  #clock{font-variant-numeric:tabular-nums;font-weight:700;font-size:16px;min-width:132px}
+  #clock small{font-weight:400;color:var(--muted)}
+  .spd{display:flex;gap:4px}
+  #transport .spd button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  #ovbadge{font-size:11.5px;color:var(--muted)}
+  #ovbadge b{color:var(--accent2)}
+  @media (max-width:900px){ #side{display:none} }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Pack-Out Walkthrough Replay</h1>
+    <div class="sub">899 Virginia Park St · Claim 061004792 · shot 3/15/2026, 1:15–1:26 PM</div>
+  </div>
+  <div class="spacer"></div>
+  <div class="statchip"><b id="st-photos">0/100</b>photos</div>
+  <div class="statchip"><b id="st-room">—</b>current room</div>
+  <div class="statchip"><b id="st-pace">—</b>avg sec/photo</div>
+  <a class="navlink" href="../portal/index.html">📍 Photo Map</a>
+  <a class="navlink" href="../costs/index.html">💰 Cost Map</a>
+</header>
+
+<main>
+  <div id="mapcol">
+    <div id="floortabs">
+      <span id="followtag"><button id="followbtn" class="on">Auto-follow: ON</button></span>
+    </div>
+    <div id="mapwrap">
+      <div id="floorbanner"></div>
+      <div id="plane">
+        <img class="plan" id="planimg" alt="floor plan">
+        <svg id="trailsvg" preserveAspectRatio="none"></svg>
+        <div id="pins"></div>
+        <div id="walker" style="display:none">📷</div>
+      </div>
+    </div>
+  </div>
+  <div id="side">
+    <div id="photocard">
+      <img id="pc-img" alt="">
+      <div class="ttl" id="pc-title">Press Play to start the replay</div>
+      <div class="meta">
+        <span>🕐 <b id="pc-time">—</b></span>
+        <span>📍 <b id="pc-room">—</b></span>
+        <span>⏱ <b id="pc-gap">—</b> since prev</span>
+      </div>
+    </div>
+    <div id="seglist"><h3>Room sequence</h3></div>
+  </div>
+</main>
+
+<div id="transport">
+  <button class="primary" id="playbtn">▶ Play</button>
+  <button id="restartbtn">⟲ Restart</button>
+  <div id="clock">13:15:53 <small id="elapsed">+0:00</small></div>
+  <input type="range" id="scrub" min="0" max="589" step="0.1" value="0">
+  <div class="spd">
+    <button data-s="1">1×</button>
+    <button data-s="5">5×</button>
+    <button data-s="15" class="on">15×</button>
+    <button data-s="30">30×</button>
+  </div>
+  <span id="ovbadge"></span>
+</div>
+
+<script>
+(function(){
+  const onPages = location.hostname.endsWith('github.io');
+  const BASE = onPages ? '..' : '../portal';
+  if(onPages){
+    document.querySelector('a.navlink[href="../portal/index.html"]').href = '../index.html';
+  }
+  const s = document.createElement('script');
+  s.src = BASE + '/data.js';
+  s.onload = init;
+  s.onerror = () => { document.body.innerHTML = '<p style="padding:40px">Could not load the photo map data (data.js).</p>'; };
+  document.head.appendChild(s);
+
+  function init(){
+  const D = window.PORTAL_DATA;
+  if(!D){ document.body.innerHTML = '<p style="padding:40px">data.js loaded but PORTAL_DATA missing.</p>'; return; }
+
+  // ---- Jeff's saved pin corrections (same key + origin as the Photo Map) ----
+  const LSKEY = 'jeffPortal.v1.' + D.claim;
+  let overrides = {};
+  try{ overrides = JSON.parse(localStorage.getItem(LSKEY) || '{}'); }catch(e){}
+  const nOv = Object.keys(overrides).length;
+  document.getElementById('ovbadge').innerHTML = nOv
+    ? 'Using <b>' + nOv + '</b> pin correction' + (nOv>1?'s':'') + ' saved from the Photo Map'
+    : 'No saved pin corrections in this browser — using AI-estimated positions';
+  const eff = p => {
+    const o = overrides[p.file] || {};
+    return {
+      floor: o.floor !== undefined ? o.floor : p.floor,
+      room:  o.room  !== undefined ? o.room  : p.room,
+      x: o.x !== undefined ? o.x : p.x,
+      y: o.y !== undefined ? o.y : p.y
+    };
+  };
+
+  // ---- timeline ----
+  const secOf = t => { const [h,m,ss] = t.split(':').map(Number); return h*3600+m*60+ss; };
+  const TL = D.photos.slice().sort((a,b)=> secOf(a.t)-secOf(b.t) || (a.file<b.file?-1:1))
+    .map(p => ({ p, e: eff(p), at: 0 }));
+  const T0 = secOf(TL[0].p.t);
+  TL.forEach(o => o.at = secOf(o.p.t) - T0);
+  const TOTAL = TL[TL.length-1].at;
+  document.getElementById('scrub').max = TOTAL;
+
+  const floorDef = id => D.floors.find(f => f.id === id);
+  const floorLabel = id => { const f = floorDef(id); return f ? f.label : 'Unplaced'; };
+
+  // ---- room segments (recomputed from effective data, so Jeff's tags count) ----
+  const segs = [];
+  TL.forEach((o,i) => {
+    const key = o.e.floor + '|' + o.e.room;
+    if(!segs.length || segs[segs.length-1].key !== key)
+      segs.push({key, floor:o.e.floor, room:o.e.room, start:o.at, i0:i, n:0});
+    const sg = segs[segs.length-1];
+    sg.n++; sg.end = o.at; sg.i1 = i;
+  });
+  segs.forEach((sg,i) => sg.dur = (i+1<segs.length ? segs[i+1].start : sg.end) - sg.start);
+  const maxDur = Math.max(...segs.map(s=>s.dur), 1);
+
+  const segbox = document.getElementById('seglist');
+  segs.forEach((sg,i) => {
+    const el = document.createElement('div');
+    el.className = 'seg'; el.id = 'seg'+i;
+    el.innerHTML = '<span class="idx">'+(i+1)+'</span>'
+      + '<span class="rm">'+sg.room+'<small>'+floorLabel(sg.floor)+' · '+sg.n+' photo'+(sg.n>1?'s':'')+'</small></span>'
+      + '<span class="dur">'+sg.dur+'s</span>'
+      + '<span class="bar" style="width:'+Math.max(4, 52*sg.dur/maxDur)+'px"></span>';
+    el.onclick = () => { seek(sg.start); };
+    segbox.appendChild(el);
+  });
+
+  // ---- floor tabs ----
+  const tabsBox = document.getElementById('floortabs');
+  const followBtn = document.getElementById('followbtn');
+  let follow = true;
+  followBtn.onclick = () => { follow = !follow; followBtn.className = follow?'on':''; followBtn.textContent = 'Auto-follow: ' + (follow?'ON':'OFF'); if(follow) showFloor(curFloorOfSim()); };
+  const usedFloors = D.floors.filter(f => TL.some(o => o.e.floor === f.id));
+  let viewFloor = usedFloors[0].id;
+  usedFloors.forEach(f => {
+    const b = document.createElement('div');
+    b.className = 'ftab'; b.id = 'ftab'+f.id;
+    b.innerHTML = f.label + '<span class="n">' + TL.filter(o=>o.e.floor===f.id).length + '</span>';
+    b.onclick = () => { follow = false; followBtn.className=''; followBtn.textContent='Auto-follow: OFF'; showFloor(f.id); };
+    tabsBox.insertBefore(b, document.getElementById('followtag'));
+  });
+
+  const planimg = document.getElementById('planimg');
+  const trailsvg = document.getElementById('trailsvg');
+  const pinsBox = document.getElementById('pins');
+  const walker = document.getElementById('walker');
+
+  function showFloor(fid){
+    if(viewFloor === fid && planimg.src) { redraw(); return; }
+    viewFloor = fid;
+    const f = floorDef(fid);
+    planimg.src = BASE + '/' + f.img;
+    trailsvg.setAttribute('viewBox', '0 0 ' + f.w + ' ' + f.h);
+    usedFloors.forEach(u => document.getElementById('ftab'+u.id).className = 'ftab' + (u.id===fid?' active':''));
+    buildPins();
+    redraw();
+  }
+
+  function buildPins(){
+    pinsBox.innerHTML = '';
+    TL.forEach((o,i) => {
+      if(o.e.floor !== viewFloor) return;
+      const el = document.createElement('div');
+      el.className = 'spin'; el.id = 'pin'+i;
+      el.style.left = (o.e.x*100)+'%'; el.style.top = (o.e.y*100)+'%';
+      el.innerHTML = '<span>'+(i+1)+'</span><div class="tip"><img src="'+BASE+'/thumbs/'+o.p.file+'.jpg" loading="lazy"><b>'+o.p.title+'</b><br>'+o.p.t+' · '+o.e.room+'</div>';
+      el.onclick = () => seek(o.at);
+      pinsBox.appendChild(el);
+    });
+  }
+
+  // ---- playback ----
+  let simT = 0, playing = false, speed = 15, lastFrame = null, lastIdx = -1;
+  const playbtn = document.getElementById('playbtn');
+  const scrub = document.getElementById('scrub');
+  const fmt = s => { s=Math.max(0,Math.round(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); };
+  const clockStr = s => { const abs = T0 + s; const h=Math.floor(abs/3600), m=Math.floor(abs%3600/60), ss=Math.floor(abs%60); return h+':'+String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0'); };
+
+  function idxAt(t){ let i=-1; for(const [k,o] of TL.entries()){ if(o.at<=t) i=k; else break; } return i; }
+  function curFloorOfSim(){ const i=Math.max(0, idxAt(simT)); return TL[i].e.floor; }
+
+  function walkerPos(t){
+    const i = idxAt(t);
+    if(i < 0) return {fl: TL[0].e.floor, x: TL[0].e.x, y: TL[0].e.y};
+    const a = TL[i], b = TL[i+1];
+    if(!b || b.e.floor !== a.e.floor || b.at === a.at) return {fl:a.e.floor, x:a.e.x, y:a.e.y};
+    const k = Math.min(1, (t - a.at)/(b.at - a.at));
+    // ease in-out, and linger briefly at each stop
+    const kk = k<0.15 ? 0 : (k-0.15)/0.85;
+    const e2 = kk<.5 ? 2*kk*kk : 1-Math.pow(-2*kk+2,2)/2;
+    return {fl:a.e.floor, x:a.e.x + (b.e.x-a.e.x)*e2, y:a.e.y + (b.e.y-a.e.y)*e2};
+  }
+
+  const banner = document.getElementById('floorbanner');
+  let bannerTimer = null;
+  function flashBanner(txt){
+    banner.textContent = txt; banner.style.display='block';
+    clearTimeout(bannerTimer); bannerTimer = setTimeout(()=>banner.style.display='none', 1600/Math.sqrt(speed)* (speed>1?1:1));
+  }
+
+  function redraw(){
+    const i = idxAt(simT);
+    // pins visited
+    TL.forEach((o,k) => {
+      const el = document.getElementById('pin'+k);
+      if(!el) return;
+      el.classList.toggle('vis', k <= i);
+      el.classList.toggle('cur', k === i);
+    });
+    // trail on viewed floor
+    const done = simT >= TOTAL;
+    const f = floorDef(viewFloor);
+    const pts = [];
+    TL.forEach((o,k) => { if(k<=i && o.e.floor===viewFloor) pts.push((o.e.x*f.w).toFixed(0)+','+(o.e.y*f.h).toFixed(0)); });
+    const wp = walkerPos(simT);
+    if(wp.fl === viewFloor && !done) pts.push((wp.x*f.w).toFixed(0)+','+(wp.y*f.h).toFixed(0));
+    trailsvg.innerHTML = pts.length>1 ? '<polyline points="'+pts.join(' ')+'"/>' : '';
+    // walker
+    if(wp.fl === viewFloor){
+      walker.style.display='flex';
+      walker.style.left = (wp.x*100)+'%'; walker.style.top = (wp.y*100)+'%';
+    } else walker.style.display='none';
+    // header stats + card
+    document.getElementById('st-photos').textContent = (i+1>0?i+1:0) + '/' + TL.length;
+    document.getElementById('clock').firstChild.textContent = clockStr(Math.min(simT,TOTAL)) + ' ';
+    document.getElementById('elapsed').textContent = '+' + fmt(Math.min(simT,TOTAL));
+    scrub.value = Math.min(simT, TOTAL);
+    const segIdx = segs.findIndex((sg,k)=> simT >= sg.start && (k+1>=segs.length || simT < segs[k+1].start));
+    segs.forEach((sg,k)=>{ const el=document.getElementById('seg'+k); if(el) el.classList.toggle('cur', k===segIdx); });
+    if(segIdx>=0){
+      document.getElementById('st-room').textContent = segs[segIdx].room;
+      const cur = document.getElementById('seg'+segIdx);
+      if(cur && playing) cur.scrollIntoView({block:'nearest'});
+    }
+    document.getElementById('st-pace').textContent = i>0 ? (TL[i].at/(i)).toFixed(1) : '—';
+    if(i !== lastIdx && i >= 0){
+      const o = TL[i];
+      document.getElementById('pc-img').src = BASE + '/mid/' + o.p.file + '.jpg';
+      document.getElementById('pc-title').textContent = o.p.file + ' — ' + o.p.title;
+      document.getElementById('pc-time').textContent = o.p.t;
+      document.getElementById('pc-room').textContent = o.e.room + ' · ' + floorLabel(o.e.floor);
+      document.getElementById('pc-gap').textContent = i>0 ? (o.at - TL[i-1].at) + 's' : '—';
+      walker.classList.remove('flash'); void walker.offsetWidth; walker.classList.add('flash');
+      if(lastIdx >= 0 && TL[lastIdx].e.floor !== o.e.floor)
+        flashBanner('➜ ' + floorLabel(o.e.floor));
+      if(follow && o.e.floor !== viewFloor) showFloor(o.e.floor);
+      lastIdx = i;
+    }
+    if(done && playing){ setPlay(false); flashBanner('Walkthrough complete — 100 photos in 9m 49s'); }
+  }
+
+  function tick(ts){
+    if(!playing) return;
+    if(lastFrame !== null) simT += (ts-lastFrame)/1000 * speed;
+    lastFrame = ts;
+    if(simT > TOTAL + 1) simT = TOTAL + 1;
+    redraw();
+    if(playing) requestAnimationFrame(tick);
+  }
+  function setPlay(v){
+    playing = v; lastFrame = null;
+    playbtn.textContent = v ? '⏸ Pause' : '▶ Play';
+    if(v){ if(simT >= TOTAL) { simT = 0; lastIdx = -1; } requestAnimationFrame(tick); }
+  }
+  playbtn.onclick = () => setPlay(!playing);
+  document.getElementById('restartbtn').onclick = () => { simT = 0; lastIdx = -1; if(follow) showFloor(TL[0].e.floor); redraw(); };
+  scrub.oninput = () => seek(parseFloat(scrub.value));
+  function seek(t){ simT = t; lastIdx = -2; if(follow) showFloor(curFloorOfSim()); redraw(); }
+  document.querySelectorAll('.spd button').forEach(b => b.onclick = () => {
+    speed = +b.dataset.s;
+    document.querySelectorAll('.spd button').forEach(x=>x.classList.toggle('on', x===b));
+  });
+
+  showFloor(TL[0].e.floor);
+  redraw();
+  }
+})();
+</script>
+</body>
+</html>
