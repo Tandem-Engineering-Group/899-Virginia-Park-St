@@ -82,6 +82,21 @@
   .seg .dur{font-variant-numeric:tabular-nums;color:var(--muted)}
   .seg .bar{height:5px;border-radius:3px;background:var(--accent);opacity:.75}
 
+  /* ---- totals + notes ---- */
+  #totals{padding:4px 4px 2px}
+  .trow{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:3px 8px}
+  .trow .lbl{width:120px;font-weight:600}
+  .trow .tbar{height:9px;border-radius:5px;background:var(--accent2);opacity:.8}
+  .trow .val{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .bigstat{display:flex;gap:8px;padding:2px 8px 8px}
+  .bigstat div{flex:1;background:#eef2f8;border-radius:9px;padding:7px 10px;text-align:center}
+  .bigstat b{display:block;font-size:15px;font-variant-numeric:tabular-nums}
+  .bigstat span{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  #notes{padding:0 4px 14px}
+  .note{display:flex;gap:8px;font-size:12.5px;padding:6px 8px;line-height:1.5}
+  .note .ic{flex:none}
+  .note b{color:var(--ink)}
+
   /* ---- transport ---- */
   #transport{border-top:1px solid var(--line);background:var(--panel);padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   #transport button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 14px;font-size:13px;cursor:pointer}
@@ -135,7 +150,14 @@
         <span>⏱ <b id="pc-gap">—</b> since prev</span>
       </div>
     </div>
-    <div id="seglist"><h3>Room sequence</h3></div>
+    <div id="seglist">
+      <h3>Time totals</h3>
+      <div class="bigstat" id="bigstat"></div>
+      <div id="totals"></div>
+      <h3>Observations</h3>
+      <div id="notes"></div>
+      <h3>Room sequence</h3>
+    </div>
   </div>
 </main>
 
@@ -223,6 +245,59 @@
     el.onclick = () => { seek(sg.start); };
     segbox.appendChild(el);
   });
+
+  // ---- time totals & observations (computed live, so saved pin corrections update them) ----
+  const fmtMS = s => Math.floor(s/60)+'m '+String(Math.round(s%60)).padStart(2,'0')+'s';
+  const floorTot = {};
+  segs.forEach(sg => floorTot[sg.floor] = (floorTot[sg.floor]||0) + sg.dur);
+  const roomTot = {};
+  segs.forEach(sg => {
+    const k = sg.floor+'|'+sg.room;
+    roomTot[k] = roomTot[k] || {floor:sg.floor, room:sg.room, dur:0, n:0, visits:0};
+    roomTot[k].dur += sg.dur; roomTot[k].n += sg.n; roomTot[k].visits++;
+  });
+  const roomsByTime = Object.values(roomTot).sort((a,b)=>b.dur-a.dur);
+
+  document.getElementById('bigstat').innerHTML =
+      '<div><b>'+fmtMS(TOTAL)+'</b><span>total shoot</span></div>'
+    + '<div><b>'+TL.length+'</b><span>photos</span></div>'
+    + '<div><b>'+(TOTAL/(TL.length-1)).toFixed(1)+'s</b><span>per photo</span></div>';
+
+  const totBox = document.getElementById('totals');
+  const maxFloor = Math.max(...Object.values(floorTot));
+  D.floors.forEach(f => {
+    if(!(f.id in floorTot)) return;
+    totBox.innerHTML += '<div class="trow"><span class="lbl">'+f.label+'</span>'
+      + '<span class="tbar" style="width:'+Math.max(6,110*floorTot[f.id]/maxFloor)+'px"></span>'
+      + '<span class="val">'+fmtMS(floorTot[f.id])+'</span></div>';
+  });
+  const maxRoom = roomsByTime[0].dur;
+  roomsByTime.forEach(r => {
+    totBox.innerHTML += '<div class="trow"><span class="lbl" style="font-weight:400">'+r.room+' <small style="color:var(--muted)">'+floorLabel(r.floor).replace(' Floor','')+'</small></span>'
+      + '<span class="tbar" style="background:var(--accent);width:'+Math.max(4,110*r.dur/maxRoom)+'px"></span>'
+      + '<span class="val">'+r.dur+'s · '+r.n+'📷'+(r.visits>1?' · '+r.visits+' visits':'')+'</span></div>';
+  });
+
+  const notes = [];
+  const top = roomsByTime[0], second = roomsByTime[1];
+  notes.push(['📷','<b>The '+top.room+' got by far the most attention</b> — '+top.dur+' seconds and '+top.n+' photos'
+    + (top.visits>1 ? ' across '+top.visits+' passes' : '')
+    + (second && top.dur >= 1.6*second.dur ? ', more than 1.5× any other room ('+second.room+' was next at '+second.dur+'s).' : '. '+second.room+' was next at '+second.dur+'s.')]);
+  const master = roomsByTime.find(r => /master bedroom$/i.test(r.room));
+  notes.push(['⏱','<b>The pace is very fast everywhere else</b> — most bedrooms and closets got 15–35 seconds each.'
+    + (master ? ' The Master Bedroom, with all its contents, got <b>'+master.dur+' seconds</b> of camera time.' : '')
+    + ' That supports the argument that this was a rapid pack-out documentation sweep, not a considered inventory.']);
+  const unvisited = D.floors.filter(f => !TL.some(o => o.e.floor === f.id));
+  unvisited.forEach(f => notes.push(['🚫','<b>The '+f.label+' was never photographed</b> — any '+f.label.toLowerCase()+' contents are entirely undocumented in the carrier\'s pack-out set.']));
+  const gaps = TL.map((o,i)=> i ? {gap:o.at-TL[i-1].at, o} : null).filter(Boolean).sort((a,b)=>b.gap-a.gap);
+  if(gaps.length > 1)
+    notes.push(['⏸','<b>The two longest pauses</b> were '+gaps[0].gap+'s before '+gaps[0].o.p.file+' ('+gaps[0].o.p.t+', '+gaps[0].o.e.room+') and '+gaps[1].gap+'s before '+gaps[1].o.p.file+' ('+gaps[1].o.p.t+') — likely moving items or repositioning.']);
+  const nums = TL.map(o => parseInt(o.p.file.replace(/\D/g,''),10)).sort((a,b)=>a-b);
+  const missing = [];
+  for(let n = nums[0]; n <= nums[nums.length-1]; n++) if(!nums.includes(n)) missing.push('IMG_'+n);
+  if(missing.length)
+    notes.push(['🕳','<b>'+(missing.length===1?'One frame number is':missing.length+' frame numbers are')+' missing</b> from the camera sequence ('+missing.join(', ')+') — presumably deleted shot'+(missing.length>1?'s':'')+'.']);
+  document.getElementById('notes').innerHTML = notes.map(n => '<div class="note"><span class="ic">'+n[0]+'</span><span>'+n[1]+'</span></div>').join('');
 
   // ---- floor tabs ----
   const tabsBox = document.getElementById('floortabs');
