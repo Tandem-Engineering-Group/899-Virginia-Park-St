@@ -4,14 +4,16 @@ Working repository for Jeff Stamm's Liberty Mutual claim **061004792**
 (freeze event 02/26/2026 — boiler + radiators froze, water damage across 4 levels)
 at 899 Virginia Park St, Detroit MI 48202.
 
-## 📍 The two live sites
+## 📍 The three live sites
 
 | Site | Link | What it shows |
 |---|---|---|
 | **Photo Map** | **https://tandem-engineering-group.github.io/899-Virginia-Park-St/** | Every pack-out photo pinned on the floor plans — contents, room, approximate value |
 | **Rebuild Cost Map** | **https://tandem-engineering-group.github.io/899-Virginia-Park-St/costs/** | All 401 estimate line items mapped room by room, claim strategy, and the field checklist |
+| **Walkthrough Replay** | **https://tandem-engineering-group.github.io/899-Virginia-Park-St/walkthrough/** | Animated replay of the carrier's 9m49s pack-out shoot — path, timestamps, and time per room |
 
-Both also work offline from a local clone (`portal/index.html` and `costs/index.html`).
+All three also work offline from a local clone (`portal/index.html`, `costs/index.html`, `walkthrough/index.html`).
+The Walkthrough Replay automatically uses any pin corrections saved in the browser from the Photo Map.
 Every pack-out photo the insurance company took is pinned on the house floor plans with an
 AI-generated description, room guess, and approximate contents value. Pins are draggable —
 corrections save in the browser and can be exported/imported as JSON, or dumped to CSV.
