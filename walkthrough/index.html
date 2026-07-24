@@ -148,6 +148,7 @@
         <span>🕐 <b id="pc-time">—</b></span>
         <span>📍 <b id="pc-room">—</b></span>
         <span>⏱ <b id="pc-gap">—</b> since prev</span>
+        <span id="pc-cam-wrap" style="display:none">📸 <b id="pc-cam">—</b></span>
       </div>
     </div>
     <div id="seglist">
@@ -156,6 +157,8 @@
       <div id="totals"></div>
       <h3>Observations</h3>
       <div id="notes"></div>
+      <h3>Camera &amp; capture</h3>
+      <div id="camera"></div>
       <h3>Room sequence</h3>
     </div>
   </div>
@@ -184,7 +187,12 @@
   }
   const s = document.createElement('script');
   s.src = BASE + '/data.js';
-  s.onload = init;
+  s.onload = () => {
+    const s2 = document.createElement('script');
+    s2.src = 'exif.js';           // optional per-photo camera data, sits next to this page
+    s2.onload = init; s2.onerror = init;
+    document.head.appendChild(s2);
+  };
   s.onerror = () => { document.body.innerHTML = '<p style="padding:40px">Could not load the photo map data (data.js).</p>'; };
   document.head.appendChild(s);
 
@@ -294,10 +302,31 @@
     notes.push(['⏸','<b>The two longest pauses</b> were '+gaps[0].gap+'s before '+gaps[0].o.p.file+' ('+gaps[0].o.p.t+', '+gaps[0].o.e.room+') and '+gaps[1].gap+'s before '+gaps[1].o.p.file+' ('+gaps[1].o.p.t+') — likely moving items or repositioning.']);
   const nums = TL.map(o => parseInt(o.p.file.replace(/\D/g,''),10)).sort((a,b)=>a-b);
   const missing = [];
-  for(let n = nums[0]; n <= nums[nums.length-1]; n++) if(!nums.includes(n)) missing.push('IMG_'+n);
-  if(missing.length)
-    notes.push(['🕳','<b>'+(missing.length===1?'One frame number is':missing.length+' frame numbers are')+' missing</b> from the camera sequence ('+missing.join(', ')+') — presumably deleted shot'+(missing.length>1?'s':'')+'.']);
+  for(let n = nums[0]; n <= nums[nums.length-1]; n++) if(!nums.includes(n)) missing.push(n);
+  missing.forEach(n => {
+    const before = TL.filter(o => parseInt(o.p.file.replace(/\D/g,''),10) < n).pop();
+    const after  = TL.find(o => parseInt(o.p.file.replace(/\D/g,''),10) > n);
+    let win = '';
+    if(before && after)
+      win = ' It was taken in the '+(after.at-before.at)+'-second window between '+before.p.file+' ('+before.p.t+', '+before.e.room+') and '+after.p.file+' ('+after.p.t+', '+after.e.room+') on the '+floorLabel(after.e.floor)+', then removed before the set was produced.';
+    notes.push(['🗑','<b>A deleted shot: IMG_'+n+' is missing</b> from the camera\'s frame sequence.'+win+' What it showed — and why it was deleted — is unknown; the carrier could be asked to produce it.']);
+  });
   document.getElementById('notes').innerHTML = notes.map(n => '<div class="note"><span class="ic">'+n[0]+'</span><span>'+n[1]+'</span></div>').join('');
+
+  // ---- camera & capture (from EXIF of the original HEIC files) ----
+  const EX = window.WALK_EXIF || null;
+  const cam = [];
+  cam.push(['📱','<b>Every photo came from the same phone</b> — an Apple iPhone 16 Pro running iOS 26.3.1, per the EXIF data embedded in the original HEIC files. The capture timestamps in the files are what drive this replay, so the timeline runs on the camera\'s own clock.']);
+  if(EX){
+    const vals = TL.map(o => EX[o.p.file]).filter(Boolean);
+    const uw = vals.filter(v => v.lens === 'uw').length, main = vals.filter(v => v.lens === 'main').length;
+    const isos = vals.map(v => v.iso).filter(Number.isFinite).sort((a,b)=>a-b);
+    cam.push(['🔭','<b>'+uw+' of '+vals.length+' shots used the ultra-wide 0.5× lens</b> (2.22mm f/2.2); only '+main+' used the main 1× camera (6.765mm f/1.78). Ultra-wide captures a whole room per frame from close range — good for showing <i>where</i> things were, poor for showing <i>condition</i>: items come out small, noisy, and edge-distorted.']);
+    if(isos.length)
+      cam.push(['🌒','<b>Shot in the dark with no flash</b> — ISO ranged '+isos[0]+'–'+isos[isos.length-1]+' (median '+isos[Math.floor(isos.length/2)]+') with shutter speeds around 1/30s: consistent with a house without power or supplemental lighting after the freeze loss.']);
+  }
+  cam.push(['⚖️','<b>Why it matters:</b> an ultra-wide, high-ISO sweep at 5.9 seconds per photo documents item <i>locations</i>, not item <i>condition or value</i> — it should not be treated as a complete contents inventory.']);
+  document.getElementById('camera').innerHTML = cam.map(n => '<div class="note"><span class="ic">'+n[0]+'</span><span>'+n[1]+'</span></div>').join('');
 
   // ---- floor tabs ----
   const tabsBox = document.getElementById('floortabs');
@@ -414,6 +443,10 @@
       document.getElementById('pc-time').textContent = o.p.t;
       document.getElementById('pc-room').textContent = o.e.room + ' · ' + floorLabel(o.e.floor);
       document.getElementById('pc-gap').textContent = i>0 ? (o.at - TL[i-1].at) + 's' : '—';
+      const xd = window.WALK_EXIF && window.WALK_EXIF[o.p.file];
+      document.getElementById('pc-cam-wrap').style.display = xd ? '' : 'none';
+      if(xd) document.getElementById('pc-cam').textContent =
+        (xd.lens==='uw' ? '0.5× ultra-wide' : xd.lens==='main' ? '1× main' : '') + ' · ISO ' + xd.iso + ' · ' + xd.sh + 's';
       walker.classList.remove('flash'); void walker.offsetWidth; walker.classList.add('flash');
       if(lastIdx >= 0 && TL[lastIdx].e.floor !== o.e.floor)
         flashBanner('➜ ' + floorLabel(o.e.floor));
