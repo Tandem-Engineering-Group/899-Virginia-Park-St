@@ -1,0 +1,2278 @@
+{
+ "3": {
+  "extraction": {
+   "floor": "3",
+   "overall_wh": [
+    24.75,
+    33.917
+   ],
+   "exterior": [
+    [
+     0,
+     0
+    ],
+    [
+     16.667,
+     0
+    ],
+    [
+     16.667,
+     11.333
+    ],
+    [
+     10,
+     11.333
+    ],
+    [
+     10,
+     15
+    ],
+    [
+     24.75,
+     15
+    ],
+    [
+     24.75,
+     22.333
+    ],
+    [
+     16.667,
+     22.333
+    ],
+    [
+     16.667,
+     33.917
+    ],
+    [
+     0,
+     33.917
+    ]
+   ],
+   "rooms": [
+    {
+     "name": "Bathroom",
+     "poly": [
+      [
+       0.333,
+       22.333
+      ],
+      [
+       16.333,
+       22.333
+      ],
+      [
+       16.333,
+       33.583
+      ],
+      [
+       0.333,
+       33.583
+      ]
+     ]
+    },
+    {
+     "name": "Hallway",
+     "poly": [
+      [
+       0.333,
+       15.333
+      ],
+      [
+       14.25,
+       15.333
+      ],
+      [
+       14.25,
+       22
+      ],
+      [
+       0.333,
+       22
+      ]
+     ]
+    },
+    {
+     "name": "Bedroom",
+     "poly": [
+      [
+       0.333,
+       0.333
+      ],
+      [
+       16.333,
+       0.333
+      ],
+      [
+       16.333,
+       11
+      ],
+      [
+       9.667,
+       11
+      ],
+      [
+       9.667,
+       15
+      ],
+      [
+       0.333,
+       15
+      ]
+     ]
+    },
+    {
+     "name": "Stairs",
+     "poly": [
+      [
+       14.583,
+       15.333
+      ],
+      [
+       18.917,
+       15.333
+      ],
+      [
+       18.917,
+       18.583
+      ],
+      [
+       14.583,
+       18.583
+      ]
+     ]
+    },
+    {
+     "name": "Landing",
+     "poly": [
+      [
+       19.25,
+       15.333
+      ],
+      [
+       24.417,
+       15.333
+      ],
+      [
+       24.417,
+       18.583
+      ],
+      [
+       19.25,
+       18.583
+      ]
+     ]
+    },
+    {
+     "name": "Stairs 2",
+     "poly": [
+      [
+       14.583,
+       18.833
+      ],
+      [
+       18.917,
+       18.833
+      ],
+      [
+       18.917,
+       22
+      ],
+      [
+       14.583,
+       22
+      ]
+     ]
+    },
+    {
+     "name": "Landing 2",
+     "poly": [
+      [
+       19.25,
+       18.833
+      ],
+      [
+       24.417,
+       18.833
+      ],
+      [
+       24.417,
+       22
+      ],
+      [
+       19.25,
+       22
+      ]
+     ]
+    }
+   ],
+   "stairs": [
+    [
+     [
+      14.583,
+      15.333
+     ],
+     [
+      18.917,
+      15.333
+     ],
+     [
+      18.917,
+      18.583
+     ],
+     [
+      14.583,
+      18.583
+     ]
+    ],
+    [
+     [
+      19.25,
+      15.333
+     ],
+     [
+      24.417,
+      15.333
+     ],
+     [
+      24.417,
+      18.583
+     ],
+     [
+      19.25,
+      18.583
+     ]
+    ],
+    [
+     [
+      14.583,
+      18.833
+     ],
+     [
+      18.917,
+      18.833
+     ],
+     [
+      18.917,
+      22
+     ],
+     [
+      14.583,
+      22
+     ]
+    ],
+    [
+     [
+      19.25,
+      18.833
+     ],
+     [
+      24.417,
+      18.833
+     ],
+     [
+      24.417,
+      22
+     ],
+     [
+      19.25,
+      22
+     ]
+    ]
+   ],
+   "openings": [
+    {
+     "kind": "door",
+     "seg": [
+      6.6,
+      22.167,
+      9.3,
+      22.167
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      6.5,
+      15.167,
+      9.2,
+      15.167
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      16.5,
+      24.1,
+      16.5,
+      26.2
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      11.7,
+      11.167,
+      13.6,
+      11.167
+     ]
+    },
+    {
+     "kind": "opening",
+     "seg": [
+      14.417,
+      15.7,
+      14.417,
+      18.3
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      5.6,
+      33.75,
+      8.3,
+      33.75
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      8.9,
+      33.75,
+      11.6,
+      33.75
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      0.167,
+      16.5,
+      0.167,
+      17.9
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      4.5,
+      0.167,
+      7.3,
+      0.167
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      7.5,
+      0.167,
+      10.5,
+      0.167
+     ]
+    }
+   ],
+   "notes": "Wall solve: printed interior heights 11'3\" + 6'8\" + 14'8\" = 32.583' plus four 4\" (0.333') walls = exactly the printed 33'11\" left-edge total, so ALL walls (interior and exterior) on this sketch are 4\"/0.333 ft \u2014 used throughout instead of the generic 0.35/0.75 assumption, otherwise printed dims cannot reconcile. Width solve: 0.333 + 16' + 0.333 = 16.667 main block; stairs wing east extent from printed 8'1\" (bathroom east face to wing east face) gives overall width 24.75; cross-check 14'9\" wing-bottom dim: 24.75 - 14.75 = 10.0 = exterior face of the bedroom notch step wall (interior 9.667 = 16.333 - 6'8\") \u2014 consistent. Wing height 7'4\" = hallway 6'8\" + two 0.333 walls; stair rows 3'3\" + 3'2\" + 0.25' mid-wall fill the hallway band exactly. Vertical stack (y up from SW origin): bedroom 0.333-15.0, hallway 15.333-22.0, bathroom 22.333-33.583. AREA CHECKS vs room_truth '3rd floor 2': Bathroom 16 x 11.25 = 180.0 vs 178.6 (+0.8%); Hallway 13.917 x 6.667 = 92.8 vs 102.1 (-9.1%); Bedroom L (16 x 14.667 minus 6.667 x 4 notch) = 208.0 vs 228.8 (-9.1%); Stairs+Landings 14.1+16.8+13.7+16.4 = 61.0 vs 61.0 (0%). All within the 12% target. Ambiguity: the white void between the bedroom notch and the stairs wing (x 10.0-16.667, y 11.333-15.0, ~23 SF, reached by a door in the bedroom notch wall) is unlabeled/unfilled on the plan \u2014 treated as unheated (excluded from exterior via the concave jog); note that adding it to Bedroom would give 231.2 SF (+1.0% vs truth), so the claim may have counted that storage void in the bedroom line item. The small '8'' boxes on the plan are ceiling-height tags, not dimensions. Stairs subrooms are listed both in rooms (plan labels: Stairs, Landing, Stairs 2, Landing 2) and in the stairs array; consumers should not double-count. Openings: bathroom-hallway door, hallway-bedroom door, bathroom east-wall door (likely eave/attic access), bedroom-void door, hallway-to-stairs opening, plus windows on north (2), west (1), and south (2) walls; positions estimated from pixels (+/-0.5 ft)."
+  },
+  "verdict": {
+   "floor": "3",
+   "pass": true,
+   "problems": [
+    "Hallway traced 92.8 SF vs truth 102.1 (-9.1%): truth appears to measure the 7'4\" band (6'8\" + two 4\" walls), trace uses interior faces \u2014 within 15% tolerance, not a defect",
+    "Bedroom traced 208.0 SF vs truth 228.8 (-9.1%): the ~23 SF unlabeled void behind the notch (x 10-16.667, y 11.333-15) was excluded; truth almost certainly includes it (208 + 23.2 = 231.2, +1.0%) \u2014 within tolerance and explicitly documented in notes",
+    "Truth Bedroom perimeter 55.6 LF vs traced L-shape 61.3 LF \u2014 perimeter basis differs (truth likely nets out openings); areas still reconcile"
+   ],
+   "fixes": [
+    "Optional: absorb the unlabeled void into Bedroom \u2014 change Bedroom poly to the full rectangle [[0.333,0.333],[16.333,0.333],[16.333,15],[0.333,15]] minus only the wall strip, i.e. [[0.333,0.333],[16.333,0.333],[16.333,11],[16.667... ] \u2014 simplest correct form: [[0.333,0.333],[16.333,0.333],[16.333,15],[0.333,15]] with the notch wall removed, giving 231.2 SF (+1.0% vs truth 228.8) instead of 208.0 (-9.1%). Only do this if the consumer wants truth-matching areas rather than heated-space-only areas; the current exclusion is defensible and documented."
+   ],
+   "area_report": "Bathroom: 180.0 SF vs 178.6 truth (+0.8%). Hallway: 92.8 SF vs 102.1 (-9.1%). Bedroom: 208.0 SF vs 228.8 (-9.1%; 231.2/+1.0% if void included). Stairs+Landings: 60.96 SF vs 61.0 (-0.1%). All rooms present, no overlaps (min gap 0.25 ft), all polys inside exterior, overall 24.75 x 33.917 reconciles exactly with printed 33'11\\\" and the 8'1\\\"/14'9\\\" wing dims, positions and 4-part stairs match the plan."
+  }
+ },
+ "B1": {
+  "extraction": {
+   "floor": "B1",
+   "overall_wh": [
+    34.734,
+    35.6
+   ],
+   "exterior": [
+    [
+     4.651,
+     35.6
+    ],
+    [
+     34.734,
+     35.6
+    ],
+    [
+     34.734,
+     7.683
+    ],
+    [
+     27.817,
+     7.683
+    ],
+    [
+     27.817,
+     1.683
+    ],
+    [
+     16.01,
+     1.683
+    ],
+    [
+     12.94,
+     0
+    ],
+    [
+     8.92,
+     0
+    ],
+    [
+     5.38,
+     1.683
+    ],
+    [
+     4.318,
+     1.683
+    ],
+    [
+     4.318,
+     16.08
+    ],
+    [
+     0,
+     17.08
+    ],
+    [
+     0,
+     22.72
+    ],
+    [
+     4.651,
+     23.8
+    ]
+   ],
+   "rooms": [
+    {
+     "name": "Main Room",
+     "poly": [
+      [
+       4.718,
+       10.833
+      ],
+      [
+       17.735,
+       10.833
+      ],
+      [
+       17.735,
+       11.6
+      ],
+      [
+       19.152,
+       11.6
+      ],
+      [
+       19.152,
+       16.517
+      ],
+      [
+       17.735,
+       16.517
+      ],
+      [
+       17.735,
+       23.6
+      ],
+      [
+       29.818,
+       23.6
+      ],
+      [
+       29.818,
+       20.083
+      ],
+      [
+       30.817,
+       20.083
+      ],
+      [
+       30.817,
+       16.317
+      ],
+      [
+       34.334,
+       16.317
+      ],
+      [
+       34.334,
+       8.083
+      ],
+      [
+       27.417,
+       8.083
+      ],
+      [
+       27.417,
+       2.083
+      ],
+      [
+       15.91,
+       2.083
+      ],
+      [
+       12.84,
+       0.4
+      ],
+      [
+       9.01,
+       0.4
+      ],
+      [
+       5.47,
+       2.083
+      ],
+      [
+       4.718,
+       2.083
+      ]
+     ]
+    },
+    {
+     "name": "Main Room 2",
+     "poly": [
+      [
+       4.718,
+       23.6
+      ],
+      [
+       17.385,
+       23.6
+      ],
+      [
+       17.385,
+       11.183
+      ],
+      [
+       4.718,
+       11.183
+      ],
+      [
+       4.718,
+       16.4
+      ],
+      [
+       0.4,
+       17.4
+      ],
+      [
+       0.4,
+       22.4
+      ],
+      [
+       4.718,
+       23.4
+      ]
+     ]
+    },
+    {
+     "name": "Main Room 3",
+     "poly": [
+      [
+       5.051,
+       35.2
+      ],
+      [
+       26.634,
+       35.2
+      ],
+      [
+       26.634,
+       23.95
+      ],
+      [
+       5.051,
+       23.95
+      ]
+     ]
+    },
+    {
+     "name": "Storage Room",
+     "poly": [
+      [
+       26.834,
+       35.2
+      ],
+      [
+       34.334,
+       35.2
+      ],
+      [
+       34.334,
+       23.95
+      ],
+      [
+       26.834,
+       23.95
+      ]
+     ]
+    },
+    {
+     "name": "Shower",
+     "poly": [
+      [
+       30.168,
+       23.6
+      ],
+      [
+       30.8,
+       23.6
+      ],
+      [
+       30.8,
+       20.433
+      ],
+      [
+       30.168,
+       20.433
+      ]
+     ]
+    },
+    {
+     "name": "Landing",
+     "poly": [
+      [
+       31.15,
+       23.6
+      ],
+      [
+       34.334,
+       23.6
+      ],
+      [
+       34.334,
+       20.433
+      ],
+      [
+       31.15,
+       20.433
+      ]
+     ]
+    },
+    {
+     "name": "Stairs",
+     "poly": [
+      [
+       31.167,
+       20.083
+      ],
+      [
+       34.334,
+       20.083
+      ],
+      [
+       34.334,
+       16.667
+      ],
+      [
+       31.167,
+       16.667
+      ]
+     ]
+    }
+   ],
+   "stairs": [
+    [
+     [
+      31.167,
+      20.083
+     ],
+     [
+      34.334,
+      20.083
+     ],
+     [
+      34.334,
+      16.667
+     ],
+     [
+      31.167,
+      16.667
+     ]
+    ],
+    [
+     [
+      31.15,
+      23.6
+     ],
+     [
+      34.334,
+      23.6
+     ],
+     [
+      34.334,
+      20.433
+     ],
+     [
+      31.15,
+      20.433
+     ]
+    ]
+   ],
+   "openings": [
+    {
+     "kind": "window",
+     "seg": [
+      8.1,
+      35.4,
+      10.1,
+      35.4
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      11,
+      35.4,
+      12.5,
+      35.4
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      15.5,
+      35.4,
+      18.9,
+      35.4
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      27.3,
+      35.4,
+      29.5,
+      35.4
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      34.534,
+      32,
+      34.534,
+      34
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      34.534,
+      13,
+      34.534,
+      14.8
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      0.2,
+      17.5,
+      0.2,
+      22.3
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      9.2,
+      0.2,
+      12.6,
+      0.2
+     ]
+    },
+    {
+     "kind": "opening",
+     "seg": [
+      17.56,
+      11.183,
+      17.56,
+      17.1
+     ]
+    },
+    {
+     "kind": "opening",
+     "seg": [
+      31.167,
+      16.49,
+      34.334,
+      16.49
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      26.734,
+      27.2,
+      26.734,
+      29.7
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      32.4,
+      23.775,
+      34.3,
+      23.775
+     ]
+    }
+   ],
+   "notes": "Origin at SW corner of exterior bbox (tip of Main Room's SW bay window, x=0 at Main Room 2's west bay face). Applied required fixes: exterior SE-notch vertices moved to [27.817,7.683] and [27.817,1.683] (wing east exterior 0.4 ft outside interior face x=27.417; interior notch span 34.334-27.417=6.917=6'11\" printed; notch step height 8.083-2.083=6.0'=printed 6'); Main Room bay vertex corrected to [15.91,2.083] so SW diagonal interior offsets 0.40 ft inward of exterior diagonal (16.01,1.683)-(12.94,0.0), south-wall interior span 27.417-15.91=11.5' vs printed 11'2\". Dims used: top 30'1\" exterior (4.651-34.734), right 27'11\" (y 7.683-35.6), MR3 21'7\"x11'3\"=242.8SF, Storage 7'6\"x11'3\"=84.4SF, MR2 12'8\"x12'5\" + west bay (4'6\"/5'/4'8\")=183.2SF, Main Room wraps void column (1'5\"x4'11\" chimney excluded) and includes SE 8'5\" east-wall zone; SW bay 3'11\"/3'10\"/3'6\" per plan. Area checks vs truth \"B1 2\": Main Room incl subrooms = 405.5+183.2+242.8 = 831.5 SF vs 833.8 (-0.3%); Stairs(3'2\"x3'5\"=10.8)+Landing(3'2\"x3'2\"=10.1)=20.9 SF vs 20.9 (0%). Storage (84.4) and Shower (2.0, narrow stall per plan) absent from truth (closets/small rooms omitted). Exterior wall offset 0.4 ft (per accepted fix convention), interior walls 0.35 ft (MR3/Storage divider 0.2 ft forced by printed 21'7\"+7'6\" within 30'1\"). All room polygons non-overlapping and inside exterior; overall_wh [34.734,35.6] = 30'1\" top width plus 4.65' west bay projection, 27'11\" right height plus 7.68' south wing/bay."
+  },
+  "verdict": {
+   "floor": "B1",
+   "pass": true,
+   "problems": [
+    "Storage Room (84.4 SF) and Shower (2.0 SF) are traced from the plan but have no entries in room_truth.json 'B1 2' (truth only lists Main Room and Stairs aggregates) \u2014 informational, not a trace error",
+    "Traced Main Room aggregate is 831.5 SF vs truth 833.8 SF (-2.3 SF); if truth folds the 2.0 SF Shower into Main Room the residual is only -0.3 SF"
+   ],
+   "fixes": [],
+   "area_report": "Shoelace areas: Main Room 405.5, Main Room 2 183.2, Main Room 3 242.8 -> Main Room incl subrooms 831.5 SF vs truth 833.8 SF (-0.28%). Stairs 10.82 + Landing 10.08 = 20.9 SF vs truth 20.9 SF (+0.01%). Storage Room 84.4 SF and Shower 2.0 SF traced but absent from truth. Exterior polygon area 1027.2 SF. Geometry: all room vertices inside exterior; no pairwise polygon overlaps (edge-intersection + containment test). overall_wh [34.734,35.6] consistent with printed 30'1\" top (34.734-4.651=30.083) plus 4.65 ft west bay, and 27'11\" right (35.6-7.683=27.917) plus 7.68 ft south wing/bay. Dim checks vs plan: MR3 21'7\"x11'3\" exact, Storage 7'6\"x11'3\" exact, MR2 12'8\" wide exact, SE notch 6'11\"x6'0\" exact, void chimney 1'5\"x4'11\" correctly excluded. Room positions and stairs placement (Landing north of Stairs on east wall) match the plan image."
+  }
+ },
+ "1": {
+  "extraction": {
+   "floor": "1",
+   "overall_wh": [
+    34.63,
+    37.78
+   ],
+   "exterior": [
+    [
+     4.47,
+     1.71
+    ],
+    [
+     4.47,
+     15.97
+    ],
+    [
+     0,
+     17.44
+    ],
+    [
+     0,
+     22.86
+    ],
+    [
+     4.47,
+     24.08
+    ],
+    [
+     4.47,
+     35.61
+    ],
+    [
+     8.41,
+     35.61
+    ],
+    [
+     8.41,
+     37.78
+    ],
+    [
+     15.8,
+     37.78
+    ],
+    [
+     15.8,
+     35.61
+    ],
+    [
+     34.63,
+     35.61
+    ],
+    [
+     34.63,
+     7.75
+    ],
+    [
+     28.09,
+     7.75
+    ],
+    [
+     28.09,
+     1.71
+    ],
+    [
+     16,
+     1.71
+    ],
+    [
+     13.21,
+     0
+    ],
+    [
+     8.97,
+     0
+    ],
+    [
+     5.52,
+     1.71
+    ]
+   ],
+   "rooms": [
+    {
+     "name": "Living Room",
+     "poly": [
+      [
+       4.86,
+       23.72
+      ],
+      [
+       17.41,
+       23.72
+      ],
+      [
+       17.41,
+       17.21
+      ],
+      [
+       16.66,
+       17.21
+      ],
+      [
+       16.66,
+       11.01
+      ],
+      [
+       17.41,
+       11.01
+      ],
+      [
+       17.41,
+       2.07
+      ],
+      [
+       15.83,
+       2.07
+      ],
+      [
+       13.11,
+       0.39
+      ],
+      [
+       9.07,
+       0.39
+      ],
+      [
+       5.85,
+       2.07
+      ],
+      [
+       4.86,
+       2.07
+      ],
+      [
+       4.86,
+       16.03
+      ],
+      [
+       0.36,
+       17.67
+      ],
+      [
+       0.36,
+       22.63
+      ]
+     ]
+    },
+    {
+     "name": "Dining Room",
+     "poly": [
+      [
+       4.86,
+       35.22
+      ],
+      [
+       8.74,
+       35.22
+      ],
+      [
+       8.74,
+       37.39
+      ],
+      [
+       15.44,
+       37.39
+      ],
+      [
+       15.44,
+       35.22
+      ],
+      [
+       18.36,
+       35.22
+      ],
+      [
+       18.36,
+       24.08
+      ],
+      [
+       4.86,
+       24.08
+      ]
+     ]
+    },
+    {
+     "name": "Kitchen",
+     "poly": [
+      [
+       22.93,
+       35.22
+      ],
+      [
+       34.26,
+       35.22
+      ],
+      [
+       34.26,
+       24.08
+      ],
+      [
+       22.93,
+       24.08
+      ]
+     ]
+    },
+    {
+     "name": "Pantry Area",
+     "poly": [
+      [
+       18.69,
+       35.22
+      ],
+      [
+       22.57,
+       35.22
+      ],
+      [
+       22.57,
+       28.81
+      ],
+      [
+       21.62,
+       28.81
+      ],
+      [
+       21.62,
+       24.08
+      ],
+      [
+       18.69,
+       24.08
+      ]
+     ]
+    },
+    {
+     "name": "Kitchen Closet",
+     "poly": [
+      [
+       21.98,
+       27.79
+      ],
+      [
+       22.57,
+       27.79
+      ],
+      [
+       22.57,
+       24.08
+      ],
+      [
+       21.98,
+       24.08
+      ]
+     ]
+    },
+    {
+     "name": "Hallway Bathroom",
+     "poly": [
+      [
+       17.81,
+       23.72
+      ],
+      [
+       22.57,
+       23.72
+      ],
+      [
+       22.57,
+       20.89
+      ],
+      [
+       17.81,
+       20.89
+      ]
+     ]
+    },
+    {
+     "name": "Pass Through",
+     "poly": [
+      [
+       22.96,
+       23.72
+      ],
+      [
+       25.39,
+       23.72
+      ],
+      [
+       25.39,
+       20.53
+      ],
+      [
+       22.96,
+       20.53
+      ]
+     ]
+    },
+    {
+     "name": "Stairs 3",
+     "poly": [
+      [
+       25.49,
+       23.72
+      ],
+      [
+       27.99,
+       23.72
+      ],
+      [
+       27.99,
+       20.53
+      ],
+      [
+       25.49,
+       20.53
+      ]
+     ]
+    },
+    {
+     "name": "Stairs 2",
+     "poly": [
+      [
+       28.38,
+       23.72
+      ],
+      [
+       30.72,
+       23.72
+      ],
+      [
+       30.72,
+       20.53
+      ],
+      [
+       28.38,
+       20.53
+      ]
+     ]
+    },
+    {
+     "name": "Landing",
+     "poly": [
+      [
+       31.18,
+       23.72
+      ],
+      [
+       34.26,
+       23.72
+      ],
+      [
+       34.26,
+       20.53
+      ],
+      [
+       31.18,
+       20.53
+      ]
+     ]
+    },
+    {
+     "name": "Hallway",
+     "poly": [
+      [
+       17.81,
+       20.2
+      ],
+      [
+       34.26,
+       20.2
+      ],
+      [
+       34.26,
+       13.3
+      ],
+      [
+       28.09,
+       13.3
+      ],
+      [
+       26.58,
+       14.36
+      ],
+      [
+       19.15,
+       14.36
+      ],
+      [
+       19.15,
+       17.21
+      ],
+      [
+       17.81,
+       17.21
+      ]
+     ]
+    },
+    {
+     "name": "Office",
+     "poly": [
+      [
+       17.81,
+       12.32
+      ],
+      [
+       19.48,
+       12.32
+      ],
+      [
+       19.48,
+       14.03
+      ],
+      [
+       26.58,
+       14.03
+      ],
+      [
+       27.73,
+       13.21
+      ],
+      [
+       27.73,
+       2.07
+      ],
+      [
+       17.81,
+       2.07
+      ]
+     ]
+    },
+    {
+     "name": "Entry",
+     "poly": [
+      [
+       28.09,
+       12.98
+      ],
+      [
+       34.26,
+       12.98
+      ],
+      [
+       34.26,
+       8.08
+      ],
+      [
+       28.09,
+       8.08
+      ]
+     ]
+    }
+   ],
+   "stairs": [
+    [
+     [
+      25.49,
+      23.72
+     ],
+     [
+      27.99,
+      23.72
+     ],
+     [
+      27.99,
+      20.53
+     ],
+     [
+      25.49,
+      20.53
+     ]
+    ],
+    [
+     [
+      28.38,
+      23.72
+     ],
+     [
+      30.72,
+      23.72
+     ],
+     [
+      30.72,
+      20.53
+     ],
+     [
+      28.38,
+      20.53
+     ]
+    ],
+    [
+     [
+      31.18,
+      23.72
+     ],
+     [
+      34.26,
+      23.72
+     ],
+     [
+      34.26,
+      20.53
+     ],
+     [
+      31.18,
+      20.53
+     ]
+    ],
+    [
+     [
+      31.18,
+      20.2
+     ],
+     [
+      34.26,
+      20.2
+     ],
+     [
+      34.26,
+      18.13
+     ],
+     [
+      31.18,
+      18.13
+     ]
+    ]
+   ],
+   "openings": [
+    {
+     "kind": "window",
+     "seg": [
+      4.66,
+      31.18,
+      4.66,
+      28.22
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      8.94,
+      37.58,
+      11.73,
+      37.58
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      12.09,
+      37.58,
+      15.05,
+      37.58
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      19.09,
+      35.41,
+      22.04,
+      35.41
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      23.78,
+      35.41,
+      26.71,
+      35.41
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      30.22,
+      35.41,
+      32.79,
+      35.41
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      34.43,
+      28.02,
+      34.43,
+      25.07
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      34.43,
+      23.52,
+      34.43,
+      20.7
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      34.43,
+      17.15,
+      34.43,
+      14.16
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      30.39,
+      7.92,
+      33.38,
+      7.92
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      20.63,
+      1.91,
+      24.64,
+      1.91
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      9.82,
+      0.2,
+      12.42,
+      0.2
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      4.66,
+      13.14,
+      4.66,
+      10.22
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      3.81,
+      23.85,
+      0.66,
+      23.03
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      0.66,
+      17.28,
+      3.81,
+      16.46
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      6.27,
+      1.41,
+      8.51,
+      0.43
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      15.44,
+      1.41,
+      13.73,
+      0.49
+     ]
+    },
+    {
+     "kind": "opening",
+     "seg": [
+      9.4,
+      23.92,
+      14.85,
+      23.92
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      23.16,
+      23.92,
+      25.16,
+      23.92
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      23.13,
+      20.37,
+      25.13,
+      20.37
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      20.73,
+      20.73,
+      22.37,
+      20.73
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      23.19,
+      14.19,
+      26.18,
+      14.19
+     ]
+    },
+    {
+     "kind": "opening",
+     "seg": [
+      17.61,
+      9.63,
+      17.61,
+      5.65
+     ]
+    },
+    {
+     "kind": "opening",
+     "seg": [
+      30.32,
+      13.14,
+      33.28,
+      13.14
+     ]
+    },
+    {
+     "kind": "opening",
+     "seg": [
+      28.45,
+      20.37,
+      30.72,
+      20.37
+     ]
+    },
+    {
+     "kind": "opening",
+     "seg": [
+      31.21,
+      20.37,
+      34.2,
+      20.37
+     ]
+    }
+   ],
+   "notes": "Traced from floor1.png at 30.44 px/ft (calibrated: Kitchen 11'4\"=345px, Dining 13'6\"=411px, Office 9'11\"=302px all agree). Origin = SW corner of exterior bbox (west face of Living Room canted bay, south face of Living Room south bay). Printed dims honored: Dining 13'6\"x11'2\"+6'8\"x~2' bay; Kitchen 11'4\"x11'2\"; Office 9'11\" wide, 11' east / 10'4\" west (NW fireplace notch, NE diagonal clip 1'6\"); Entry 6'2\"x4'11\"; Living 14'5\" west wall, canted NW bay (4'6\"/5'/4'8\") and S bay (4'/3'10\"/3'6\"), 6'2\" fireplace notch on east wall; Bathroom 4'10\"x2'10\"; Pass Through 2'5\", Stairs 3 2'4\", Stairs 2 2'5\", Landing 3'2\" wide x 3'2\" row. AREA CHECKS vs room_truth (traced vs GT): Living 307.3/333.9 -8.0%; Dining 164.9/180.5 -8.6%; Kitchen 126.2/134.0 -5.8%; Pantry 38.7/36.8 +5.2%; Bathroom 13.5/14.4 -6.5%; Pass Through 7.8/8.4 -7.7%; Stairs 3 8.0/7.8 +2.2%; Hallway 99.6/101.8 -2.2%; Office 115.3/127.7 -9.7%; Entry 30.2/33.4 -9.5%. All within 12% (GT reads slightly larger overall, consistent with claim software measuring to slightly different wall faces). Extras not in GT: Kitchen Closet (0.6'x3.7' broom slot east of Pantry; adjacent 1'x1' \"Void\" omitted), Stairs 2 (7.5 SF) and Landing (9.8 SF) = GT \"Stairs (incl subrooms)\". 4th stairs polygon is the lower flight descending into Hallway (open, treads drawn); it overlaps the Hallway room polygon by design since it is not walled off. Interior walls drawn ~0.35-0.4 ft, exterior ~0.4 ft drawn (8\" callouts boxed on plan); interior faces follow drawing. Open porch/steps: none within traced outline. Diagonal-bay window segs lie on canted wall centerlines."
+  },
+  "verdict": {
+   "floor": "1",
+   "pass": true,
+   "problems": [
+    "Notes misreconcile stairs: claims Stairs 2 (7.46 SF) + Landing (9.83 SF) = GT 'Stairs (incl subrooms)' 6.9 SF; actual sum is 17.29 SF (+150.6%). GT 6.9 SF is the lower 'Stairs' room printed 3'2\" x 2'2\" (6.87 SF), traced only as the 4th stairs[] polygon (6.38 SF, -7.5%), not as a named room.",
+    "GT room 'Stairs (incl subrooms)' has no entry in rooms[] \u2014 represented only in the stairs[] array (and its footprint is absorbed into the Hallway polygon).",
+    "Systematic ~-6 to -10% area bias on all major rooms (Office -9.7%, Entry -9.5%, Dining -8.6%, Living -8.0%); traced interior faces honor printed dims, so GT appears measured to different wall faces \u2014 acceptable but consistent one-directional, not noise.",
+    "Living Room west wall traced 13.96 ft vs printed 14'5\" (14.42 ft), -3.2% \u2014 largest single-dimension deviation from a printed callout.",
+    "Extras vs GT: Kitchen Closet (2.19 SF), Stairs 2, Landing have no GT entries; all three are labeled rooms on the plan image so they are justified, but consumers matching against room_truth.json will find them unmatched."
+   ],
+   "fixes": [
+    "Rewrite the notes reconciliation: map GT 'Stairs (incl subrooms)' (6.9 SF) to the lower stairs polygon [[31.18,20.2],[34.26,20.2],[34.26,18.13],[31.18,18.13]] (6.38 SF, -7.5%), and state that Stairs 2 (7.46 SF) and Landing (9.83 SF) have no GT counterparts (plan-labeled subrooms the claim software rolled into Hallway/stairs).",
+    "Optionally promote that 4th stairs polygon to rooms[] as name 'Stairs' and carve it out of the Hallway polygon (notch Hallway at x=31.18..34.26, y=18.13..20.2) so rooms stay non-overlapping; Hallway then drops to ~93.2 SF (-8.4% vs GT 101.8, still within tolerance).",
+    "Nudge the lower Stairs polygon south edge from y=18.13 to y=18.03 to hit the printed 2'2\" (2.17 ft) depth, bringing its area to 6.68 SF (-3.2% vs 6.9)."
+   ],
+   "area_report": "Shoelace areas vs room_truth '1st floor' (traced/GT, %err): Living Room 307.30/333.9 -8.0%; Dining Room 164.93/180.5 -8.6%; Kitchen 126.22/134.0 -5.8%; Pantry Area 38.73/36.8 +5.2%; Hallway Bathroom 13.47/14.4 -6.5%; Pass Through 7.75/8.4 -7.7%; Stairs 3 7.98/7.8 +2.2%; Hallway 99.59/101.8 -2.2%; Office 115.32/127.7 -9.7%; Entry 30.23/33.4 -9.5%; Stairs (incl subrooms) 6.38 (4th stairs[] polygon)/6.9 -7.5%. All 11 GT rooms accounted for, all within 15% (max |err| 9.7%). Extras not in GT: Kitchen Closet 2.19 SF, Stairs 2 7.46 SF, Landing 9.83 SF \u2014 all labeled rooms on floor1.png. Containment: zero room area outside exterior (shapely). Overlaps: zero among rooms[] (only the open lower stair flight in stairs[] overlays Hallway, by stated design). overall_wh 34.63x37.78 matches exterior bbox exactly and matches pixel measurement of the plan at the stated 30.44 px/ft (~34.6 x ~37.5 ft); printed component dims verified: Kitchen 11'4\\\"x11'2\\\"=11.33x11.14 traced, Dining 13'6\\\"x11'2\\\"+6'8\\\"x2' bay, Office 9'11\\\" wide, Entry 6'2\\\"x4'11\\\", Bathroom 4'10\\\"x2'10\\\" all agree. Relative positions match the image (Dining NW, Kitchen NE, stair row W-to-E: Bathroom/Pass Through/Stairs 3/Stairs 2/Landing, Hallway E-center, Office S-center, Entry SE, Living SW with canted NW and S bays). Stairs: 4 polygons present and positioned per plan (Stairs 3, Stairs 2, Landing, lower flight 3'2\\\"x2'2\\\" descending into Hallway). Verdict: PASS; sole substantive defect is the notes' wrong Stairs2+Landing=GT-stairs claim (17.29 vs 6.9 SF) \u2014 geometry itself is correct."
+  }
+ },
+ "2": {
+  "extraction": {
+   "floor": "2",
+   "overall_wh": [
+    31,
+    36.9
+   ],
+   "exterior": [
+    [
+     0,
+     1.65
+    ],
+    [
+     1.67,
+     1.65
+    ],
+    [
+     4.27,
+     0
+    ],
+    [
+     8.92,
+     0
+    ],
+    [
+     11.12,
+     1.65
+    ],
+    [
+     23.78,
+     1.65
+    ],
+    [
+     23.78,
+     0.67
+    ],
+    [
+     31.01,
+     0.67
+    ],
+    [
+     31.01,
+     7.68
+    ],
+    [
+     30,
+     7.68
+    ],
+    [
+     30,
+     35.57
+    ],
+    [
+     11.26,
+     35.57
+    ],
+    [
+     11.26,
+     36.9
+    ],
+    [
+     3.9,
+     36.9
+    ],
+    [
+     3.9,
+     35.57
+    ],
+    [
+     0,
+     35.57
+    ]
+   ],
+   "rooms": [
+    {
+     "name": "Bedroom_2",
+     "poly": [
+      [
+       0.32,
+       23.01
+      ],
+      [
+       10.92,
+       23.01
+      ],
+      [
+       10.92,
+       36.56
+      ],
+      [
+       4.24,
+       36.56
+      ],
+      [
+       4.24,
+       35.23
+      ],
+      [
+       0.32,
+       35.23
+      ]
+     ]
+    },
+    {
+     "name": "Bedroom_2 Closet",
+     "poly": [
+      [
+       0.32,
+       19.93
+      ],
+      [
+       6.15,
+       19.93
+      ],
+      [
+       6.15,
+       22.66
+      ],
+      [
+       0.32,
+       22.66
+      ]
+     ]
+    },
+    {
+     "name": "Bedroom_3 Closet",
+     "poly": [
+      [
+       0.32,
+       16.97
+      ],
+      [
+       6.15,
+       16.97
+      ],
+      [
+       6.15,
+       19.59
+      ],
+      [
+       0.32,
+       19.59
+      ]
+     ]
+    },
+    {
+     "name": "Hallway Closet",
+     "poly": [
+      [
+       6.47,
+       17.11
+      ],
+      [
+       7.27,
+       17.11
+      ],
+      [
+       7.27,
+       22.66
+      ],
+      [
+       6.47,
+       22.66
+      ]
+     ]
+    },
+    {
+     "name": "Bathroom",
+     "poly": [
+      [
+       11.26,
+       27.41
+      ],
+      [
+       15.79,
+       27.41
+      ],
+      [
+       15.79,
+       32.66
+      ],
+      [
+       18.46,
+       32.66
+      ],
+      [
+       18.46,
+       35.23
+      ],
+      [
+       11.26,
+       35.23
+      ]
+     ]
+    },
+    {
+     "name": "Bedroom",
+     "poly": [
+      [
+       18.76,
+       24.01
+      ],
+      [
+       29.68,
+       24.01
+      ],
+      [
+       29.68,
+       35.23
+      ],
+      [
+       18.76,
+       35.23
+      ]
+     ]
+    },
+    {
+     "name": "Bedroom Closet",
+     "poly": [
+      [
+       25.62,
+       20.48
+      ],
+      [
+       29.68,
+       20.48
+      ],
+      [
+       29.68,
+       23.67
+      ],
+      [
+       25.62,
+       23.67
+      ]
+     ]
+    },
+    {
+     "name": "Master Bedroom Closet",
+     "poly": [
+      [
+       25.62,
+       16.97
+      ],
+      [
+       29.68,
+       16.97
+      ],
+      [
+       29.68,
+       20.14
+      ],
+      [
+       25.62,
+       20.14
+      ]
+     ]
+    },
+    {
+     "name": "Hallway",
+     "poly": [
+      [
+       11.26,
+       27.09
+      ],
+      [
+       11.26,
+       22.66
+      ],
+      [
+       7.59,
+       22.66
+      ],
+      [
+       7.59,
+       16.97
+      ],
+      [
+       17.78,
+       16.97
+      ],
+      [
+       17.78,
+       24.01
+      ],
+      [
+       18.46,
+       24.01
+      ],
+      [
+       18.46,
+       27.09
+      ]
+     ]
+    },
+    {
+     "name": "Master Bedroom",
+     "poly": [
+      [
+       14.59,
+       16.63
+      ],
+      [
+       14.59,
+       12.62
+      ],
+      [
+       13.21,
+       12.62
+      ],
+      [
+       13.21,
+       1.97
+      ],
+      [
+       24.11,
+       1.97
+      ],
+      [
+       24.11,
+       0.99
+      ],
+      [
+       30.66,
+       0.99
+      ],
+      [
+       30.66,
+       8.03
+      ],
+      [
+       29.68,
+       8.03
+      ],
+      [
+       29.68,
+       16.63
+      ]
+     ]
+    },
+    {
+     "name": "Bedroom_3",
+     "poly": [
+      [
+       0.32,
+       16.63
+      ],
+      [
+       0.32,
+       1.97
+      ],
+      [
+       1.97,
+       1.97
+      ],
+      [
+       4.52,
+       0.34
+      ],
+      [
+       8.67,
+       0.34
+      ],
+      [
+       10.87,
+       1.97
+      ],
+      [
+       12.89,
+       1.97
+      ],
+      [
+       12.89,
+       16.63
+      ]
+     ]
+    }
+   ],
+   "stairs": [
+    [
+     [
+      18.1,
+      20.48
+     ],
+     [
+      25.28,
+      20.48
+     ],
+     [
+      25.28,
+      23.67
+     ],
+     [
+      18.1,
+      23.67
+     ]
+    ],
+    [
+     [
+      18.1,
+      16.97
+     ],
+     [
+      25.28,
+      16.97
+     ],
+     [
+      25.28,
+      20.14
+     ],
+     [
+      18.1,
+      20.14
+     ]
+    ]
+   ],
+   "openings": [
+    {
+     "kind": "door",
+     "seg": [
+      3.12,
+      22.83,
+      4.89,
+      22.83
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      11.09,
+      24.01,
+      11.09,
+      26.06
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      12.62,
+      27.25,
+      15.18,
+      27.25
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      18.61,
+      24.38,
+      18.61,
+      26.7
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      26.51,
+      23.84,
+      28.72,
+      23.84
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      2.45,
+      16.8,
+      4.72,
+      16.8
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      9.68,
+      16.8,
+      12.18,
+      16.8
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      14.91,
+      16.8,
+      17.48,
+      16.8
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      26.65,
+      16.8,
+      28.65,
+      16.8
+     ]
+    },
+    {
+     "kind": "door",
+     "seg": [
+      7.43,
+      20.2,
+      7.43,
+      22.5
+     ]
+    },
+    {
+     "kind": "opening",
+     "seg": [
+      17.94,
+      20.5,
+      17.94,
+      23.65
+     ]
+    },
+    {
+     "kind": "opening",
+     "seg": [
+      17.94,
+      17.8,
+      17.94,
+      19.82
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      4.59,
+      36.73,
+      10.57,
+      36.73
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      13.01,
+      35.4,
+      15.5,
+      35.4
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      19.43,
+      35.4,
+      22.41,
+      35.4
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      0.16,
+      24.13,
+      0.16,
+      27.06
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      0.16,
+      20.25,
+      0.16,
+      22.22
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      0.16,
+      17.48,
+      0.16,
+      19.4
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      29.84,
+      25.05,
+      29.84,
+      27.98
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      15.09,
+      1.81,
+      18.01,
+      1.81
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      18.83,
+      1.81,
+      21.72,
+      1.81
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      25.73,
+      0.83,
+      28.74,
+      0.83
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      30.84,
+      3.62,
+      30.84,
+      6.61
+     ]
+    },
+    {
+     "kind": "window",
+     "seg": [
+      5.62,
+      0.17,
+      8.19,
+      0.17
+     ]
+    }
+   ],
+   "notes": "Scale: 43.6 px/ft, validated against printed dims 18'9\" (top, exact), 10'11\" (Bedroom), 15'1\" (Master), 12'7\"/14'8\" (Bedroom_3), 10'7\"/12'3\"/13'7\" (Bedroom_2), 4'1\"x3'2\" closets, 27'6\" east wall. Overall exterior bbox 31.0 x 36.9 ft (the hint's ~34x~44 does not match the drawing; 27'6\"+8'11\"+jogs on the right edge corroborate ~36.9 tall, 18'9\" top-right segment corroborates ~31 wide). Walls are drawn 4\" (0.33-0.35 ft) throughout, including exterior; I kept drawn thicknesses so the outline matches printed dims; all adjacent room polys separated ~0.35 ft. AREA CHECKS vs \"2nd floor 2\" truth: Bathroom 42.3 vs 42.2 (+0.2%, tub niche 2'8\"x5'3\" excluded per L-shape); Bedroom 122.5 vs 135.1 (-9.3%); Bedroom Closet 13.0 vs 12.9; Bedroom_2 138.4 vs 152.8 (-9.4%); Bedroom_2 Closet 15.9 vs 16.0; Bedroom_3 194.9 vs 216.4 (-9.9%, incl bay); Bedroom_3 Closet 15.3 vs 15.6; Hallway 89.0 vs 97.6 (-8.9%); Master 248.3 vs 271.5 (-8.6%, incl 1-ft south step and east bay); Master Closet 12.9 vs 12.9. All within 12%. The ~9-10% shortfall on the four bedrooms+hallway is systematic: truth appears to include each room's closet (Bedroom+closet=135.5 vs 135.1; Bedroom_2+closet=154.3 vs 152.8; Bedroom_3+closet=210.2 vs 216.4; Master+closet=261.2 vs 271.5). Stairs: two zone rects (north row = Stairs 3/Stairs 2/Landing 2; south row = Stairs/Landing); truth 35.9 matches the sum of the four cells excluding Stairs 3 (2'x3'2\", counted on 1st floor) and internal 4\" partitions (net 35.7). Hallway Closet (10\"x5'8\", ~4.4 SF) traced from plan but absent from truth, as expected. Two voids excluded from rooms: Void 2 chase (1'1\"x3'8\") between Bedroom_3 and Master at x 13.21-14.27, y 12.94-16.63, and a small ~9\"x~1' Void at the master bay SE corner (left inside exterior/room poly; <0.5 SF effect). Openings: exterior windows placed from wall gaps; Hallway Closet door position approximate."
+  },
+  "verdict": {
+   "floor": "2",
+   "pass": true,
+   "problems": [
+    "Master Bedroom bay north interior face (y=8.03) extends 0.35 ft past the exterior jog line (y=7.68), so a 0.66 x 0.35 ft (~0.23 SF) sliver of the room poly lies outside the exterior polygon (vertex 30.66,8.03).",
+    "Stairs traced as two zone rects summing 45.7 SF vs truth 35.9 SF; reconciles only after excluding Stairs 3 (6.3 SF, counted on 1st floor) and 4-inch internal partitions (net 36.0) \u2014 acceptable but the raw polys overstate 2nd-floor stair area.",
+    "Extra room 'Hallway Closet' (4.4 SF) not in ground truth \u2014 but it is labeled on the plan image, so this is a truth omission, not a trace error."
+   ],
+   "fixes": [
+    "Align the Master Bedroom bay north edge with the exterior: either move room vertices (30.66,8.03)->(30.66,7.33) and (29.68,8.03)->(29.68,7.33), or raise the exterior jog from y=7.68 to y=8.38, so interior face + 0.35 ft wall = exterior face (plan prints 7'4\" bay height / 1' jog \u2014 pick the face convention that matches and apply consistently).",
+    "Optional: if downstream consumers compare room areas to truth directly, note that truth areas include each room's closet (Bedroom+closet=135.5 vs 135.1, Bedroom_2+closet=154.3 vs 152.8); merge closet area into parent room when reporting, or keep the documented ~9% offset."
+   ],
+   "area_report": "Shoelace vs truth '2nd floor 2': Bathroom 42.3/42.2 (+0.2%); Bedroom 122.5/135.1 (-9.3%); Bedroom Closet 13.0/12.9 (+0.4%); Bedroom_2 138.4/152.8 (-9.4%); Bedroom_2 Closet 15.9/16.0 (-0.5%); Bedroom_3 194.9/216.4 (-9.9%); Bedroom_3 Closet 15.3/15.6 (-2.1%); Hallway 89.0/97.6 (-8.9%); Master Bedroom 248.3/271.5 (-8.6%); Master Bedroom Closet 12.9/12.9 (-0.2%). All within 15%; closets within 2.5%. Systematic ~9% bedroom/hallway shortfall verified as truth including closets (room+closet sums match truth within ~1-4%). Stairs zone rects 45.7 vs truth 35.9; net of Stairs 3 (1st-floor) and 4\\\" partitions = 36.0, matches. No room-pair overlaps; all rooms inside exterior except one 0.23 SF Master bay sliver at the y=7.68 jog. overall_wh 31.0x36.9 corroborated by printed 18'9\\\" (top), 27'6\\\"+8'11\\\" (right), 12'7\\\"+1'1\\\"+15'1\\\" (bottom chain), 1' bay jog. Layout, bay shapes, void chase, and two-row stair block all match the plan image (consistent y-up orientation)."
+  }
+ }
+}

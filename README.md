@@ -43,3 +43,6 @@ See [portal/README - How to use the Photo Map.md](<portal/README - How to use th
   rebuild walkthrough, not appraisals.
 - All 100 pack-out photos were shot in one ~10-minute walkthrough (1:15–1:26 PM, 3/15/2026),
   so photo-number order ≈ the crew's path through the house.
+
+## Rebuild Package (model + documents)
+**[Open the package page](https://tandem-engineering-group.github.io/899-Virginia-Park-St/package/)** — Revit model traced from the insurance floor plans (rooms stamped with claim costs), Civil 3D site with the house placed, all insurance PDFs, and links to the photo map & cost map.

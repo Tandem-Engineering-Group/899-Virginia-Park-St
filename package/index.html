@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>899 Virginia Park St — Rebuild Package</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.55 -apple-system, "Segoe UI", Roboto, sans-serif;
+         background: #12151a; color: #e8e6e1; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  .sub { color: #9aa3ad; margin: 0 0 28px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .card { background: #1b2027; border: 1px solid #2a313b; border-radius: 10px; padding: 18px 20px; }
+  .card h2 { font-size: 16px; margin: 0 0 10px; color: #d9b46a; }
+  a { color: #7db3e8; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ul { margin: 8px 0 0; padding-left: 18px; }
+  li { margin: 5px 0; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 20px 0 28px; }
+  .stat { background: #1b2027; border: 1px solid #2a313b; border-radius: 10px; padding: 12px 14px; }
+  .stat b { display: block; font-size: 19px; color: #fff; }
+  .stat span { font-size: 12.5px; color: #9aa3ad; }
+  .imgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin-top: 26px; }
+  .imgs figure { margin: 0; background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #2a313b; }
+  .imgs img { width: 100%; display: block; }
+  .imgs figcaption { font-size: 12.5px; color: #333; padding: 8px 10px; background: #f4f2ee; }
+  .note { font-size: 12.5px; color: #7c8590; margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>899 Virginia Park St, Detroit — Rebuild Package</h1>
+  <p class="sub">Liberty Mutual claim 061004792 &middot; freeze loss 02/26/2026 &middot; built 1909 &middot; parcel 04001887</p>
+
+  <div class="stats">
+    <div class="stat"><b>$179,578.08</b><span>Replacement Cost Value</span></div>
+    <div class="stat"><b>$26,641.23</b><span>recoverable depreciation held</span></div>
+    <div class="stat"><b>401</b><span>estimate line items</span></div>
+    <div class="stat"><b>4 levels</b><span>modeled B1 / 1st / 2nd / 3rd</span></div>
+    <div class="stat"><b>Dec 18, 2026</b><span>ALE coverage deadline</span></div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>3D Model (Revit 2027)</h2>
+      <ul>
+        <li><a href="../model/899VP_House_v2.rvt">899VP_House_v2.rvt</a> — traced from the insurance floor plans; 38 rooms stamped with claim repair cost, photo count &amp; contents value</li>
+        <li><a href="../model/899VP_Site_House.dxf">899VP_Site_House.dxf</a> — Civil 3D site: lot + neighbors + 3&Prime; aerial with the house placed</li>
+        <li><a href="../model/899VP_Site.dxf">899VP_Site.dxf</a> — site only (parcels + aerial)</li>
+        <li><a href="../model/house_spec_v2.json">house_spec_v2.json</a> / <a href="../model/traced_floors.json">traced_floors.json</a> — traced geometry data</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Insurance Documents</h2>
+      <ul>
+        <li><a href="../Stamm%20Contractor%20Estimate.pdf">Detailed structure estimate (36 pg)</a></li>
+        <li><a href="../Stamm%20Estimate.pdf">ConRest agreed-price summary</a></li>
+        <li><a href="../Stamm%20HVACi%20Report.pdf">HVACi boiler assessment</a></li>
+        <li><a href="../Stamm_Claim_061004792/Stamm_Claim_061004792_Master.xlsx">Master workbook (settlement waterfall)</a></li>
+        <li><a href="../Stamm_Claim_061004792/02_line_items.csv">All 401 line items (CSV)</a></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Interactive Tools</h2>
+      <ul>
+        <li><a href="../portal/index.html">Photo map</a> — 100 claim photos pinned by room</li>
+        <li><a href="../costs/index.html">Rebuild cost map</a> — room cost bubbles + field checklist</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="imgs">
+    <figure><img src="../model/renders/3d.png" alt="3D model"><figcaption>Model — traced plans, brick, hip roof, front porch</figcaption></figure>
+    <figure><img src="../model/renders/plan1.png" alt="1st floor plan"><figcaption>1st floor — Living/Dining/Kitchen/Office as traced</figcaption></figure>
+    <figure><img src="../model/renders/plan2.png" alt="2nd floor plan"><figcaption>2nd floor — 4 bedrooms + bath</figcaption></figure>
+    <figure><img src="../model/renders/planB1.png" alt="basement plan"><figcaption>Basement — main rooms + storage + shower</figcaption></figure>
+  </div>
+
+  <p class="note">Model geometry traced from the Liberty Mutual sketch pages and verified against the claim line-item areas (all rooms within ~12%). Site data from City of Detroit parcels &amp; footprints; aerial from Michigan statewide 3-inch orthoimagery (2024). Room repair costs reconcile to the $179,578.08 RCV.</p>
+</div>
+</body>
+</html>
