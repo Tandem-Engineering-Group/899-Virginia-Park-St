@@ -1,0 +1,402 @@
+Floor,Room,Item,Description,Quantity,Unit,UnitPrice,OandP,Taxes,TotalCost,Note
+1st floor,General Items,1,"Dumpster, 10 Yard",1,EA,532.15,106.44,31.93,670.52,
+1st floor,General Items,2,HVACi Report Boiler System Replacement Quote,1,EA,30875.41,6175.08,0.00,37050.49,
+1st floor,General Items,3,"Bid Item, Electrical",1,EA,0.00,0.00,0.00,0.00,Open Item for possible code related electrical rewiring needed following city inspection
+1st floor,General Items,4,Permits & Fees,1,LS,0.00,0.00,0.00,0.00,Open item for building permits needed
+1st floor,Living Room,5,"Rem/Reset - Content Manipulation, Greater Than 300 SF, Per Room",1,RM,263.43,52.68,0.00,316.11,
+1st floor,Living Room,6,"Rem/Reset - Base Shoe, Stain Grade",58.25,LF,3.06,35.66,0.07,213.98,
+1st floor,Living Room,7,"Stain & Finish - Base Molding, Up to 6""",58.25,LF,4.09,47.66,0.94,286.85,
+1st floor,Living Room,8,Stain & Finish - Base Shoe,58.25,LF,2.28,26.56,0.49,159.87,
+1st floor,Living Room,9,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",303.50,SF,1.77,107.44,0.00,644.64,
+1st floor,Living Room,10,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",333.85,SF,12.06,805.24,95.95,4927.42,Includes 10% waste on quantity
+1st floor,Living Room,11,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",303.50,SF,9.21,559.04,18.57,3372.85,
+1st floor,Living Room,12,"Tear Out - Wood Floor, Underlayment, Felt",303.50,SF,0.11,6.68,0.00,40.07,
+1st floor,Living Room,13,"Replace - Wood Floor, Underlayment, Felt",333.85,SF,0.47,31.38,2.40,190.69,Includes 10% waste on quantity
+1st floor,Living Room,14,"Clean - Final Clean, Per SF",307.70,SF,0.52,32.00,0.92,192.93,
+1st floor,Living Room,15,"Rem/Reset - Blinds, Window/Door, Vertical, Vinyl",90.23,SF,4.13,74.54,0.00,447.19,
+1st floor,Living Room,16,"Add-on, Diagonal Installation, Wood Floor",333.85,SF,2.08,138.88,0.00,833.29,Includes 10% waste on quantity
+1st floor,Living Room,17,"Rem/Reset - Crown Molding, Stain Grade, Over 6""",78.16,LF,6.49,101.46,0.23,608.95,
+1st floor,Living Room,18,"Stain & Finish - Crown Molding, Over 6""",78.16,LF,5.11,79.88,3.94,483.21,
+1st floor,Living Room,19,"Replace - Lath, Wood, Ceilings",52.50,SF,4.07,42.74,6.55,262.97,Includes 5% waste on quantity
+1st floor,Living Room,20,"Replace - Plaster, 3 Coats, w/o Lath, Ceilings",51.00,SF,7.80,79.56,3.92,481.28,Includes 2% waste on quantity
+1st floor,Living Room,21,"Replace - Lath, Wood, Walls",68.25,SF,3.69,50.36,8.52,310.72,Includes 5% waste on quantity
+1st floor,Living Room,22,"Replace - Plaster, 3 Coats, w/o Lath, Walls",66.30,SF,6.82,90.44,5.09,547.69,Includes 2% waste on quantity
+1st floor,Living Room,23,Stain & Finish - Casing,169.65,LF,3.86,130.98,2.75,788.58,
+1st floor,Living Room,24,"Tear Out - Interior Door, Pre-hung, French, Double, Good",2,EA,35.16,14.06,0.00,84.38,
+1st floor,Living Room,25,"Replace - Interior Door, Pre-hung, French, Double, Good",2,EA,1167.67,467.06,114.21,2916.61,
+1st floor,Living Room,26,"Stain & Finish - Interior Door, Panel, Glass, Double",1,EA,137.74,27.54,0.58,165.86,
+1st floor,Living Room,27,"Prime & Paint - Interior Door, Panel, Glass, Double",1,EA,64.22,12.84,0.48,77.54,
+1st floor,Living Room,28,"Paint, 2 Coats - Drywall/Plaster Ceiling",307.70,SF,1.52,93.54,5.54,566.78,
+1st floor,Living Room,29,"Paint, 2 Coats - Drywall/Plaster Wall",369.67,SF,1.37,101.30,6.65,614.40,
+1st floor,Office,30,"Rem/Reset - Light Fixture, Ceiling, Good",1,EA,112.28,22.46,0.00,134.74,
+1st floor,Office,31,"Replace - Lath, Wood, Ceilings",52.50,SF,4.07,42.74,6.55,262.97,Includes 5% waste on quantity
+1st floor,Office,32,"Replace - Plaster, 3 Coats, w/o Lath, Ceilings",51.00,SF,7.80,79.56,3.92,481.28,Includes 2% waste on quantity
+1st floor,Office,33,"Rem/Reset - Interior Door, Slab Only, Oak, SC, 6 Panel",1,EA,63.40,12.68,0.00,76.08,
+1st floor,Office,34,"Rem/Reset - Radiator, Cast Iron",1,EA,20.94,4.18,0.00,25.12,
+1st floor,Office,35,"Paint, 2 Coats - Drywall/Plaster Ceiling",116.21,SF,1.52,35.32,2.09,214.05,
+1st floor,Office,36,"Mask & Prep For Painting, LF",43.16,LF,1.35,11.66,1.92,71.85,
+1st floor,Office,37,"Rem/Reset - Base Shoe, Stain Grade",35.00,LF,3.06,21.42,0.04,128.56,
+1st floor,Office,38,"Stain & Finish - Base Molding, Up to 6""",35.00,LF,4.09,28.64,0.57,172.36,
+1st floor,Office,39,Stain & Finish - Base Shoe,35.00,LF,2.28,15.96,0.29,96.05,
+1st floor,Office,40,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",116.12,SF,1.77,41.10,0.00,246.63,
+1st floor,Office,41,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",127.73,SF,12.06,308.08,36.71,1885.22,Includes 10% waste on quantity
+1st floor,Office,42,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",116.12,SF,9.21,213.90,7.11,1290.47,
+1st floor,Office,43,"Add-on, Diagonal Installation, Wood Floor",127.73,SF,2.08,53.14,0.00,318.82,Includes 10% waste on quantity
+1st floor,Office,44,"Tear Out - Wood Floor, Underlayment, Felt",116.12,SF,0.11,2.56,0.00,15.33,
+1st floor,Office,45,"Replace - Wood Floor, Underlayment, Felt",127.73,SF,0.47,12.00,0.92,72.96,Includes 10% waste on quantity
+1st floor,Entry,46,"Rem/Reset - Content Manipulation, 101 to 200 SF, Per Room",1,RM,131.72,26.34,0.00,158.06,
+1st floor,Entry,47,"Rem/Reset - Base Shoe, Stain Grade",15.02,LF,3.06,9.20,0.02,55.18,
+1st floor,Entry,48,"Stain & Finish - Base Molding, Up to 6""",15.02,LF,4.09,12.28,0.24,73.96,
+1st floor,Entry,49,Stain & Finish - Quarter Round,15.02,LF,2.94,8.84,0.24,53.24,
+1st floor,Entry,50,Stain & Finish - Casing,36.00,LF,3.86,27.80,0.58,167.34,
+1st floor,Entry,51,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",30.32,SF,1.77,10.74,0.00,64.41,
+1st floor,Entry,52,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",33.35,SF,12.06,80.44,9.59,492.23,Includes 10% waste on quantity
+1st floor,Entry,53,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",30.32,SF,9.21,55.86,1.86,336.97,
+1st floor,Entry,54,"Add-on, Diagonal Installation, Wood Floor",33.35,SF,2.08,13.88,0.00,83.25,Includes 10% waste on quantity
+1st floor,Entry,55,"Tear Out - Wood Floor, Underlayment, Felt",30.32,SF,0.11,0.66,0.00,4.00,
+1st floor,Entry,56,"Replace - Wood Floor, Underlayment, Felt",33.35,SF,0.47,3.14,0.24,19.05,Includes 10% waste on quantity
+1st floor,Entry,57,"Mask & Prep For Painting, LF",22.18,LF,1.35,5.98,0.98,36.90,protect walls during flooring repairs
+1st floor,Entry,58,"Tear Out - Plaster, Thin Coat, w/o Lath",28.33,SF,0.74,4.20,0.00,25.16,
+1st floor,Entry,59,"Replace - Plaster, Thin Coat, w/o Lath",29.75,SF,1.83,10.90,0.25,65.60,Includes 5% waste; thin coat repair in area of cracking on walls
+1st floor,Entry,60,"Rem/Reset - Wall Hook, Good",5,EA,14.09,14.10,0.00,84.55,
+1st floor,Entry,61,"Paint, 2 Coats - Drywall/Plaster Wall",121.15,SF,1.37,33.20,2.18,201.36,
+1st floor,Entry,62,Stain & Finish - Chair Rail,15.02,LF,3.56,10.70,0.18,64.35,
+1st floor,Entry,63,"Stain & Finish - Crown Molding, Up to 6""",22.18,LF,3.56,15.80,0.27,95.03,
+1st floor,Entry,64,"Clean - Final Clean, Per SF",60.64,SF,0.52,6.30,0.18,38.01,
+1st floor,Hallway,65,"Replace - Lath, Wood, Ceilings",97.25,SF,4.07,79.16,12.14,487.11,Includes 5% waste on quantity
+1st floor,Hallway,66,"Replace - Plaster, 3 Coats, w/o Lath, Ceilings",94.47,SF,7.80,147.38,7.26,891.51,Includes 2% waste on quantity
+1st floor,Hallway,67,"Replace - Lath, Wood, Walls",25.99,SF,3.69,19.18,3.24,118.32,Includes 5% waste on quantity
+1st floor,Hallway,68,"Replace - Plaster, 3 Coats, w/o Lath, Walls",25.25,SF,6.82,34.44,1.94,208.58,Includes 2% waste on quantity
+1st floor,Hallway,69,"Tear Out - Light Fixture, Ceiling, Good",1,EA,18.29,3.66,0.00,21.95,
+1st floor,Hallway,70,"Replace - Light Fixture, Ceiling, Good",1,EA,100.53,20.10,2.92,123.55,
+1st floor,Hallway,71,"Rem/Reset - Base Shoe, Stain Grade",23.10,LF,3.06,14.14,0.03,84.85,
+1st floor,Hallway,72,"Stain & Finish - Base Molding, Up to 6""",23.10,LF,4.09,18.90,0.37,113.75,
+1st floor,Hallway,73,Stain & Finish - Quarter Round,23.10,LF,2.94,13.58,0.37,81.87,
+1st floor,Hallway,74,"Stain & Finish - Crown Molding, Up to 6""",46.82,LF,3.56,33.34,0.56,200.58,
+1st floor,Hallway,75,Stain & Finish - Casing,102.89,LF,3.86,79.44,1.67,478.27,
+1st floor,Hallway,76,"Paint, 2 Coats - Drywall/Plaster Ceiling",92.62,SF,1.52,28.16,1.67,170.62,
+1st floor,Hallway,77,"Paint, 2 Coats - Drywall/Plaster Wall",184.09,SF,1.37,50.44,3.31,305.96,
+1st floor,Hallway,78,"Mask & Prep For Painting, LF",46.82,LF,1.35,12.64,2.08,77.93,
+1st floor,Hallway,79,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",92.58,SF,1.77,32.78,0.00,196.65,
+1st floor,Hallway,80,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",101.84,SF,12.06,245.64,29.27,1503.10,Includes 10% waste on quantity
+1st floor,Hallway,81,"Tear Out - Wood Floor, Underlayment, Felt",92.58,SF,0.11,2.04,0.00,12.22,
+1st floor,Hallway,82,"Replace - Wood Floor, Underlayment, Felt",101.84,SF,0.47,9.58,0.73,58.17,Includes 10% waste on quantity
+1st floor,Hallway,83,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",92.58,SF,9.21,170.54,5.67,1028.87,
+1st floor,Hallway,84,"Add-on, Diagonal Installation, Wood Floor",101.84,SF,2.08,42.36,0.00,254.19,Includes 10% waste on quantity
+1st floor,Hallway,85,"Tear Out - Interior Door, Pre-hung, Oak, SC, 4 Panel",2,EA,25.73,10.30,0.00,61.76,
+1st floor,Hallway,86,"Replace - Interior Door, Pre-hung, Oak, SC, 4 Panel",2,EA,616.96,246.78,57.86,1538.56,
+1st floor,Hallway,87,"Rem/Reset - Interior Door, Pre-hung, Oak, SC, 4 Panel",1,EA,189.36,37.88,0.03,227.27,
+1st floor,Hallway,88,"Stain & Finish - Interior Door, Panel",2,EA,58.83,23.54,0.72,141.92,
+1st floor,Hallway,89,"Rem/Reset - Door Knob, Half Dummy",2,EA,19.19,7.68,0.00,46.06,
+1st floor,Hallway,90,"Rem/Reset - Blinds, Window/Door, Vertical, Vinyl",38.25,SF,4.13,31.60,0.00,189.57,
+1st floor,Hallway,91,"Clean - Final Clean, Per SF",92.62,SF,0.52,9.64,0.28,58.09,
+1st floor,Pass Through,92,"Clean - Final Clean, Per SF",7.65,SF,0.52,0.80,0.02,4.80,
+1st floor,Pass Through,93,"Replace - Underlayment, OSB, 1/2""",8.42,SF,1.44,2.42,0.29,14.84,Includes 10% waste on quantity
+1st floor,Pass Through,94,"Replace - Vinyl Floor Tile, Very Good",8.42,SF,4.99,8.40,1.46,51.87,Includes 10% waste on quantity
+1st floor,Pass Through,95,"Rem/Reset - Base Shoe, Stain Grade",3.17,LF,3.06,1.94,0.00,11.64,
+1st floor,Pass Through,96,"Stain & Finish - Base Molding, Up to 6""",3.17,LF,4.09,2.60,0.05,15.62,
+1st floor,Pass Through,97,Stain & Finish - Casing,32.45,LF,3.86,25.06,0.53,150.85,
+1st floor,Pass Through,98,Stain & Finish - Base Shoe,3.17,LF,2.28,1.44,0.03,8.69,
+1st floor,Pass Through,99,"Replace - Lath, Wood, Walls",47.59,SF,3.69,35.12,5.94,216.67,Includes 5% waste on quantity
+1st floor,Pass Through,100,"Replace - Plaster, 2 Coats, w/o Lath, Walls",46.23,SF,4.92,45.50,2.30,275.25,Includes 2% waste on quantity
+1st floor,Pass Through,101,"Paint, 2 Coats - Drywall/Plaster Ceiling",7.65,SF,1.52,2.32,0.14,14.09,
+1st floor,Pass Through,102,"Paint, 2 Coats - Drywall/Plaster Wall",34.69,SF,1.37,9.50,0.62,57.65,
+1st floor,Pass Through,103,"Replace - Lath, Wood, Ceilings",8.03,SF,4.07,6.54,1.00,40.22,Includes 5% waste on quantity
+1st floor,Pass Through,104,"Replace - Plaster, 3 Coats, w/o Lath, Ceilings",7.80,SF,7.80,12.16,0.60,73.60,Includes 2% waste on quantity
+1st floor,Stairs (incl subrooms),105,"Clean - Final Clean, Per SF",24.54,SF,0.52,2.56,0.07,15.39,
+1st floor,Stairs (incl subrooms),106,"Paint, 2 Coats - Drywall/Plaster Wall",25.56,SF,1.37,7.00,0.46,42.48,
+1st floor,Stairs (incl subrooms),107,"Paint, 2 Coats - Drywall/Plaster Ceiling",6.86,SF,1.52,2.08,0.12,12.63,
+1st floor,Stairs 3,108,"Clean - Final Clean, Per SF",7.39,SF,0.52,0.76,0.02,4.62,
+1st floor,Stairs 3,109,"Replace - Lath, Wood, Walls",74.39,SF,3.69,54.90,9.28,338.68,Includes 5% waste on quantity
+1st floor,Stairs 3,110,"Replace - Plaster, 2 Coats, w/o Lath, Walls",72.27,SF,4.92,71.12,3.60,430.29,Includes 2% waste on quantity
+1st floor,Stairs 3,111,"Paint, 2 Coats - Drywall/Plaster Wall",65.37,SF,1.37,17.92,1.18,108.66,
+1st floor,Stairs 3,112,"Replace - Plaster, 3 Coats, w/o Lath, Ceilings",7.54,SF,7.80,11.76,0.58,71.15,Includes 2% waste on quantity
+1st floor,Stairs 3,113,"Paint, 2 Coats - Drywall/Plaster Ceiling",7.39,SF,1.52,2.24,0.13,13.61,
+1st floor,Stairs 3,114,"Replace - Lath, Wood, Ceilings",7.76,SF,4.07,6.32,0.97,38.87,Includes 5% waste on quantity
+1st floor,Stairs 3,115,"Prime & Paint - Stair Riser, 4'",7,EA,20.29,28.40,0.51,170.94,
+1st floor,Stairs 3,116,Prime & Paint - Stair Stringer,7.00,LF,5.22,7.30,0.21,44.05,
+1st floor,Stairs 3,117,"Prime & Paint - Stair Tread, 4'",7,EA,32.70,45.78,0.92,275.60,
+1st floor,Hallway Bathroom,118,"Clean - Final Clean, Per SF",13.69,SF,0.52,1.42,0.04,8.58,
+1st floor,Hallway Bathroom,119,"Replace - Base Shoe, Stain Grade",13.62,LF,3.92,10.68,1.02,65.10,Includes 6% waste on quantity
+1st floor,Hallway Bathroom,120,"Stain & Finish - Base Molding, Up to 6""",12.85,LF,4.09,10.52,0.21,63.29,
+1st floor,Hallway Bathroom,121,Stain & Finish - Casing,17.22,LF,3.86,13.30,0.28,80.05,
+1st floor,Hallway Bathroom,122,Stain & Finish - Base Shoe,12.85,LF,2.28,5.86,0.11,35.27,
+1st floor,Hallway Bathroom,123,"Replace - Lath, Wood, Walls",114.20,SF,3.69,84.28,14.25,519.93,Includes 5% waste on quantity
+1st floor,Hallway Bathroom,124,"Replace - Plaster, 2 Coats, w/o Lath, Walls",110.94,SF,4.92,109.16,5.52,660.50,Includes 2% waste on quantity
+1st floor,Hallway Bathroom,125,"Paint, 2 Coats - Drywall/Plaster Ceiling",13.69,SF,1.52,4.16,0.25,25.22,
+1st floor,Hallway Bathroom,126,"Paint, 2 Coats - Drywall/Plaster Wall",100.97,SF,1.37,27.66,1.82,167.81,
+1st floor,Hallway Bathroom,127,"Replace - Lath, Wood, Ceilings",14.37,SF,4.07,11.70,1.79,71.98,Includes 5% waste on quantity
+1st floor,Hallway Bathroom,128,"Replace - Plaster, 3 Coats, w/o Lath, Ceilings",13.96,SF,7.80,21.78,1.07,131.74,Includes 2% waste on quantity
+1st floor,Hallway Bathroom,129,"Replace - Light Fixture, Ceiling, Good",1,EA,100.53,20.10,2.92,123.55,
+1st floor,Hallway Bathroom,130,"Tear Out - Light Fixture, Wall, Good",1,EA,11.43,2.28,0.00,13.71,
+1st floor,Hallway Bathroom,131,"Replace - Light Fixture, Wall, Good",1,EA,164.55,32.92,6.36,203.83,
+1st floor,Hallway Bathroom,132,"Rem/Reset - Sink, Bathroom, Pedestal, Vitreous China, Good",1,EA,225.97,45.20,0.00,271.17,
+1st floor,Hallway Bathroom,133,"Replace - Base Molding, Stain Grade, Over 3"" - Up to 6""",13.62,LF,8.03,21.88,3.78,135.03,Includes 6% waste on quantity
+1st floor,Hallway Bathroom,134,"Reset - Toilet, One-Piece, Good",1,EA,170.17,34.04,0.19,204.40,
+1st floor,Kitchen,135,"Clean - Final Clean, Per SF",121.78,SF,0.52,12.66,0.37,76.36,
+1st floor,Kitchen,136,"Replace - Cabinet, Base, Good, LF",4.00,LF,223.95,179.16,42.12,1117.08,
+1st floor,Kitchen,137,"Replace - Countertop, Solid-Surface, Good, SF",8.00,SF,109.42,175.08,38.56,1089.00,
+1st floor,Kitchen,138,"Replace - Cabinet, Wall, Good, LF",2.00,LF,139.87,55.94,11.26,346.94,
+1st floor,Kitchen,139,"Rem/Reset - Sink, Service, Wall-Hung, Cast-Iron",1,EA,202.95,40.60,0.00,243.55,
+1st floor,Kitchen,140,"Replace - Underlayment, OSB, 1/2""",139.22,SF,1.44,40.10,4.76,245.34,Includes 10% waste on quantity
+1st floor,Kitchen,141,"Replace - Vinyl Floor Tile, Very Good",133.96,SF,4.99,133.70,23.23,825.39,Includes 10% waste on quantity
+1st floor,Kitchen,142,"Rem/Reset - Base Shoe, Stain Grade",30.01,LF,3.06,18.36,0.04,110.23,
+1st floor,Kitchen,143,"Stain & Finish - Base Molding, Up to 6""",30.01,LF,4.09,24.54,0.49,147.77,
+1st floor,Kitchen,144,Stain & Finish - Casing,68.56,LF,3.86,52.92,1.11,318.67,
+1st floor,Kitchen,145,Stain & Finish - Base Shoe,30.01,LF,2.28,13.68,0.25,82.35,
+1st floor,Kitchen,146,"Replace - Lath, Wood, Walls",54.23,SF,3.69,40.02,6.77,246.90,Includes 5% waste on quantity
+1st floor,Kitchen,147,"Replace - Plaster, 2 Coats, w/o Lath, Walls",52.68,SF,4.92,51.84,2.62,313.64,Includes 2% waste on quantity
+1st floor,Kitchen,148,"Paint, 2 Coats - Drywall/Plaster Ceiling",126.56,SF,1.52,38.48,2.28,233.13,
+1st floor,Kitchen,149,"Paint, 2 Coats - Drywall/Plaster Wall",221.70,SF,1.37,60.74,3.99,368.46,
+1st floor,Kitchen Closet,150,"Clean - Final Clean, Per SF",2.34,SF,0.52,0.24,0.01,1.47,
+1st floor,Kitchen Closet,151,"Tear Out - Paneling, Oak, 1/4""",46.89,SF,0.46,4.32,0.00,25.89,
+1st floor,Kitchen Closet,152,"Replace - Paneling, Oak, 1/4""",49.23,SF,4.85,47.76,8.60,295.13,Includes 5% waste on quantity
+1st floor,Kitchen Closet,153,"Tear Out - Shelf, Wood, 1""x8""",18.00,LF,1.31,4.72,0.00,28.30,
+1st floor,Kitchen Closet,154,"Replace - Shelf, Wood, 1""x8""",18.90,LF,16.31,61.66,3.75,373.67,Includes 5% waste on quantity
+1st floor,Kitchen Closet,155,"Prime & Paint - Paneling, Wall",41.04,SF,1.37,11.24,0.74,68.20,
+1st floor,Kitchen Closet,156,Prime & Paint - Shelving,18.00,LF,4.42,15.92,0.65,96.13,
+1st floor,Pantry Area,157,"Clean - Final Clean, Per SF",33.43,SF,0.52,3.48,0.10,20.96,
+1st floor,Pantry Area,158,"Tear Out - Cabinet, Full Height, Very Good, LF",8.19,LF,16.06,26.30,0.00,157.83,
+1st floor,Pantry Area,159,"Replace - Cabinet, Full Height, Very Good, LF",8.19,LF,311.36,510.00,115.05,3175.09,
+1st floor,Pantry Area,160,"Tear Out - Light Fixture, Ceiling, Good",1,EA,18.29,3.66,0.00,21.95,
+1st floor,Pantry Area,161,"Replace - Light Fixture, Ceiling, Good",1,EA,100.53,20.10,2.92,123.55,
+1st floor,Pantry Area,162,"Replace - Lath, Wood, Walls",208.81,SF,3.69,154.10,26.06,950.66,Includes 5% waste on quantity
+1st floor,Pantry Area,163,"Replace - Lath, Wood, Ceilings",40.94,SF,4.07,33.32,5.11,205.06,Includes 5% waste on quantity
+1st floor,Pantry Area,164,"Replace - Plaster, 3 Coats, w/o Lath, Ceilings",39.77,SF,7.80,62.04,3.05,375.30,Includes 2% waste on quantity
+1st floor,Pantry Area,165,"Replace - Plaster, 3 Coats, w/o Lath, Walls",202.85,SF,6.82,276.68,15.58,1675.70,Includes 2% waste on quantity
+1st floor,Pantry Area,166,"Replace - Vinyl Floor Tile, Very Good",36.77,SF,4.99,36.70,6.38,226.57,Includes 10% waste on quantity
+1st floor,Pantry Area,167,"Replace - Underlayment, OSB, 1/2""",42.89,SF,1.44,12.36,1.47,75.59,Includes 10% waste on quantity
+1st floor,Pantry Area,168,"Replace - Base Shoe, Stain Grade",15.19,LF,3.92,11.92,1.14,72.61,Includes 6% waste on quantity
+1st floor,Pantry Area,169,"Tear Out - Base Molding, Stain Grade, Over 3"" - Up to 6""",14.33,LF,0.29,0.84,0.00,5.00,
+1st floor,Pantry Area,170,"Replace - Base Molding, Stain Grade, Over 3"" - Up to 6""",15.19,LF,8.03,24.40,4.22,150.60,Includes 6% waste on quantity
+1st floor,Pantry Area,171,Stain & Finish - Base Shoe,14.33,LF,2.28,6.54,0.12,39.34,
+1st floor,Pantry Area,172,"Stain & Finish - Base Molding, Up to 6""",14.33,LF,4.09,11.72,0.23,70.56,
+1st floor,Dining Room,173,"Rem/Reset - Base Shoe, Stain Grade",44.10,LF,3.06,26.98,0.05,161.97,
+1st floor,Dining Room,174,"Stain & Finish - Base Molding, Up to 6""",44.10,LF,4.09,36.08,0.71,217.16,
+1st floor,Dining Room,175,Stain & Finish - Base Shoe,44.10,LF,2.28,20.10,0.37,121.01,
+1st floor,Dining Room,176,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",164.10,SF,1.77,58.10,0.00,348.56,
+1st floor,Dining Room,177,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",180.51,SF,12.06,435.40,51.88,2664.23,Includes 10% waste on quantity
+1st floor,Dining Room,178,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",164.10,SF,9.21,302.28,10.04,1823.68,
+1st floor,Dining Room,179,"Tear Out - Wood Floor, Underlayment, Felt",164.10,SF,0.11,3.62,0.00,21.67,
+1st floor,Dining Room,180,"Replace - Wood Floor, Underlayment, Felt",180.51,SF,0.47,16.96,1.30,103.10,Includes 10% waste on quantity
+1st floor,Dining Room,181,"Rem/Reset - Blinds, Window/Door, Vertical, Vinyl",40.81,SF,4.13,33.72,0.00,202.27,
+1st floor,Dining Room,182,"Clean - Final Clean, Per SF",164.10,SF,0.52,17.06,0.49,102.89,
+1st floor,Dining Room,183,"Add-on, Diagonal Installation, Wood Floor",180.51,SF,2.08,75.10,0.00,450.56,Includes 10% waste on quantity
+1st floor,Dining Room,184,"Replace - Lath, Wood, Ceilings",172.33,SF,4.07,140.28,21.51,863.18,Includes 5% waste on quantity
+1st floor,Dining Room,185,"Replace - Plaster, 3 Coats, w/o Lath, Ceilings",167.40,SF,7.80,261.14,12.86,1579.71,Includes 2% waste on quantity
+1st floor,Dining Room,186,"Replace - Lath, Wood, Walls",346.34,SF,3.69,255.60,43.22,1576.82,Includes 5% waste on quantity
+1st floor,Dining Room,187,"Replace - Plaster, 3 Coats, w/o Lath, Walls",336.45,SF,6.82,458.92,25.84,2779.35,Includes 2% waste on quantity
+1st floor,Dining Room,188,"Paint, 2 Coats - Drywall/Plaster Ceiling",164.12,SF,1.52,49.90,2.95,302.32,
+1st floor,Dining Room,189,"Paint, 2 Coats - Drywall/Plaster Wall",296.05,SF,1.37,81.12,5.33,492.04,
+1st floor,Dining Room,190,"Replace - Interior Door, Pre-hung, Oak, SC, Flush",1,EA,308.93,61.78,10.45,381.16,
+1st floor,Dining Room,191,Prime & Paint - Casing,64.09,LF,1.81,23.20,0.50,139.70,
+2nd floor 2,Bedroom_3,192,"Prime & Paint - Crown Molding, Up to 6""",55.33,LF,1.70,18.82,0.33,113.21,
+2nd floor 2,Bedroom_3,193,Prime & Paint - Casing,88.08,LF,1.81,31.88,0.69,191.99,
+2nd floor 2,Bedroom_3,194,"Prime & Paint - Base Molding, Up to 6""",49.24,LF,1.82,17.92,0.41,107.94,
+2nd floor 2,Bedroom_3,195,Prime & Paint - Base Shoe,49.24,LF,1.41,13.88,0.12,83.43,
+2nd floor 2,Bedroom_3,196,"Rem/Reset - Base Shoe, Paint Grade",49.24,LF,2.86,28.16,0.21,169.20,
+2nd floor 2,Bedroom_3,197,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",196.69,SF,1.77,69.62,0.00,417.76,
+2nd floor 2,Bedroom_3,198,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",216.36,SF,12.06,521.86,62.18,3193.34,Includes 10% waste on quantity
+2nd floor 2,Bedroom_3,199,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",196.69,SF,9.21,362.30,12.04,2185.86,
+2nd floor 2,Bedroom_3,200,"Tear Out - Wood Floor, Underlayment, Felt",196.69,SF,0.11,4.32,0.00,25.96,
+2nd floor 2,Bedroom_3,201,"Replace - Wood Floor, Underlayment, Felt",216.36,SF,0.47,20.34,1.56,123.59,Includes 10% waste on quantity
+2nd floor 2,Bedroom_3,202,Prime & Paint - Drywall/Plaster Ceiling,196.72,SF,1.52,59.80,3.54,362.36,
+2nd floor 2,Bedroom_3,203,Prime & Paint - Drywall/Plaster Wall,329.85,SF,1.37,90.38,5.94,548.22,
+2nd floor 2,Bedroom_3,204,"Rem/Reset - Blinds, Window/Door, Vertical, Vinyl",40.69,SF,4.13,33.62,0.00,201.67,
+2nd floor 2,Bedroom_3,205,"Clean - Final Clean, Per SF",196.69,SF,0.52,20.46,0.59,123.33,
+2nd floor 2,Master Bedroom,206,"Prime & Paint - Crown Molding, Up to 6""",66.34,LF,1.70,22.56,0.40,135.73,
+2nd floor 2,Master Bedroom,207,Prime & Paint - Casing,104.07,LF,1.81,37.68,0.81,226.86,
+2nd floor 2,Master Bedroom,208,"Prime & Paint - Base Molding, Up to 6""",60.60,LF,1.82,22.06,0.51,132.86,
+2nd floor 2,Master Bedroom,209,Prime & Paint - Base Shoe,60.60,LF,1.41,17.08,0.15,102.67,
+2nd floor 2,Master Bedroom,210,"Rem/Reset - Base Shoe, Paint Grade",60.60,LF,2.86,34.66,0.25,208.22,
+2nd floor 2,Master Bedroom,211,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",246.83,SF,1.77,87.38,0.00,524.27,
+2nd floor 2,Master Bedroom,212,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",271.51,SF,12.06,654.88,78.03,4007.32,Includes 10% waste on quantity
+2nd floor 2,Master Bedroom,213,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",246.83,SF,9.21,454.66,15.11,2743.08,
+2nd floor 2,Master Bedroom,214,"Tear Out - Wood Floor, Underlayment, Felt",246.83,SF,0.11,5.44,0.00,32.59,
+2nd floor 2,Master Bedroom,215,"Replace - Wood Floor, Underlayment, Felt",271.51,SF,0.47,25.52,1.95,155.08,Includes 10% waste on quantity
+2nd floor 2,Master Bedroom,216,Prime & Paint - Drywall/Plaster Ceiling,247.27,SF,1.52,75.18,4.45,455.48,
+2nd floor 2,Master Bedroom,217,Prime & Paint - Drywall/Plaster Wall,397.97,SF,1.37,109.04,7.16,661.42,
+2nd floor 2,Master Bedroom,218,"Rem/Reset - Blinds, Window/Door, Vertical, Vinyl",55.41,SF,4.13,45.76,0.00,274.60,
+2nd floor 2,Master Bedroom,219,"Clean - Final Clean, Per SF",246.83,SF,0.52,25.68,0.74,154.77,
+2nd floor 2,Hallway,220,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",88.74,SF,1.77,31.42,0.00,188.49,
+2nd floor 2,Hallway,221,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",97.61,SF,12.06,235.44,28.05,1440.66,Includes 10% waste on quantity
+2nd floor 2,Hallway,222,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",88.74,SF,9.21,163.46,5.43,986.18,
+2nd floor 2,Hallway,223,"Rem/Reset - Base Shoe, Stain Grade",13.75,LF,3.06,8.42,0.02,50.52,
+2nd floor 2,Hallway,224,"Tear Out - Wood Floor, Underlayment, Felt",88.74,SF,0.11,1.96,0.00,11.72,
+2nd floor 2,Hallway,225,"Replace - Wood Floor, Underlayment, Felt",97.61,SF,0.47,9.18,0.70,55.75,Includes 10% waste on quantity
+2nd floor 2,Hallway,226,Stain & Finish - Casing,116.97,LF,3.86,90.30,1.89,543.69,
+2nd floor 2,Hallway,227,Stain & Finish - Base Shoe,13.75,LF,2.28,6.28,0.12,37.76,
+2nd floor 2,Hallway,228,"Stain & Finish - Base Molding, Up to 6""",13.75,LF,4.09,11.24,0.22,67.70,
+2nd floor 2,Hallway,229,"Replace - Lath, Wood, Walls",41.90,SF,3.69,30.92,5.23,190.76,Includes 5% waste on quantity
+2nd floor 2,Hallway,230,"Replace - Plaster, 3 Coats, w/o Lath, Walls",40.70,SF,6.82,55.52,3.13,336.23,Includes 2% waste on quantity
+2nd floor 2,Hallway,231,Prime & Paint - Drywall/Plaster Ceiling,88.53,SF,1.52,26.92,1.59,163.08,
+2nd floor 2,Hallway,232,Prime & Paint - Drywall/Plaster Wall,148.90,SF,1.37,40.80,2.68,247.47,
+2nd floor 2,Hallway,233,"Clean - Final Clean, Per SF",88.74,SF,0.52,9.24,0.27,55.66,
+2nd floor 2,Hallway,234,"Stain & Finish - Crown Molding, Up to 6""",41.93,LF,3.56,29.86,0.50,179.63,
+2nd floor 2,Bedroom_3 Closet,235,"Prime & Paint - Crown Molding, Up to 6""",17.00,LF,1.70,5.78,0.10,34.78,
+2nd floor 2,Bedroom_3 Closet,236,Prime & Paint - Casing,27.77,LF,1.81,10.06,0.22,60.54,
+2nd floor 2,Bedroom_3 Closet,237,"Prime & Paint - Base Molding, Up to 6""",14.08,LF,1.82,5.12,0.12,30.86,
+2nd floor 2,Bedroom_3 Closet,238,Prime & Paint - Base Shoe,14.08,LF,1.41,3.98,0.03,23.86,
+2nd floor 2,Bedroom_3 Closet,239,"Rem/Reset - Base Shoe, Paint Grade",14.08,LF,2.86,8.06,0.06,48.39,
+2nd floor 2,Bedroom_3 Closet,240,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",15.56,SF,9.21,28.66,0.95,172.92,
+2nd floor 2,Bedroom_3 Closet,241,Prime & Paint - Drywall/Plaster Ceiling,15.56,SF,1.52,4.74,0.28,28.67,
+2nd floor 2,Bedroom_3 Closet,242,Prime & Paint - Drywall/Plaster Wall,104.13,SF,1.37,28.54,1.87,173.07,
+2nd floor 2,Bedroom_3 Closet,243,"Clean - Final Clean, Per SF",15.56,SF,0.52,1.62,0.05,9.77,
+2nd floor 2,Master Bedroom Closet,244,"Prime & Paint - Crown Molding, Up to 6""",14.50,LF,1.70,4.94,0.09,29.68,
+2nd floor 2,Master Bedroom Closet,245,Prime & Paint - Casing,27.50,LF,1.81,9.96,0.21,59.95,
+2nd floor 2,Master Bedroom Closet,246,"Prime & Paint - Base Molding, Up to 6""",11.92,LF,1.82,4.34,0.10,26.14,
+2nd floor 2,Master Bedroom Closet,247,Prime & Paint - Base Shoe,11.92,LF,1.41,3.36,0.03,20.20,
+2nd floor 2,Master Bedroom Closet,248,"Rem/Reset - Base Shoe, Paint Grade",11.92,LF,2.86,6.82,0.05,40.96,
+2nd floor 2,Master Bedroom Closet,249,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",12.93,SF,9.21,23.82,0.79,143.70,
+2nd floor 2,Master Bedroom Closet,250,Prime & Paint - Drywall/Plaster Ceiling,12.93,SF,1.52,3.94,0.23,23.82,
+2nd floor 2,Master Bedroom Closet,251,Prime & Paint - Drywall/Plaster Wall,86.93,SF,1.37,23.82,1.56,144.48,
+2nd floor 2,Master Bedroom Closet,252,"Clean - Final Clean, Per SF",12.93,SF,0.52,1.34,0.04,8.11,
+2nd floor 2,Bedroom_2 Closet,253,"Prime & Paint - Crown Molding, Up to 6""",17.16,LF,1.70,5.84,0.10,35.12,
+2nd floor 2,Bedroom_2 Closet,254,Prime & Paint - Casing,28.34,LF,1.81,10.26,0.22,61.77,
+2nd floor 2,Bedroom_2 Closet,255,"Prime & Paint - Base Molding, Up to 6""",14.24,LF,1.82,5.18,0.12,31.21,
+2nd floor 2,Bedroom_2 Closet,256,Prime & Paint - Base Shoe,14.24,LF,1.41,4.02,0.03,24.13,
+2nd floor 2,Bedroom_2 Closet,257,"Rem/Reset - Base Shoe, Paint Grade",14.24,LF,2.86,8.14,0.06,48.93,
+2nd floor 2,Bedroom_2 Closet,258,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",16.04,SF,9.21,29.54,0.98,178.25,
+2nd floor 2,Bedroom_2 Closet,259,Prime & Paint - Drywall/Plaster Ceiling,16.04,SF,1.52,4.88,0.29,29.55,
+2nd floor 2,Bedroom_2 Closet,260,Prime & Paint - Drywall/Plaster Wall,104.91,SF,1.37,28.74,1.89,174.35,
+2nd floor 2,Bedroom_2 Closet,261,"Clean - Final Clean, Per SF",16.04,SF,0.52,1.66,0.05,10.05,
+2nd floor 2,Stairs (incl subrooms),262,"Clean - Final Clean, Per SF",35.89,SF,0.52,3.74,0.12,22.53,
+2nd floor 2,Stairs (incl subrooms),263,"Paint, 2 Coats - Drywall/Plaster Wall",203.20,SF,1.37,55.68,3.67,337.74,
+2nd floor 2,Stairs (incl subrooms),264,"Paint, 2 Coats - Drywall/Plaster Ceiling",35.89,SF,1.52,10.90,0.64,66.08,
+2nd floor 2,Bedroom Closet,265,"Prime & Paint - Crown Molding, Up to 6""",14.50,LF,1.70,4.94,0.09,29.68,
+2nd floor 2,Bedroom Closet,266,Prime & Paint - Casing,27.83,LF,1.81,10.08,0.22,60.67,
+2nd floor 2,Bedroom Closet,267,"Prime & Paint - Base Molding, Up to 6""",11.58,LF,1.82,4.22,0.10,25.39,
+2nd floor 2,Bedroom Closet,268,Prime & Paint - Base Shoe,11.58,LF,1.41,3.26,0.03,19.61,
+2nd floor 2,Bedroom Closet,269,"Rem/Reset - Base Shoe, Paint Grade",11.58,LF,2.86,6.62,0.05,39.79,
+2nd floor 2,Bedroom Closet,270,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",12.93,SF,9.21,23.82,0.79,143.70,
+2nd floor 2,Bedroom Closet,271,Prime & Paint - Drywall/Plaster Ceiling,12.93,SF,1.52,3.94,0.23,23.82,
+2nd floor 2,Bedroom Closet,272,Prime & Paint - Drywall/Plaster Wall,85.38,SF,1.37,23.40,1.54,141.91,
+2nd floor 2,Bedroom Closet,273,"Clean - Final Clean, Per SF",12.93,SF,0.52,1.34,0.04,8.11,
+2nd floor 2,Bedroom_2,274,"Replace - Lath, Wood, Walls",95.78,SF,3.69,70.68,11.95,436.06,Includes 5% waste on quantity
+2nd floor 2,Bedroom_2,275,"Replace - Plaster, 3 Coats, w/o Lath, Walls",93.04,SF,6.82,126.90,7.15,768.59,Includes 2% waste on quantity
+2nd floor 2,Bedroom_2,276,"Replace - Lath, Wood, Ceilings",52.50,SF,4.07,42.74,6.55,262.97,Includes 5% waste on quantity
+2nd floor 2,Bedroom_2,277,"Replace - Plaster, 3 Coats, w/o Lath, Ceilings",51.00,SF,7.80,79.56,3.92,481.28,Includes 2% waste on quantity
+2nd floor 2,Bedroom_2,278,"Prime & Paint - Crown Molding, Up to 6""",48.41,LF,1.70,16.46,0.29,99.05,
+2nd floor 2,Bedroom_2,279,Prime & Paint - Casing,77.58,LF,1.81,28.08,0.61,169.11,
+2nd floor 2,Bedroom_2,280,"Prime & Paint - Base Molding, Up to 6""",42.32,LF,1.82,15.40,0.36,92.78,
+2nd floor 2,Bedroom_2,281,Prime & Paint - Base Shoe,42.32,LF,1.41,11.94,0.10,71.71,
+2nd floor 2,Bedroom_2,282,"Rem/Reset - Base Shoe, Paint Grade",42.32,LF,2.86,24.20,0.18,145.41,
+2nd floor 2,Bedroom_2,283,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",138.89,SF,1.77,49.16,0.00,295.00,
+2nd floor 2,Bedroom_2,284,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",152.78,SF,12.06,368.50,43.91,2254.94,Includes 10% waste on quantity
+2nd floor 2,Bedroom_2,285,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",138.89,SF,9.21,255.84,8.50,1543.52,
+2nd floor 2,Bedroom_2,286,"Tear Out - Wood Floor, Underlayment, Felt",138.89,SF,0.11,3.06,0.00,18.34,
+2nd floor 2,Bedroom_2,287,"Replace - Wood Floor, Underlayment, Felt",152.78,SF,0.47,14.36,1.10,87.26,Includes 10% waste on quantity
+2nd floor 2,Bedroom_2,288,Prime & Paint - Drywall/Plaster Ceiling,139.16,SF,1.52,42.30,2.51,256.34,
+2nd floor 2,Bedroom_2,289,Prime & Paint - Drywall/Plaster Wall,273.58,SF,1.37,74.96,4.92,454.68,
+2nd floor 2,Bedroom_2,290,"Clean - Final Clean, Per SF",138.89,SF,0.52,14.44,0.42,87.08,
+2nd floor 2,Bedroom,291,"Prime & Paint - Crown Molding, Up to 6""",44.34,LF,1.70,15.08,0.27,90.72,
+2nd floor 2,Bedroom,292,Prime & Paint - Casing,71.00,LF,1.81,25.70,0.55,154.76,
+2nd floor 2,Bedroom,293,"Prime & Paint - Base Molding, Up to 6""",38.50,LF,1.82,14.02,0.32,84.41,
+2nd floor 2,Bedroom,294,Prime & Paint - Base Shoe,38.50,LF,1.41,10.86,0.09,65.24,
+2nd floor 2,Bedroom,295,"Rem/Reset - Base Shoe, Paint Grade",38.50,LF,2.86,22.02,0.16,132.30,
+2nd floor 2,Bedroom,296,"Replace - Lath, Wood, Walls",307.00,SF,3.69,226.56,38.31,1397.70,Includes 5% waste on quantity
+2nd floor 2,Bedroom,297,"Replace - Plaster, 3 Coats, w/o Lath, Walls",75.76,SF,6.82,103.34,5.82,625.84,Includes 2% waste on quantity
+2nd floor 2,Bedroom,298,"Replace - Lath, Wood, Ceilings",31.50,SF,4.07,25.64,3.93,157.78,Includes 5% waste on quantity
+2nd floor 2,Bedroom,299,"Replace - Plaster, 3 Coats, w/o Lath, Ceilings",30.60,SF,7.80,47.74,2.35,288.78,Includes 2% waste on quantity
+2nd floor 2,Bedroom,300,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",122.81,SF,1.77,43.48,0.00,260.85,
+2nd floor 2,Bedroom,301,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",135.09,SF,12.06,325.84,38.82,1993.84,Includes 10% waste on quantity
+2nd floor 2,Bedroom,302,"Sand, Stain, & Finish, Wood Floor, Polyurethane, 2 Coats, Stain, 1 Coat, Dustless",122.81,SF,9.21,226.22,7.52,1364.83,
+2nd floor 2,Bedroom,303,"Tear Out - Wood Floor, Underlayment, Felt",122.81,SF,0.11,2.70,0.00,16.21,
+2nd floor 2,Bedroom,304,"Replace - Wood Floor, Underlayment, Felt",135.09,SF,0.47,12.70,0.97,77.16,Includes 10% waste on quantity
+2nd floor 2,Bedroom,305,Prime & Paint - Drywall/Plaster Ceiling,122.81,SF,1.52,37.34,2.21,226.22,
+2nd floor 2,Bedroom,306,Prime & Paint - Drywall/Plaster Wall,261.45,SF,1.37,71.64,4.71,434.54,
+2nd floor 2,Bedroom,307,"Rem/Reset - Blinds, Window/Door, Vertical, Vinyl",31.50,SF,4.13,26.02,0.00,156.12,
+2nd floor 2,Bedroom,308,"Clean - Final Clean, Per SF",122.81,SF,0.52,12.78,0.37,77.01,
+2nd floor 2,Bathroom,309,Prime & Paint - Casing,34.13,LF,1.81,12.36,0.27,74.41,
+2nd floor 2,Bathroom,310,"Rem/Reset - Radiator, Cast Iron",1,EA,20.94,4.18,0.00,25.12,
+2nd floor 2,Bathroom,311,"Rem/Reset - Toilet, One-Piece, Good",1,EA,258.69,51.74,0.19,310.62,
+2nd floor 2,Bathroom,312,"Rem/Reset - Sink, Bathroom, Wall-Hung, Good",1,EA,226.85,45.38,0.00,272.23,
+2nd floor 2,Bathroom,313,"Tear Out - Medicine Cabinet, Good",1,EA,15.61,3.12,0.00,18.73,
+2nd floor 2,Bathroom,314,"Replace - Medicine Cabinet, Good",1,EA,237.91,47.58,6.26,291.75,
+2nd floor 2,Bathroom,315,"Tear Out - Exhaust Fan, w/ Light, Good",1,EA,17.15,3.44,0.00,20.59,
+2nd floor 2,Bathroom,316,"Replace - Exhaust Fan, w/ Light, Good",1,EA,193.61,38.72,7.97,240.30,
+2nd floor 2,Bathroom,317,"Replace - Drywall, 5/8"", Taped, Ceilings",42.24,SF,3.74,31.60,1.50,191.08,Includes 5% waste on quantity
+2nd floor 2,Bathroom,318,Drywall Tape/Joint Repair,29.92,LF,8.38,50.14,0.47,301.34,
+2nd floor 2,Bathroom,319,"Paint, 2 Coats - Drywall/Plaster Ceiling",40.23,SF,1.52,12.24,0.72,74.11,
+2nd floor 2,Bathroom,320,"Tear Out - Ceramic/Porcelain Tile, 4""x4"", Wall, Good",67.90,SF,2.12,28.80,0.00,172.75,
+2nd floor 2,Bathroom,321,"Replace - Ceramic/Porcelain Tile, 4""x4"", Wall, Good",71.97,SF,15.61,224.70,13.30,1361.45,Includes 6% waste on quantity
+2nd floor 2,Bathroom,322,"Paint, 2 Coats - Drywall/Plaster Wall",67.90,SF,1.37,18.60,1.22,112.84,
+2nd floor 2,Bathroom,323,"Tear Out - Underlayment, Cement Board, 1/2""",67.90,SF,1.20,16.30,0.00,97.78,
+2nd floor 2,Bathroom,324,"Replace - Underlayment, Cement Board, 1/2""",74.69,SF,4.72,70.50,7.80,430.84,Includes 10% waste on quantity
+2nd floor 2,Bathroom,325,Tear Out - Ceramic Towel Bar,1,EA,4.29,0.86,0.00,5.15,
+2nd floor 2,Bathroom,326,Replace - Ceramic Towel Bar,1,EA,64.94,12.98,1.78,79.70,
+2nd floor 2,Bathroom,327,Tear Out - Ceramic Soap Dish,2,EA,2.86,1.14,0.00,6.86,
+2nd floor 2,Bathroom,328,Replace - Ceramic Soap Dish,2,EA,43.05,17.22,2.20,105.52,
+2nd floor 2,Bathroom,329,"Tear Out - Bullnose/Accent Tile, Good",15.66,LF,1.43,4.48,0.00,26.87,
+2nd floor 2,Bathroom,330,"Replace - Bullnose/Accent Tile, Good",16.60,LF,17.67,58.66,8.98,360.96,Includes 6% waste on quantity
+2nd floor 2,Bathroom,331,"Clean - Final Clean, Per SF",40.23,SF,0.52,4.18,0.12,25.22,
+2nd floor 2,Bathroom Bathtub,332,"Rem/Reset - Bathtub, Cast-Iron, Good",1,EA,411.59,82.32,0.13,494.04,
+2nd floor 2,Bathroom Bathtub,333,"Rem/Reset - Faucet & Showerhead, Double-Handle, Good",1,EA,179.50,35.90,0.02,215.42,
+2nd floor 2,Bathroom Bathtub,334,Rem/Reset - Shower Rod,1,EA,52.66,10.54,0.00,63.20,
+2nd floor 2,Bathroom Bathtub,335,"Rem/Reset - Towel Bar, Good",1,EA,48.53,9.70,0.00,58.23,
+2nd floor 2,Bathroom Bathtub,336,"Tear Out - Ceramic/Porcelain Tile, 4""x4"", Wall, Good",135.80,SF,2.12,57.58,0.00,345.48,
+2nd floor 2,Bathroom Bathtub,337,"Replace - Ceramic/Porcelain Tile, 4""x4"", Wall, Good",143.95,SF,15.61,449.42,26.60,2723.08,Includes 6% waste on quantity
+2nd floor 2,Bathroom Bathtub,338,"Tear Out - Underlayment, Cement Board, 1/2""",135.80,SF,1.20,32.60,0.00,195.56,
+2nd floor 2,Bathroom Bathtub,339,"Replace - Underlayment, Cement Board, 1/2""",149.38,SF,4.72,141.02,15.60,861.69,Includes 10% waste on quantity
+3rd floor 2,Bedroom,340,Prime & Paint - Casing,62.17,LF,1.81,22.50,0.48,135.51,
+3rd floor 2,Bedroom,341,"Prime & Paint - Base Molding, Up to 6""",55.59,LF,1.82,20.24,0.47,121.88,
+3rd floor 2,Bedroom,342,Prime & Paint - Base Shoe,55.59,LF,1.41,15.68,0.13,94.19,
+3rd floor 2,Bedroom,343,"Rem/Reset - Base Shoe, Paint Grade",55.59,LF,2.86,31.80,0.23,191.02,
+3rd floor 2,Bedroom,344,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",208.00,SF,1.77,73.64,0.00,441.80,
+3rd floor 2,Bedroom,345,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",228.80,SF,12.06,551.86,65.76,3376.95,Includes 10% waste on quantity
+3rd floor 2,Bedroom,346,"Tear Out - Wood Floor, Underlayment, Felt",208.00,SF,0.11,4.58,0.00,27.46,
+3rd floor 2,Bedroom,347,"Replace - Wood Floor, Underlayment, Felt",228.80,SF,0.47,21.50,1.65,130.69,Includes 10% waste on quantity
+3rd floor 2,Bedroom,348,Prime & Paint - Wood Floor,208.00,SF,1.29,53.66,3.74,325.72,
+3rd floor 2,Bedroom,349,Prime & Paint - Drywall/Plaster Ceiling,208.00,SF,1.52,63.24,3.74,383.14,
+3rd floor 2,Bedroom,350,Prime & Paint - Drywall/Plaster Wall,409.02,SF,1.37,112.08,7.36,679.80,
+3rd floor 2,Bedroom,351,"Clean - Final Clean, Per SF",208.00,SF,0.52,21.64,0.62,130.42,
+3rd floor 2,Bedroom,352,"Rem/Reset - Radiator, Cast Iron",1,EA,20.94,4.18,0.00,25.12,
+3rd floor 2,Hallway,353,Prime & Paint - Casing,42.66,LF,1.81,15.44,0.33,92.99,
+3rd floor 2,Hallway,354,"Prime & Paint - Base Molding, Up to 6""",26.17,LF,1.82,9.52,0.22,57.37,
+3rd floor 2,Hallway,355,Prime & Paint - Base Shoe,26.17,LF,1.41,7.38,0.06,44.34,
+3rd floor 2,Hallway,356,"Rem/Reset - Base Shoe, Paint Grade",26.17,LF,2.86,14.96,0.11,89.91,
+3rd floor 2,Hallway,357,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",92.78,SF,1.77,32.84,0.00,197.06,
+3rd floor 2,Hallway,358,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",102.06,SF,12.06,246.18,29.33,1506.36,Includes 10% waste on quantity
+3rd floor 2,Hallway,359,"Tear Out - Wood Floor, Underlayment, Felt",92.78,SF,0.11,2.04,0.00,12.25,
+3rd floor 2,Hallway,360,"Replace - Wood Floor, Underlayment, Felt",102.06,SF,0.47,9.60,0.74,58.31,Includes 10% waste on quantity
+3rd floor 2,Hallway,361,Prime & Paint - Wood Floor,92.78,SF,1.29,23.94,1.67,145.29,
+3rd floor 2,Hallway,362,Prime & Paint - Drywall/Plaster Ceiling,92.78,SF,1.52,28.20,1.67,170.89,
+3rd floor 2,Hallway,363,Prime & Paint - Drywall/Plaster Wall,225.46,SF,1.37,61.78,4.06,374.72,
+3rd floor 2,Hallway,364,"Clean - Final Clean, Per SF",92.78,SF,0.52,9.66,0.28,58.19,
+3rd floor 2,Hallway,365,"Rem/Reset - Radiator, Cast Iron",1,EA,20.94,4.18,0.00,25.12,
+3rd floor 2,Stairs (incl subrooms),366,"Clean - Final Clean, Per SF",60.95,SF,0.52,6.32,0.18,38.20,
+3rd floor 2,Stairs (incl subrooms),367,"Paint, 2 Coats - Drywall/Plaster Wall",219.92,SF,1.37,60.26,3.96,365.52,
+3rd floor 2,Stairs (incl subrooms),368,"Paint, 2 Coats - Drywall/Plaster Ceiling",60.95,SF,1.52,18.54,1.09,112.28,
+3rd floor 2,Stairs (incl subrooms),369,"Prime & Paint - Stair Riser, 4'",14,EA,20.29,56.82,1.02,341.90,
+3rd floor 2,Stairs (incl subrooms),370,Prime & Paint - Stair Stringer,14.00,LF,5.22,14.62,0.41,88.11,
+3rd floor 2,Stairs (incl subrooms),371,"Prime & Paint - Stair Tread, 4'",28,EA,32.70,183.12,3.66,1102.38,
+3rd floor 2,Bathroom,372,Prime & Paint - Casing,64.43,LF,1.81,23.32,0.50,140.44,
+3rd floor 2,Bathroom,373,"Prime & Paint - Base Molding, Up to 6""",45.58,LF,1.82,16.60,0.38,99.93,
+3rd floor 2,Bathroom,374,Prime & Paint - Base Shoe,45.58,LF,1.41,12.86,0.11,77.23,
+3rd floor 2,Bathroom,375,"Rem/Reset - Base Shoe, Paint Grade",45.58,LF,2.86,26.08,0.19,156.63,
+3rd floor 2,Bathroom,376,"Tear Out - Wood Floor, Oak, 2-1/4"", #1 Common",162.33,SF,1.77,57.46,0.00,344.78,
+3rd floor 2,Bathroom,377,"Replace - Wood Floor, Oak, 2-1/4"", #1 Common",178.56,SF,12.06,430.68,51.32,2635.43,Includes 10% waste on quantity
+3rd floor 2,Bathroom,378,"Tear Out - Wood Floor, Underlayment, Felt",162.33,SF,0.11,3.58,0.00,21.44,
+3rd floor 2,Bathroom,379,"Replace - Wood Floor, Underlayment, Felt",178.56,SF,0.47,16.78,1.29,102.00,Includes 10% waste on quantity
+3rd floor 2,Bathroom,380,Prime & Paint - Wood Floor,162.33,SF,1.29,41.88,2.92,254.21,
+3rd floor 2,Bathroom,381,Prime & Paint - Drywall/Plaster Ceiling,180.00,SF,1.52,54.72,3.24,331.56,
+3rd floor 2,Bathroom,382,Prime & Paint - Drywall/Plaster Wall,343.09,SF,1.37,94.00,6.18,570.22,
+3rd floor 2,Bathroom,383,"Clean - Final Clean, Per SF",162.33,SF,0.52,16.88,0.49,101.78,
+3rd floor 2,Bathroom,384,"Rem/Reset - Radiator, Cast Iron",1,EA,20.94,4.18,0.00,25.12,
+3rd floor 2,Bathroom,385,"Rem/Reset - Bathtub, Cast-Iron, Good",1,EA,411.59,82.32,0.13,494.04,
+3rd floor 2,Bathroom,386,"Rem/Reset - Toilet, One-Piece, Good",1,EA,258.69,51.74,0.19,310.62,
+B1 2,Main Room (incl subrooms),387,"Rem/Reset - Content Manipulation, Greater Than 300 SF, Per Room",1,RM,263.43,52.68,0.00,316.11,
+B1 2,Main Room (incl subrooms),388,Prime & Paint - Brick Wall,1142.11,SF,1.39,317.52,27.41,1932.47,
+B1 2,Main Room (incl subrooms),389,"Tear Out - Paneling, Oak, 1/4""",128.18,SF,0.46,11.80,0.00,70.76,
+B1 2,Main Room (incl subrooms),390,"Replace - Paneling, Oak, 1/4""",134.59,SF,4.85,130.56,23.50,806.83,Includes 5% waste on quantity
+B1 2,Main Room (incl subrooms),391,Prime & Paint - Concrete Floor,833.82,SF,1.29,215.12,15.01,1305.76,
+B1 2,Main Room (incl subrooms),392,"Prime & Paint - Paneling, Wall",118.88,SF,1.37,32.58,2.14,197.59,
+B1 2,Main Room (incl subrooms),393,"Clean - Final Clean, Per SF",834.36,SF,0.52,86.78,2.51,523.15,
+B1 2,Stairs (incl subrooms),394,"Clean - Final Clean, Per SF",20.85,SF,0.52,2.16,0.06,13.06,
+B1 2,Stairs (incl subrooms),395,"Paint, 2 Coats - Drywall/Plaster Wall",95.32,SF,1.37,26.12,1.71,158.42,
+B1 2,Stairs (incl subrooms),396,"Paint, 2 Coats - Drywall/Plaster Ceiling",20.85,SF,1.52,6.36,0.38,38.44,
+B1 2,Stairs (incl subrooms),397,"Prime & Paint - Stair Riser, 4'",7,EA,20.29,28.40,0.51,170.94,
+B1 2,Stairs (incl subrooms),398,Prime & Paint - Stair Stringer,7.00,LF,5.22,7.30,0.21,44.05,
+B1 2,Stairs (incl subrooms),399,"Prime & Paint - Stair Tread, 4'",7,EA,32.70,45.78,0.92,275.60,
+Adjustments,Minimum Charge Adjustments,400,"Minimum Charge, HVAC",1,LS,447.52,68.56,1.34,412.72,
+Adjustments,Minimum Charge Adjustments,401,"Minimum Charge, Drywall, 1 Trip",1,LS,438.00,5.86,1.40,36.55,
