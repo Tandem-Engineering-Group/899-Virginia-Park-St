@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>899 Virginia Park — 3D Viewer</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #14171c; color: #e8e6e1;
+               font: 14px/1.4 -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+  #c { width: 100%; height: 100%; display: block; }
+  .bar { position: fixed; top: 10px; left: 10px; display: flex; gap: 8px; z-index: 5; }
+  .bar a, .bar button { background: #1b2027; color: #e8e6e1; border: 1px solid #2a313b;
+    border-radius: 8px; padding: 8px 14px; cursor: pointer; font-size: 13.5px; text-decoration: none; }
+  .bar button.on { background: #d9b46a; color: #17181a; border-color: #d9b46a; font-weight: 600; }
+  #hint { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%);
+    color: #9aa3ad; font-size: 12px; z-index: 5; }
+  #load { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+    color: #9aa3ad; z-index: 4; }
+</style>
+</head>
+<body>
+<div class="bar">
+  <a href="index.html">&larr; package</a>
+  <button id="bHouse" class="on">House</button>
+  <button id="bSite">Site + block</button>
+</div>
+<div id="load">loading model…</div>
+<div id="hint">drag = orbit &middot; wheel/pinch = zoom &middot; right-drag = pan</div>
+<canvas id="c"></canvas>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const canvas = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x1a2027);
+const cam = new THREE.PerspectiveCamera(55, 2, 0.1, 5000);
+const controls = new OrbitControls(cam, canvas);
+controls.enableDamping = true;
+scene.add(new THREE.HemisphereLight(0xffffff, 0x445566, 1.1));
+const sun = new THREE.DirectionalLight(0xffffff, 1.6);
+sun.position.set(120, 180, 80);
+scene.add(sun);
+
+const loader = new GLTFLoader();
+let current = null;
+function show(url, dist) {
+  document.getElementById('load').style.display = 'flex';
+  loader.load(url, g => {
+    if (current) scene.remove(current);
+    current = g.scene;
+    current.traverse(o => { if (o.isMesh && o.material) o.material.vertexColors = !!o.geometry.attributes.color; });
+    scene.add(current);
+    const box = new THREE.Box3().setFromObject(current);
+    const ctr = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3()).length();
+    controls.target.copy(ctr);
+    cam.position.set(ctr.x + size*0.55, ctr.y + size*0.45, ctr.z + size*0.55);
+    cam.near = size/1000; cam.far = size*10; cam.updateProjectionMatrix();
+    document.getElementById('load').style.display = 'none';
+  }, undefined, e => { document.getElementById('load').textContent = 'failed to load: ' + e; });
+}
+const bH = document.getElementById('bHouse'), bS = document.getElementById('bSite');
+bH.onclick = () => { bH.classList.add('on'); bS.classList.remove('on'); show('model/house.glb'); };
+bS.onclick = () => { bS.classList.add('on'); bH.classList.remove('on'); show('model/site.glb'); };
+show('model/house.glb');
+
+function resize() {
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  if (canvas.width !== w || canvas.height !== h) { renderer.setSize(w, h, false); cam.aspect = w/h; cam.updateProjectionMatrix(); }
+}
+renderer.setAnimationLoop(() => { resize(); controls.update(); renderer.render(scene, cam); });
+</script>
+</body>
+</html>
